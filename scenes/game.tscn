@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg6nshbkea3ju"]
+
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="1_kq3tu"]
+
+[node name="Game" type="Node"]
+
+[node name="Prototype-square" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-550.25, -1)
+scale = Vector2(4.09375, 40.5313)
+texture = ExtResource("1_kq3tu")
+
+[node name="Prototype-square2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(548, -0.5)
+scale = Vector2(3.5625, 40.5313)
+texture = ExtResource("1_kq3tu")
+
+[node name="Prototype-square3" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2, -308)
+rotation = 1.5708
+scale = Vector2(3.5625, 71.8587)
+texture = ExtResource("1_kq3tu")
+
+[node name="Prototype-square4" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2, 300)
+rotation = 1.5708
+scale = Vector2(3.5625, 71.8587)
+texture = ExtResource("1_kq3tu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Prototype-square5" type="Sprite2D" parent="."]
+position = Vector2(-91, -53)
+scale = Vector2(3.125, 3.25)
+texture = ExtResource("1_kq3tu")
