@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://csfqenr0exw7a"]
+
+[ext_resource type="Texture2D" uid="uid://dm5qdt4bnlql" path="res://assets/environment/corner wall.png" id="1_n808k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdvyy"]
+size = Vector2(80, 26)
+
+[node name="Corner Wall" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 31
+
+[node name="CornerWall" type="Sprite2D" parent="."]
+texture = ExtResource("1_n808k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gdvyy")

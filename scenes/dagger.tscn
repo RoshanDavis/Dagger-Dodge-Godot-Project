@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3fassb2p38gs"]
+
+[ext_resource type="Script" path="res://scripts/dagger.gd" id="1_mtrjy"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_7lewd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_halmp"]
+size = Vector2(16, 16)
+
+[node name="Dagger" type="CharacterBody2D"]
+collision_mask = 31
+script = ExtResource("1_mtrjy")
+
+[node name="Dagger" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.3)
+texture = ExtResource("2_7lewd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.3)
+shape = SubResource("RectangleShape2D_halmp")
