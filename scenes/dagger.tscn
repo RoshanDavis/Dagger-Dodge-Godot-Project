@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3fassb2p38gs"]
+[gd_scene load_steps=5 format=3 uid="uid://c3fassb2p38gs"]
 
 [ext_resource type="Script" path="res://scripts/dagger.gd" id="1_mtrjy"]
 [ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_7lewd"]
+[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_xx0ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_halmp"]
 size = Vector2(16, 16)
 
-[node name="Dagger" type="CharacterBody2D"]
-collision_mask = 31
+[node name="Dagger" type="CharacterBody2D" groups=["dagger"]]
+scale = Vector2(5.73, 5.73)
 script = ExtResource("1_mtrjy")
 
 [node name="Dagger" type="Sprite2D" parent="."]
@@ -17,3 +18,5 @@ texture = ExtResource("2_7lewd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 0.3)
 shape = SubResource("RectangleShape2D_halmp")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_xx0ec")]

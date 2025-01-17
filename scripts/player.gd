@@ -8,6 +8,9 @@ func _ready():
 	dagger = preload("res://scenes/dagger.tscn")
 	
 func _physics_process(delta):
+	movement(delta)
+
+func movement(delta):
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Throw"):
 		var daggerInstance = dagger.instantiate()
@@ -17,5 +20,6 @@ func _physics_process(delta):
 		velocity = global_transform.basis_xform(Vector2.LEFT * recoilSpeed) 
 	
 	var collision = move_and_collide(velocity * delta)
-	if collision:
+	if collision: 
 		velocity = velocity.bounce(collision.get_normal())
+		

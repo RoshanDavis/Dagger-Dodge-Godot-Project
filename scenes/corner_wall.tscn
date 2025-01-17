@@ -6,11 +6,9 @@
 size = Vector2(80, 26)
 
 [node name="Corner Wall" type="StaticBody2D"]
-collision_layer = 8
-collision_mask = 31
 
 [node name="CornerWall" type="Sprite2D" parent="."]
 texture = ExtResource("1_n808k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["wall"]]
 shape = SubResource("RectangleShape2D_gdvyy")
