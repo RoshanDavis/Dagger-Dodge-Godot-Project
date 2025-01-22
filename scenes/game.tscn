@@ -1,148 +1,31 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
-[ext_resource type="PackedScene" uid="uid://csfqenr0exw7a" path="res://scenes/corner_wall.tscn" id="2_rslra"]
+[ext_resource type="PackedScene" uid="uid://c3fassb2p38gs" path="res://scenes/dagger.tscn" id="1_201gs"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
 
 [node name="Game" type="Node"]
 
+[node name="Dagger" parent="." instance=ExtResource("1_201gs")]
+modulate = Color(0.840323, 0.0197806, 0, 1)
+position = Vector2(-252, 0)
+
 [node name="Boundary" type="Node2D" parent="."]
 
 [node name="Wall" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-944, -203)
-
-[node name="Wall33" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-944, -360)
+position = Vector2(-577, 0)
 
 [node name="Wall2" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-944, -43)
+position = Vector2(580, 0)
+rotation = 3.14159
 
 [node name="Wall3" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-944, 117)
+position = Vector2(-1, -326)
+rotation = 1.5708
 
 [node name="Wall4" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-944, 277)
-
-[node name="Wall5" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-944, 437)
-
-[node name="Corner Wall" parent="Boundary" instance=ExtResource("2_rslra")]
-position = Vector2(-920, -455)
-
-[node name="Corner Wall2" parent="Boundary" instance=ExtResource("2_rslra")]
-position = Vector2(-920, 528)
-
-[node name="Wall6" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(944, -203)
-
-[node name="Wall34" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(944, -360)
-
-[node name="Wall7" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(944, -43)
-
-[node name="Wall8" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(944, 117)
-
-[node name="Wall9" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(944, 277)
-
-[node name="Wall10" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(944, 437)
-
-[node name="Corner Wall3" parent="Boundary" instance=ExtResource("2_rslra")]
-position = Vector2(920, -455)
-
-[node name="Corner Wall4" parent="Boundary" instance=ExtResource("2_rslra")]
-position = Vector2(920, 528)
-
-[node name="Wall11" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-800, -455)
-rotation = 1.5708
-
-[node name="Wall12" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-640, -455)
-rotation = 1.5708
-
-[node name="Wall13" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-480, -455)
-rotation = 1.5708
-
-[node name="Wall14" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-320, -455)
-rotation = 1.5708
-
-[node name="Wall15" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-160, -455)
-rotation = 1.5708
-
-[node name="Wall16" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(0, -455)
-rotation = 1.5708
-
-[node name="Wall17" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(160, -455)
-rotation = 1.5708
-
-[node name="Wall18" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(320, -455)
-rotation = 1.5708
-
-[node name="Wall19" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(480, -455)
-rotation = 1.5708
-
-[node name="Wall20" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(640, -455)
-rotation = 1.5708
-
-[node name="Wall21" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(800, -455)
-rotation = 1.5708
-
-[node name="Wall22" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-800, 528)
-rotation = 1.5708
-
-[node name="Wall23" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-640, 528)
-rotation = 1.5708
-
-[node name="Wall24" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-480, 528)
-rotation = 1.5708
-
-[node name="Wall25" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-320, 528)
-rotation = 1.5708
-
-[node name="Wall26" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-160, 528)
-rotation = 1.5708
-
-[node name="Wall27" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(0, 528)
-rotation = 1.5708
-
-[node name="Wall28" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(160, 528)
-rotation = 1.5708
-
-[node name="Wall29" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(320, 528)
-rotation = 1.5708
-
-[node name="Wall30" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(480, 528)
-rotation = 1.5708
-
-[node name="Wall31" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(640, 528)
-rotation = 1.5708
-
-[node name="Wall32" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(800, 528)
-rotation = 1.5708
+position = Vector2(-1, 326)
+rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

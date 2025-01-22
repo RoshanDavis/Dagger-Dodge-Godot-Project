@@ -1,22 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3fassb2p38gs"]
+[gd_scene load_steps=6 format=3 uid="uid://c3fassb2p38gs"]
 
 [ext_resource type="Script" path="res://scripts/dagger.gd" id="1_mtrjy"]
-[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_7lewd"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_i7nbb"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_xx0ec"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_halmp"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4ogj"]
+radius = 58.8558
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kf1x6"]
+radius = 65.0077
 
 [node name="Dagger" type="CharacterBody2D" groups=["dagger"]]
-scale = Vector2(5.73, 5.73)
 script = ExtResource("1_mtrjy")
 
 [node name="Dagger" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.3)
-texture = ExtResource("2_7lewd")
+modulate = Color(0.728474, 0, 0.141142, 1)
+texture = ExtResource("2_i7nbb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 0.3)
-shape = SubResource("RectangleShape2D_halmp")
+position = Vector2(-2.38419e-07, 0)
+shape = SubResource("CircleShape2D_j4ogj")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_xx0ec")]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["dagger"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_kf1x6")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
