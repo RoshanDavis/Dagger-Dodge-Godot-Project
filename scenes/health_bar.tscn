@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmvpjjyhh4aps"]
+
+[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="1_8cvq5"]
+[ext_resource type="Script" path="res://scenes/health_bar.gd" id="1_aqge4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiv8s"]
+bg_color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37fa"]
+bg_color = Color(0.8, 0.188235, 0.188235, 1)
+
+[node name="HealthBar" type="ProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = -65.0
+offset_bottom = -585.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_kiv8s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q37fa")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+script = ExtResource("1_aqge4")
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(-13, 22)
+texture = ExtResource("1_8cvq5")

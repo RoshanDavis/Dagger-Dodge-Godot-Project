@@ -7,6 +7,8 @@ func _ready():
 	velocity = Vector2(0,0)
 	dagger = preload("res://scenes/dagger.tscn")
 	$HealthComponent.set_initial_health(3)
+	get_parent().set_max_health(3)
+	get_parent().set_current_health(3)
 	
 func _physics_process(delta):
 	movement(delta)
@@ -24,9 +26,9 @@ func movement(delta):
 	if collision: 
 		velocity = velocity.bounce(collision.get_normal())
 
-func take_damage(health):
-	$HealthComponent.take_damage(health)
-	print_debug($"HealthComponent".currentHealth)
+func take_damage(damage):
+	$HealthComponent.take_damage(damage)
+	get_parent().set_current_health($HealthComponent.currentHealth)
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("dagger"):

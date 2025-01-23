@@ -22,7 +22,7 @@ texture = ExtResource("2_7w57g")
 shape = SubResource("CircleShape2D_slx66")
 
 [node name="FirePoint" type="Marker2D" parent="."]
-position = Vector2(146, 0)
+position = Vector2(42, 0)
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_iga5a")]
 
