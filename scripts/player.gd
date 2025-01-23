@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 var dagger
-@export var recoilSpeed = 200
+@export var recoilSpeed = 500
+@export var speed = 200
+@export var recoilFactor = 2
 
 func _ready():
 	velocity = Vector2(0,0)
@@ -22,6 +24,9 @@ func movement(delta):
 		get_tree().get_root().get_node("Game").add_child(daggerInstance)
 		velocity = global_transform.basis_xform(Vector2.LEFT * recoilSpeed) 
 	
+	if velocity.length() > speed:
+		velocity -= velocity * delta
+	print_debug(velocity.length())
 	var collision = move_and_collide(velocity * delta)
 	if collision: 
 		velocity = velocity.bounce(collision.get_normal())

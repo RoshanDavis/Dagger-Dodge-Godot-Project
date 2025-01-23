@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed:float = 200
+@export var speed:float = 300
 
 func _ready():
 	velocity = global_transform.basis_xform(Vector2.RIGHT * speed)
