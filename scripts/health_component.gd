@@ -14,7 +14,7 @@ func set_initial_health(health):
 func take_damage(damage):
 	currentHealth -= damage
 	if currentHealth <= 0:
-		#get_parent().queue_free() # temp code
-		get_parent().call_deferred("queue_free")
-		#print_debug(get_parent())
-		
+		if get_parent().has_method("on_death"):
+			get_parent().on_death()
+		else:
+			get_parent().call_deferred("queue_free")

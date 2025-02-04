@@ -4,9 +4,11 @@ var invincibile = true
 
 @export var speed:float = 300
 @export var damage = 1
+@export var health = 1
 
 func _ready():
 	velocity = global_transform.basis_xform(Vector2.RIGHT * speed)
+	$HealthComponent.set_initial_health(health)
 	
 func _physics_process(delta):
 	movement(delta)
@@ -30,3 +32,7 @@ func _on_area_2d_area_entered(area):
 
 func _on_timer_timeout():
 	invincibile = false
+
+func on_death():
+	get_parent().add_score(health + damage);
+	call_deferred("queue_free")

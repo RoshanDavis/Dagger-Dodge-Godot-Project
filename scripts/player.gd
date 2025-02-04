@@ -41,3 +41,7 @@ func take_damage(damage):
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(1)
+
+func on_death():
+	get_parent().game_over()
+	call_deferred("queue_free")

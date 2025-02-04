@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=5 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
-[ext_resource type="PackedScene" uid="uid://c3fassb2p38gs" path="res://scenes/dagger.tscn" id="1_201gs"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_so7ud"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
 [ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/health_bar.tscn" id="4_iuutx"]
@@ -9,11 +8,9 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
 
-[node name="Dagger" parent="." instance=ExtResource("1_201gs")]
-modulate = Color(0.840323, 0.0197806, 0, 1)
-position = Vector2(-252, 0)
-
 [node name="Boundary" type="Node2D" parent="."]
+modulate = Color(0.129412, 0.129412, 0.129412, 1)
+position = Vector2(579, 319)
 
 [node name="Wall" parent="Boundary" instance=ExtResource("1_1iadt")]
 position = Vector2(-577, 0)
@@ -32,12 +29,9 @@ position = Vector2(-1, 326)
 rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
+position = Vector2(570, 317)
 
 [node name="HealthBar" parent="." instance=ExtResource("4_iuutx")]
-offset_left = -515.0
-offset_top = -307.0
-offset_right = -19.0
-offset_bottom = -909.0
-scale = Vector2(0.639999, 0.639999)
