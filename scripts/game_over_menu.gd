@@ -6,3 +6,7 @@ func _ready():
 
 func set_score(score):
 	$Score.text = str(score)
+
+
+func _on_restart_button_button_up():
+	get_parent().restart()

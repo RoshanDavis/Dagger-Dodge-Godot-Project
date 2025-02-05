@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8ccavladcnqg"]
+[gd_scene load_steps=6 format=3 uid="uid://b8ccavladcnqg"]
 
 [ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_ue55t"]
+[ext_resource type="Texture2D" uid="uid://j52a7nxwdai6" path="res://assets/restart icon.png" id="2_b7ihj"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="2_irsqn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r0flp"]
 font_size = 52
@@ -87,16 +89,21 @@ label_settings = SubResource("LabelSettings_r0flp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Restart Button" type="TextureButton" parent="."]
+[node name="Restart Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 36.0
-offset_right = 20.0
-offset_bottom = 76.0
+offset_left = -38.0
+offset_top = 43.0
+offset_right = 66.0
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("2_irsqn")
+icon = ExtResource("2_b7ihj")
+
+[connection signal="button_up" from="Restart Button" to="." method="_on_restart_button_button_up"]

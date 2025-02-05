@@ -15,10 +15,13 @@ func set_current_health(health):
 	else:
 		printerr("Health Bar Component Missing")
 
+func add_score(value):
+	score += value
+
 func game_over():
 	var gameOverMenuInstance = gameOverMenu.instantiate()
 	gameOverMenuInstance.position = Vector2(0,0)
 	get_tree().get_root().get_node("Game").add_child(gameOverMenuInstance)
-
-func add_score(score):
-	self.score += score
+	
+func restart():
+	get_tree().reload_current_scene()

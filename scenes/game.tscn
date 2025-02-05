@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=7 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_so7ud"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
 [ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/health_bar.tscn" id="4_iuutx"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsdpc"]
+size = Vector2(1093.5, 532)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
@@ -35,3 +39,16 @@ anchor_mode = 0
 position = Vector2(570, 317)
 
 [node name="HealthBar" parent="." instance=ExtResource("4_iuutx")]
+
+[node name="Spawner" type="Area2D" parent="."]
+position = Vector2(576, 353)
+script = ExtResource("5_toys6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
+shape = SubResource("RectangleShape2D_xsdpc")
+
+[node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]

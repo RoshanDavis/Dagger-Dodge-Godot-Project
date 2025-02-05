@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qlc0ewgx7a0r"]
+
+[ext_resource type="Script" path="res://scripts/gold_orb.gd" id="1_tu0c5"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_ldre1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
+radius = 22.0227
+
+[node name="Gold Orb" type="Area2D"]
+modulate = Color(1, 0.865, 0.1, 1)
+script = ExtResource("1_tu0c5")
+
+[node name="Prototype-circle" type="Sprite2D" parent="."]
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("2_ldre1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_4b7r8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

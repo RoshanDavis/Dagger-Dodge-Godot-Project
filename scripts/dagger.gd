@@ -19,9 +19,9 @@ func movement(delta):
 		velocity = velocity.bounce(collision.get_normal())
 		rotation = velocity.angle()
 
-func take_damage(health):
+func take_damage(value):
 	if not invincibile:
-		$HealthComponent.take_damage(health)
+		$HealthComponent.take_damage(value)
 
 
 func _on_area_2d_area_entered(area):
@@ -34,5 +34,5 @@ func _on_timer_timeout():
 	invincibile = false
 
 func on_death():
-	get_parent().add_score(health + damage);
+	#get_parent().add_score(health + damage);
 	call_deferred("queue_free")
