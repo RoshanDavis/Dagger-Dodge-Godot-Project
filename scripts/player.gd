@@ -1,18 +1,20 @@
 extends CharacterBody2D
 
-
+var game
 var dagger
+
 @export var health = 5
 @export var recoilSpeed = 500
 @export var speed = 200
 @export var drag = 1
 
 func _ready():
+	game = get_tree().get_root().get_node("Game")
 	velocity = Vector2(0,0)
 	dagger = preload("res://scenes/dagger.tscn")
 	$HealthComponent.set_initial_health(health)
-	get_parent().set_max_health(health)
-	get_parent().set_current_health(health)
+	game.set_max_health(health)
+	game.set_current_health(health)
 	
 func _physics_process(delta):
 	movement(delta)
@@ -23,7 +25,7 @@ func movement(delta):
 		var daggerInstance = dagger.instantiate()
 		daggerInstance.position = $FirePoint.global_position
 		daggerInstance.rotation = rotation
-		get_tree().get_root().get_node("Game").add_child(daggerInstance)
+		game.add_child(daggerInstance)
 		
 		velocity = velocity + global_transform.basis_xform(Vector2.LEFT * recoilSpeed) 
 
@@ -36,12 +38,12 @@ func movement(delta):
 
 func take_damage(damage):
 	$HealthComponent.take_damage(damage)
-	get_parent().set_current_health($HealthComponent.currentHealth)
+	game.set_current_health($HealthComponent.currentHealth)
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(1)
 
 func on_death():
-	get_parent().game_over()
+	game.game_over()
 	call_deferred("queue_free")

@@ -4,6 +4,7 @@ var maxHealth
 var currentHealth
 
 func _ready():
+	# default values
 	maxHealth = 1
 	currentHealth = 1
 

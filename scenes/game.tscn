@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=9 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_ld8mn"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
 [ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/health_bar.tscn" id="4_iuutx"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
+[ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/jellyfish.tscn" id="6_u3inb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsdpc"]
 size = Vector2(1093.5, 532)
@@ -12,15 +14,21 @@ size = Vector2(1093.5, 532)
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
 
+[node name="BG" type="Sprite2D" parent="."]
+modulate = Color(0.424929, 0.61591, 0.220738, 1)
+position = Vector2(556, 341)
+scale = Vector2(101.75, 57.625)
+texture = ExtResource("2_ld8mn")
+
 [node name="Boundary" type="Node2D" parent="."]
-modulate = Color(0.129412, 0.129412, 0.129412, 1)
+modulate = Color(0.146156, 0.22591, 0.0610759, 1)
 position = Vector2(579, 319)
 
 [node name="Wall" parent="Boundary" instance=ExtResource("1_1iadt")]
 position = Vector2(-577, 0)
 
 [node name="Wall2" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(580, 0)
+position = Vector2(577, 0)
 rotation = 3.14159
 
 [node name="Wall3" parent="Boundary" instance=ExtResource("1_1iadt")]
@@ -40,11 +48,16 @@ position = Vector2(570, 317)
 
 [node name="HealthBar" parent="." instance=ExtResource("4_iuutx")]
 
+[node name="Jellyfish" parent="." instance=ExtResource("6_u3inb")]
+position = Vector2(201, 325)
+scale = Vector2(0.25, 0.25)
+
 [node name="Spawner" type="Area2D" parent="."]
 position = Vector2(576, 353)
 script = ExtResource("5_toys6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
+visible = false
 shape = SubResource("RectangleShape2D_xsdpc")
 
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]

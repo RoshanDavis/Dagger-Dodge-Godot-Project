@@ -27,7 +27,7 @@ func take_damage(value):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player") and not invincibile:
 		area.get_parent().take_damage(damage)
-	if area.is_in_group("dagger"):
+	if area.is_in_group("dagger") or area.is_in_group("enemy"):
 		area.get_parent().take_damage(damage)
 
 func _on_timer_timeout():
