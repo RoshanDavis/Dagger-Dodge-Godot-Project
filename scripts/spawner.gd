@@ -3,6 +3,7 @@ extends Area2D
 @onready var spawnArea = $CollisionShape2D.shape.extents
 @onready var origin = $CollisionShape2D.global_position -  spawnArea
 @onready var end = $CollisionShape2D.global_position +  spawnArea
+
 var goldOrb
 
 func _ready():

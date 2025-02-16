@@ -219,6 +219,7 @@ _data = {
 size = Vector2(209, 217)
 
 [node name="Jellyfish" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.25, 0.25)
 motion_mode = 1
 script = ExtResource("1_jtgts")
 
@@ -232,7 +233,7 @@ skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(49.6121, 154.46, 5.95323, 234.17, 46.6354, 257.323, 95.2556, 167.69, 46.6354, 209.364)
 uv = PackedVector2Array(49.6121, 154.46, 5.95323, 234.17, 46.6354, 257.323, 95.2556, 167.69, 46.6354, 209.364)
 polygons = [PackedInt32Array(4, 0, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 1, 2), PackedInt32Array(0, 1, 4)]
-bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
+bones = ["Torso", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
 [node name="Leg 2" type="Polygon2D" parent="Polygons"]
@@ -242,7 +243,7 @@ skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(96.5786, 155.783, 72.4339, 248.392, 120.062, 254.346, 137.922, 157.767, 105.84, 209.033)
 uv = PackedVector2Array(96.5786, 155.783, 72.4339, 248.392, 120.062, 254.346, 137.922, 157.767, 105.84, 209.033)
 polygons = [PackedInt32Array(4, 0, 3), PackedInt32Array(4, 1, 0), PackedInt32Array(4, 2, 1), PackedInt32Array(3, 2, 4)]
-bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
+bones = ["Torso", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
 [node name="Leg 3" type="Polygon2D" parent="Polygons"]
@@ -252,7 +253,7 @@ skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(153.137, 157.436, 135.938, 250.708, 183.566, 255.338, 194.811, 153.137, 165.044, 202.088)
 uv = PackedVector2Array(153.137, 157.436, 135.938, 250.708, 183.566, 255.338, 194.811, 153.137, 165.044, 202.088)
 polygons = [PackedInt32Array(0, 4, 3), PackedInt32Array(4, 1, 0), PackedInt32Array(2, 4, 1), PackedInt32Array(3, 4, 2)]
-bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
+bones = ["Torso", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
 [node name="Leg 4" type="Polygon2D" parent="Polygons"]
@@ -262,7 +263,7 @@ skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(205.395, 151.814, 195.473, 246.077, 240.124, 252.031, 252.031, 154.46, 221.933, 206.057)
 uv = PackedVector2Array(205.395, 151.814, 195.473, 246.077, 240.124, 252.031, 252.031, 154.46, 221.933, 206.057)
 polygons = [PackedInt32Array(0, 4, 1), PackedInt32Array(0, 3, 4), PackedInt32Array(4, 2, 1), PackedInt32Array(4, 3, 2)]
-bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(1, 1, 1, 1, 1)]
+bones = ["Torso", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Head", PackedFloat32Array(1, 0, 0, 1, 0), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(1, 1, 1, 1, 1)]
 internal_vertex_count = 1
 
 [node name="Torso" type="Polygon2D" parent="Polygons"]
@@ -272,7 +273,7 @@ skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(30.7594, 150.491, 229.209, 151.483, 227.225, -2.64626, 21.1677, 5.95322, 128.33, 78.3881)
 uv = PackedVector2Array(30.7594, 150.491, 229.209, 151.483, 227.225, -2.64626, 21.1677, 5.95322, 128.33, 78.3881)
 polygons = [PackedInt32Array(3, 4, 0), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 1, 0), PackedInt32Array(2, 4, 1)]
-bones = ["Torso", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Head", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 1", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(0, 0, 0, 0, 0)]
+bones = ["Torso", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Head", PackedFloat32Array(1, 1, 1, 1, 1), "Torso/Leg 1", PackedFloat32Array(1, 0, 0, 0, 0), "Torso/Leg 2", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 3", PackedFloat32Array(0, 0, 0, 0, 0), "Torso/Leg 4", PackedFloat32Array(0, 1, 0, 0, 0)]
 internal_vertex_count = 1
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
@@ -309,7 +310,6 @@ bone_angle = 0.0
 [node name="Leg 3" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(22, 9)
 rotation = 2.08965
-scale = Vector2(1, 1)
 rest = Transform2D(-0.257431, 0.966297, -0.966297, -0.257431, 22, 9)
 auto_calculate_length_and_angle = false
 length = 61.891
@@ -318,7 +318,6 @@ bone_angle = 0.0
 [node name="Leg 4" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(63, 2)
 rotation = 1.83416
-scale = Vector2(1, 1)
 rest = Transform2D(-0.115657, 0.993289, -0.993289, -0.115657, 63, 2)
 auto_calculate_length_and_angle = false
 length = 61.891
@@ -333,6 +332,7 @@ shape = SubResource("RectangleShape2D_p84pf")
 libraries = {
 "": SubResource("AnimationLibrary_y6rp7")
 }
+autoplay = "FLOATING"
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_hq8l0")]
 

@@ -13,9 +13,10 @@ func _ready():
 	$HealthBar.set_initial_health(health)
 	
 func _physics_process(delta):
-	movement(delta)
+	if player != null:
+		movement(delta)
 		
-func movement(delta):
+func movement(_delta):
 	var player_position = player.position
 	var target_position = (player_position - position).normalized()
 	
@@ -37,5 +38,5 @@ func on_death():
 
 func _on_hitbox_area_entered(area):
 
-	if area.is_in_group("dagger"):
+	if area.is_in_group("dagger") or area.is_in_group("player"):
 		area.get_parent().take_damage(damage)
