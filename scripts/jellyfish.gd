@@ -37,6 +37,9 @@ func on_death():
 	call_deferred("queue_free")
 
 func _on_hitbox_area_entered(area):
-
-	if area.is_in_group("dagger") or area.is_in_group("player"):
+	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(damage)
+			
+	if area.is_in_group("player"):
+		area.get_parent().take_damage(damage)
+		AudioManager.player_hurt.play()

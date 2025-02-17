@@ -27,6 +27,8 @@ func movement(delta):
 		daggerInstance.rotation = rotation
 		game.add_child(daggerInstance)
 		
+		AudioManager.dagger_throw.play()
+		
 		velocity = velocity + global_transform.basis_xform(Vector2.LEFT * recoilSpeed) 
 
 	if velocity.length() > speed:

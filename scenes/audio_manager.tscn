@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi27ilpqdrgtn"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_1ufga"]
+[ext_resource type="AudioStream" uid="uid://cwtdbbxkc1yb4" path="res://assets/audio/dagger throw.mp3" id="1_gwfak"]
+[ext_resource type="AudioStream" uid="uid://c6xb6ok8u0v88" path="res://assets/audio/dagger hit body.mp3" id="3_am3rl"]
+[ext_resource type="AudioStream" uid="uid://biclrxk1bpawr" path="res://assets/audio/dagger hit dagger.mp3" id="4_vnrbm"]
+[ext_resource type="AudioStream" uid="uid://bmdsi30osompr" path="res://assets/audio/game music.mp3" id="5_s0bwa"]
+[ext_resource type="AudioStream" uid="uid://b8j24qt83ym1f" path="res://assets/audio/game over.mp3" id="6_kl0xo"]
+[ext_resource type="AudioStream" uid="uid://cyi06ssv3kfs7" path="res://assets/audio/gold orb pickup.mp3" id="7_qbnoy"]
+[ext_resource type="AudioStream" uid="uid://bfxi0kniy2lv2" path="res://assets/audio/player hurt.mp3" id="8_ojn7f"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_1ufga")
+
+[node name="Dagger Throw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_gwfak")
+volume_db = 12.0
+
+[node name="Dagger Hit Body" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_am3rl")
+
+[node name="Dagger Hit Dagger" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vnrbm")
+
+[node name="Game Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s0bwa")
+
+[node name="Game Over" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kl0xo")
+
+[node name="Gold Orb Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qbnoy")
+
+[node name="Player Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ojn7f")

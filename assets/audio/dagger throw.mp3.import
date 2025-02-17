@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwtdbbxkc1yb4"
+path="res://.godot/imported/dagger throw.mp3-f0db822c5feb9ea85d4bbb9cad8e3f10.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/dagger throw.mp3"
+dest_files=["res://.godot/imported/dagger throw.mp3-f0db822c5feb9ea85d4bbb9cad8e3f10.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://biclrxk1bpawr"
+path="res://.godot/imported/dagger hit dagger.mp3-d549dc45646696c7238e5d4b288c9e25.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/dagger hit dagger.mp3"
+dest_files=["res://.godot/imported/dagger hit dagger.mp3-d549dc45646696c7238e5d4b288c9e25.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

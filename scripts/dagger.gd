@@ -26,8 +26,15 @@ func take_damage(value):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player") and not playerInvincible:
 		area.get_parent().take_damage(damage)
-	if area.is_in_group("dagger") or area.is_in_group("enemy"):
+		AudioManager.player_hurt.play()
+		
+	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(damage)
+		AudioManager.dagger_hit_dagger.play()
+		
+	if area.is_in_group("enemy"):
+		area.get_parent().take_damage(damage)
+		AudioManager.dagger_hit_body.play()
 
 func _on_timer_timeout():
 	playerInvincible = false
