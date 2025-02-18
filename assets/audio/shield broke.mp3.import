@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lyep23is0xal"
+path="res://.godot/imported/shield broke.mp3-d28e086bd3ef9815386f349d4249731b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/shield broke.mp3"
+dest_files=["res://.godot/imported/shield broke.mp3-d28e086bd3ef9815386f349d4249731b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

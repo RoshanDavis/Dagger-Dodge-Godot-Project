@@ -19,9 +19,8 @@ script = ExtResource("1_mtrjy")
 texture = ExtResource("2_at8go")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_3hgd2")
+disabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_xx0ec")]
 

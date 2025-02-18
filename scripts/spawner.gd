@@ -6,6 +6,9 @@ extends Area2D
 
 var goldOrb
 
+@export var difficulty = 1
+@export var min_wait_time = 1
+
 func _ready():
 	goldOrb = preload("res://scenes/gold_orb.tscn")
 	spawn_gold_orb()
@@ -22,3 +25,8 @@ func spawn_gold_orb():
 
 func _on_gold_orb_spawn_timer_timeout():
 	spawn_gold_orb()
+
+func _process(delta):
+	# difficulty progression
+	if $"Gold Orb Spawn Timer".wait_time > min_wait_time:
+		$"Gold Orb Spawn Timer".wait_time -= delta * difficulty/10

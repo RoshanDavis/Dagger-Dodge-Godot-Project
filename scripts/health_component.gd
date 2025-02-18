@@ -19,3 +19,10 @@ func take_damage(damage):
 			get_parent().on_death()
 		else:
 			get_parent().call_deferred("queue_free")
+
+func heal(value):
+	if currentHealth < maxHealth:
+		currentHealth += value
+		if currentHealth > maxHealth:
+			currentHealth = maxHealth
+	

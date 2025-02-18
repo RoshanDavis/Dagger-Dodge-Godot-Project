@@ -34,6 +34,7 @@ Throw={
 [layer_names]
 
 2d_physics/layer_1="Default"
+2d_physics/layer_2="Shield"
 
 [rendering]
 

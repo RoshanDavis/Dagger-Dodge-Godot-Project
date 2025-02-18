@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var game
 var dagger
+var has_shield = false
 
 @export var health = 5
 @export var recoilSpeed = 500
@@ -39,6 +40,10 @@ func movement(delta):
 		velocity = velocity.bounce(collision.get_normal())
 
 func take_damage(damage):
+	if has_shield:
+		shield_broken()
+		return 
+	AudioManager.player_hurt.play()
 	$HealthComponent.take_damage(damage)
 	game.set_current_health($HealthComponent.currentHealth)
 
@@ -49,3 +54,16 @@ func _on_hitbox_area_entered(area):
 func on_death():
 	game.game_over()
 	call_deferred("queue_free")
+
+func shield_gained():
+	has_shield = true
+	$Shield.visible = true
+
+func shield_broken():
+	AudioManager.shield_broke.play()
+	has_shield = false
+	$Shield.visible = false
+
+func heal(value):
+	$HealthComponent.heal(value)
+	game.set_current_health($HealthComponent.currentHealth)

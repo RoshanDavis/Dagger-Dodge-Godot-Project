@@ -1,21 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctyuky1aelg4h"]
+[gd_scene load_steps=7 format=3 uid="uid://ctyuky1aelg4h"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tcxtc"]
 [ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/player.png" id="2_7w57g"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_iga5a"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_netxk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slx66"]
 radius = 15.1327
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtph5"]
-radius = 17.0294
+radius = 26.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_tcxtc")
 health = 3
 
-[node name="Prototype-circle" type="Sprite2D" parent="."]
+[node name="Shield" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0.780392, 0.780392, 0.45098)
+position = Vector2(-0.8, 0.4)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("4_netxk")
+
+[node name="Player Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_7w57g")
 

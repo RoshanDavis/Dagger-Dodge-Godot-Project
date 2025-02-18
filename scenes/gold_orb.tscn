@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://qlc0ewgx7a0r"]
+[gd_scene load_steps=6 format=3 uid="uid://qlc0ewgx7a0r"]
 
 [ext_resource type="Script" path="res://scripts/gold_orb.gd" id="1_tu0c5"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_ldre1"]
+[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="3_rv5qb"]
+[ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/shield icon.png" id="4_r3dx0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
 radius = 22.0227
 
-[node name="Gold Orb" type="Area2D"]
+[node name="Gold Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites")]
 script = ExtResource("1_tu0c5")
+powerup_sprites = [NodePath("Heart"), NodePath("Shield")]
 
 [node name="LifetimeBar" type="TextureProgressBar" parent="."]
 anchors_preset = 15
@@ -42,6 +45,22 @@ shape = SubResource("CircleShape2D_4b7r8")
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="Heart" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_rv5qb")
+
+[node name="Shield" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.1875, 0.213068)
+texture = ExtResource("2_ldre1")
+
+[node name="ShieldIcon" type="Sprite2D" parent="Shield"]
+position = Vector2(1.52588e-05, 5.12)
+scale = Vector2(2.90909, 2.56)
+texture = ExtResource("4_r3dx0")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

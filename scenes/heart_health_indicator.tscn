@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bftmupls70oan"]
+
+[ext_resource type="Script" path="res://scripts/heart_health_indicator.gd" id="1_i4kdw"]
+[ext_resource type="PackedScene" uid="uid://duvjauxy3sw12" path="res://scenes/heart.tscn" id="2_0t8r2"]
+
+[node name="Heart Health Indicator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i4kdw")
+
+[node name="Heart Container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart" type="TextureRect" parent="Heart Container"]
+custom_minimum_size = Vector2(37, 0)
+layout_mode = 2
+
+[node name="Heart" parent="Heart Container/Heart" instance=ExtResource("2_0t8r2")]
+scale = Vector2(0.5, 0.5)

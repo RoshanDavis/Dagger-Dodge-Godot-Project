@@ -42,4 +42,4 @@ func _on_hitbox_area_entered(area):
 			
 	if area.is_in_group("player"):
 		area.get_parent().take_damage(damage)
-		AudioManager.player_hurt.play()
+		

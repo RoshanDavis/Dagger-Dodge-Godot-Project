@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=10 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
 [ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_ld8mn"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
-[ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/health_bar.tscn" id="4_iuutx"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
+[ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/heart_health_indicator.tscn" id="6_ajpxk"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="7_cjakg"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="7_uhx2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsdpc"]
 size = Vector2(1093.5, 532)
@@ -31,9 +33,9 @@ position = Vector2(577, 0)
 rotation = 3.14159
 
 [node name="Wall3" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-1, -284)
+position = Vector2(-1, -292)
 rotation = 1.5708
-scale = Vector2(2.715, 9)
+scale = Vector2(2.21447, 9)
 
 [node name="Wall4" parent="Boundary" instance=ExtResource("1_1iadt")]
 position = Vector2(-1, 326)
@@ -43,9 +45,8 @@ rotation = -1.5708
 anchor_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
+unique_name_in_owner = true
 position = Vector2(570, 317)
-
-[node name="HealthBar" parent="." instance=ExtResource("4_iuutx")]
 
 [node name="Spawner" type="Area2D" parent="."]
 position = Vector2(576, 353)
@@ -56,7 +57,45 @@ visible = false
 shape = SubResource("RectangleShape2D_xsdpc")
 
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
+
+[node name="Heart Health Indicator" parent="." instance=ExtResource("6_ajpxk")]
+offset_left = 45.0
+offset_top = 34.0
+
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1202.0
+offset_right = 1202.0
+grow_horizontal = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Score"]
+layout_mode = 0
+offset_left = -647.0
+offset_top = 3.0
+offset_right = -84.0
+offset_bottom = 50.0
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Score/HFlowContainer"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Score/HFlowContainer/TextureRect"]
+position = Vector2(-19, 25)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("7_uhx2i")
+
+[node name="Label" type="Label" parent="Score/HFlowContainer"]
+layout_mode = 2
+theme = ExtResource("7_cjakg")
+theme_override_font_sizes/font_size = 34
+text = "0
+"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
