@@ -4,6 +4,7 @@ var game
 var dagger
 var has_shield = false
 var canMove = false
+var facingRight = true
 
 @export var health = 5
 @export var recoilSpeed = 500
@@ -19,12 +20,26 @@ func _ready():
 	game.set_current_health(health)
 	
 func _physics_process(delta):
-	look_at(get_global_mouse_position())
+	rotate_player()
 	if canMove:
 		movement(delta)
+		
+func rotate_player():
+	look_at(get_global_mouse_position())
+	rotation_degrees = fmod(rotation_degrees,360)
+	var rot = abs(rotation_degrees)
+	if (rot>90 and rot<270):
+		if facingRight:
+			apply_scale(Vector2(1,-1))
+			facingRight = false
+	else:
+		if not facingRight: 
+			apply_scale(Vector2(1,-1))
+			facingRight = true
+
 
 func movement(delta):
-	if Input.is_action_just_pressed("Throw"):
+	if Input.is_action_just_released("Throw"):
 		var daggerInstance = dagger.instantiate()
 		daggerInstance.position = $FirePoint.global_position
 		daggerInstance.rotation = rotation

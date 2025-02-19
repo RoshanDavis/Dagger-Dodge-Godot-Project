@@ -2,10 +2,6 @@ extends Control
 
 @onready var hearts_list : Array[TextureRect]
 
-#func _ready():
-	#var heart = $"Heart Container/Heart"
-	##hearts_list.append(heart)
-
 func set_max_health(health):
 	var heart = $"Heart Container/Heart"
 	var heart_container = $"Heart Container"
@@ -15,7 +11,6 @@ func set_max_health(health):
 		health -= 1
 	
 	for i in range(health):
-		print_debug(heart)
 		var new_heart = heart.duplicate()
 		heart_container.add_child(new_heart)
 		hearts_list.append(new_heart)

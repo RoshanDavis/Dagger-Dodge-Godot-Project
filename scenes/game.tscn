@@ -1,15 +1,30 @@
-[gd_scene load_steps=19 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=15 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
-[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_ld8mn"]
+[ext_resource type="Texture2D" uid="uid://bf3651gsh34qd" path="res://assets/environment/Grass.png" id="2_3e2br"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
 [ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/heart_health_indicator.tscn" id="6_ajpxk"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="7_cjakg"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="7_uhx2i"]
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="9_73xe4"]
-[ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/dagger.png" id="9_p3kl1"]
+[ext_resource type="Texture2D" uid="uid://dyrfmu502pve2" path="res://assets/pause icon.png" id="11_4dsma"]
+
+[sub_resource type="Animation" id="Animation_oqw3s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.75, 1.75)]
+}
 
 [sub_resource type="Animation" id="Animation_jitqe"]
 resource_name = "zoom out"
@@ -27,21 +42,6 @@ tracks/0/keys = {
 "values": [Vector2(1.75, 1.75), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_oqw3s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.75, 1.75)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2fl8b"]
 _data = {
 "RESET": SubResource("Animation_oqw3s"),
@@ -51,87 +51,31 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsdpc"]
 size = Vector2(1093.5, 532)
 
-[sub_resource type="Animation" id="Animation_oyu13"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureButton:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(17.8867, -57)]
-}
-
-[sub_resource type="Animation" id="Animation_3h51o"]
-resource_name = "dagger out"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureButton:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(13, -59), Vector2(4.99997, -76)]
-}
-
-[sub_resource type="Animation" id="Animation_775i5"]
-resource_name = "dagger in"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureButton:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(4.99997, -76), Vector2(13, -59)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfrd6"]
-_data = {
-"RESET": SubResource("Animation_oyu13"),
-"dagger in": SubResource("Animation_775i5"),
-"dagger out": SubResource("Animation_3h51o")
-}
-
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
 
 [node name="BG" type="Sprite2D" parent="."]
 modulate = Color(0.424929, 0.61591, 0.220738, 1)
-position = Vector2(556, 341)
-scale = Vector2(101.75, 57.625)
-texture = ExtResource("2_ld8mn")
+texture = ExtResource("2_3e2br")
+centered = false
 
 [node name="Boundary" type="Node2D" parent="."]
-modulate = Color(0.146156, 0.22591, 0.0610759, 1)
+modulate = Color(0.374139, 0.374139, 0.374139, 1)
 position = Vector2(579, 319)
 
 [node name="Wall" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-577, 0)
+position = Vector2(-590, -335)
 
 [node name="Wall2" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(577, 0)
+position = Vector2(580, 324)
 rotation = 3.14159
 
 [node name="Wall3" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-1, -292)
+position = Vector2(497, -330)
 rotation = 1.5708
-scale = Vector2(2.21447, 9)
 
 [node name="Wall4" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-1, 326)
+position = Vector2(-541, 339)
 rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -145,7 +89,7 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true
-position = Vector2(494, 327)
+position = Vector2(571, 310)
 
 [node name="Spawner" type="Area2D" parent="."]
 position = Vector2(576, 353)
@@ -173,9 +117,9 @@ grow_horizontal = 2
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Score"]
 layout_mode = 0
-offset_left = -647.0
+offset_left = -708.0
 offset_top = 3.0
-offset_right = -84.0
+offset_right = -145.0
 offset_bottom = 50.0
 alignment = 2
 
@@ -212,48 +156,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_73xe4")
 
-[node name="TextureRect2" type="TextureRect" parent="Start Menu"]
-layout_mode = 0
-offset_left = 16.8867
-offset_top = -21.0
-offset_right = 144.887
-offset_bottom = 107.0
-
-[node name="Prototype-circle" type="Sprite2D" parent="Start Menu/TextureRect2"]
-modulate = Color(0.267616, 0.39673, 0.130883, 1)
-position = Vector2(-2, 46)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_uhx2i")
-
-[node name="TextureButton" type="TextureButton" parent="Start Menu"]
-layout_mode = 0
-offset_left = 17.8867
-offset_top = -57.0
-offset_right = 145.887
-offset_bottom = 71.0
-rotation = 1.10659
-scale = Vector2(0.9, 0.7)
-texture_normal = ExtResource("9_p3kl1")
-
-[node name="TextureRect" type="TextureRect" parent="Start Menu"]
-layout_mode = 0
-offset_left = 16.8867
-offset_top = -21.0
-offset_right = 144.887
-offset_bottom = 107.0
-
-[node name="Prototype-circle2" type="Sprite2D" parent="Start Menu/TextureRect"]
-modulate = Color(0.191555, 0.290155, 0.0871858, 1)
-position = Vector2(16, 57)
-scale = Vector2(0.507813, 0.390625)
-texture = ExtResource("7_uhx2i")
-
-[node name="Prototype-circle3" type="Sprite2D" parent="Start Menu/TextureRect"]
-modulate = Color(0.168586, 0.257986, 0.0739635, 1)
-position = Vector2(-25.8867, 65)
-scale = Vector2(0.367188, 0.304688)
-texture = ExtResource("7_uhx2i")
-
 [node name="Take the Dagger" type="Label" parent="Start Menu"]
 layout_mode = 0
 offset_left = -89.0
@@ -261,17 +163,35 @@ offset_top = 68.0
 offset_right = 133.0
 offset_bottom = 141.0
 theme_override_font_sizes/font_size = 25
-text = "take the dagger "
+text = "Click to Start"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Start Menu"]
-libraries = {
-"": SubResource("AnimationLibrary_wfrd6")
-}
+[node name="Pause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Pause Button" type="Button" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -19.0
+offset_right = 77.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39088, 0.39088)
+theme = ExtResource("7_cjakg")
+icon = ExtResource("11_4dsma")
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
-[connection signal="button_up" from="Start Menu/TextureButton" to="Start Menu" method="_on_texture_button_button_up"]
-[connection signal="mouse_entered" from="Start Menu/TextureButton" to="Start Menu" method="_on_texture_button_mouse_entered"]
-[connection signal="mouse_exited" from="Start Menu/TextureButton" to="Start Menu" method="_on_texture_button_mouse_exited"]
+[connection signal="button_up" from="Pause/Pause Button" to="." method="_on_pause_button_button_up"]
