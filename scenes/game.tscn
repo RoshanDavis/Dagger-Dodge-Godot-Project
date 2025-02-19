@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=19 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
@@ -8,9 +8,102 @@
 [ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/heart_health_indicator.tscn" id="6_ajpxk"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="7_cjakg"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="7_uhx2i"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="9_73xe4"]
+[ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/dagger.png" id="9_p3kl1"]
+
+[sub_resource type="Animation" id="Animation_jitqe"]
+resource_name = "zoom out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.75, 1.75), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oqw3s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.75, 1.75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fl8b"]
+_data = {
+"RESET": SubResource("Animation_oqw3s"),
+"zoom out": SubResource("Animation_jitqe")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsdpc"]
 size = Vector2(1093.5, 532)
+
+[sub_resource type="Animation" id="Animation_oyu13"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.8867, -57)]
+}
+
+[sub_resource type="Animation" id="Animation_3h51o"]
+resource_name = "dagger out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(13, -59), Vector2(4.99997, -76)]
+}
+
+[sub_resource type="Animation" id="Animation_775i5"]
+resource_name = "dagger in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4.99997, -76), Vector2(13, -59)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfrd6"]
+_data = {
+"RESET": SubResource("Animation_oyu13"),
+"dagger in": SubResource("Animation_775i5"),
+"dagger out": SubResource("Animation_3h51o")
+}
 
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
@@ -42,11 +135,17 @@ position = Vector2(-1, 326)
 rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+position = Vector2(580, 324)
+zoom = Vector2(1.75, 1.75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_2fl8b")
+}
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true
-position = Vector2(570, 317)
+position = Vector2(494, 327)
 
 [node name="Spawner" type="Area2D" parent="."]
 position = Vector2(576, 353)
@@ -98,4 +197,81 @@ text = "0
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="Start Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_73xe4")
+
+[node name="TextureRect2" type="TextureRect" parent="Start Menu"]
+layout_mode = 0
+offset_left = 16.8867
+offset_top = -21.0
+offset_right = 144.887
+offset_bottom = 107.0
+
+[node name="Prototype-circle" type="Sprite2D" parent="Start Menu/TextureRect2"]
+modulate = Color(0.267616, 0.39673, 0.130883, 1)
+position = Vector2(-2, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_uhx2i")
+
+[node name="TextureButton" type="TextureButton" parent="Start Menu"]
+layout_mode = 0
+offset_left = 17.8867
+offset_top = -57.0
+offset_right = 145.887
+offset_bottom = 71.0
+rotation = 1.10659
+scale = Vector2(0.9, 0.7)
+texture_normal = ExtResource("9_p3kl1")
+
+[node name="TextureRect" type="TextureRect" parent="Start Menu"]
+layout_mode = 0
+offset_left = 16.8867
+offset_top = -21.0
+offset_right = 144.887
+offset_bottom = 107.0
+
+[node name="Prototype-circle2" type="Sprite2D" parent="Start Menu/TextureRect"]
+modulate = Color(0.191555, 0.290155, 0.0871858, 1)
+position = Vector2(16, 57)
+scale = Vector2(0.507813, 0.390625)
+texture = ExtResource("7_uhx2i")
+
+[node name="Prototype-circle3" type="Sprite2D" parent="Start Menu/TextureRect"]
+modulate = Color(0.168586, 0.257986, 0.0739635, 1)
+position = Vector2(-25.8867, 65)
+scale = Vector2(0.367188, 0.304688)
+texture = ExtResource("7_uhx2i")
+
+[node name="Take the Dagger" type="Label" parent="Start Menu"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = 68.0
+offset_right = 133.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 25
+text = "take the dagger "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start Menu"]
+libraries = {
+"": SubResource("AnimationLibrary_wfrd6")
+}
+
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
+[connection signal="button_up" from="Start Menu/TextureButton" to="Start Menu" method="_on_texture_button_button_up"]
+[connection signal="mouse_entered" from="Start Menu/TextureButton" to="Start Menu" method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="Start Menu/TextureButton" to="Start Menu" method="_on_texture_button_mouse_exited"]

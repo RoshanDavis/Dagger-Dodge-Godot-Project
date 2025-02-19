@@ -8,3 +8,4 @@ extends Node2D
 @onready var gold_orb_pickup = $"Gold Orb Pickup"
 @onready var player_hurt = $"Player Hurt"
 @onready var shield_broke = $"Shield Broke"
+@onready var dagger_out = $"Dagger Out"

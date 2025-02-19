@@ -222,6 +222,7 @@ size = Vector2(209, 217)
 scale = Vector2(0.25, 0.25)
 motion_mode = 1
 script = ExtResource("1_jtgts")
+health = 2
 
 [node name="Polygons" type="Node2D" parent="."]
 modulate = Color(0.219608, 0.423529, 0.615686, 1)

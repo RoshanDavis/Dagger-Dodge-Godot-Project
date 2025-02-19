@@ -3,6 +3,7 @@ extends CharacterBody2D
 var game
 var dagger
 var has_shield = false
+var canMove = false
 
 @export var health = 5
 @export var recoilSpeed = 500
@@ -18,10 +19,11 @@ func _ready():
 	game.set_current_health(health)
 	
 func _physics_process(delta):
-	movement(delta)
+	look_at(get_global_mouse_position())
+	if canMove:
+		movement(delta)
 
 func movement(delta):
-	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Throw"):
 		var daggerInstance = dagger.instantiate()
 		daggerInstance.position = $FirePoint.global_position
