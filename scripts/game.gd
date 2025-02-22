@@ -21,7 +21,7 @@ func set_current_health(health):
 		$"Heart Health Indicator".set_current_health(health)
 
 func add_score(value):
-	score += value 
+	score += value
 	$Score/HFlowContainer/Label.text = str(score)
 	
 func game_over():
@@ -30,6 +30,7 @@ func game_over():
 	var gameOverMenuInstance = gameOverMenu.instantiate()
 	gameOverMenuInstance.position = Vector2(0,0)
 	get_tree().get_root().get_node("Game").add_child(gameOverMenuInstance)
+	$"Pause/Pause Button".disabled = true
 	
 func restart():
 	Engine.time_scale = 1
@@ -44,7 +45,9 @@ func powerup(x):
 
 func resume_game():
 	Engine.time_scale = 1
+	
 	player.canMove = true
+	$"Pause/Pause Button".disabled = false
 	
 func exit_game():
 	get_tree().quit()
@@ -55,3 +58,4 @@ func _on_pause_button_button_up():
 	get_tree().get_root().get_node("Game").add_child(pauseMenuInstance)
 	Engine.time_scale = 0
 	player.canMove = false
+	$"Pause/Pause Button".disabled = true

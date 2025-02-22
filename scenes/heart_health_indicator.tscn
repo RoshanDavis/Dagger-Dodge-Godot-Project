@@ -5,17 +5,12 @@
 
 [node name="Heart Health Indicator" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_i4kdw")
 
 [node name="Heart Container" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 37.0
 
 [node name="Heart" type="TextureRect" parent="Heart Container"]
 custom_minimum_size = Vector2(37, 0)

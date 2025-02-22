@@ -50,7 +50,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsdpc"]
-size = Vector2(1093.5, 532)
+size = Vector2(517, 933)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
@@ -58,29 +58,26 @@ script = ExtResource("1_so7ud")
 [node name="BG" type="Sprite2D" parent="."]
 modulate = Color(0.424929, 0.61591, 0.220738, 1)
 texture = ExtResource("2_3e2br")
-centered = false
 
 [node name="Boundary" type="Node2D" parent="."]
 modulate = Color(0.374139, 0.374139, 0.374139, 1)
-position = Vector2(579, 319)
 
 [node name="Wall" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-590, -335)
+position = Vector2(-278, 0)
 
 [node name="Wall2" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(580, 324)
+position = Vector2(278, 0)
 rotation = 3.14159
 
 [node name="Wall3" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(497, -330)
+position = Vector2(0, -488)
 rotation = 1.5708
 
 [node name="Wall4" parent="Boundary" instance=ExtResource("1_1iadt")]
-position = Vector2(-541, 339)
+position = Vector2(0, 488)
 rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(580, 324)
 zoom = Vector2(1.75, 1.75)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
@@ -90,48 +87,40 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true
-position = Vector2(571, 310)
 
 [node name="Spawner" type="Area2D" parent="."]
-position = Vector2(576, 353)
 script = ExtResource("5_toys6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
-visible = false
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_xsdpc")
 
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
 wait_time = 5.0
 autostart = true
 
-[node name="Heart Health Indicator" parent="." instance=ExtResource("6_ajpxk")]
-offset_left = 45.0
-offset_top = 34.0
-
 [node name="Score" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 1202.0
-offset_right = 1202.0
-grow_horizontal = 2
+anchors_preset = 0
+offset_left = -218.0
+offset_top = -431.0
+offset_right = -218.0
+offset_bottom = -431.0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Score"]
-layout_mode = 0
-offset_left = -708.0
-offset_top = 3.0
-offset_right = -145.0
-offset_bottom = 50.0
-alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="Score/HFlowContainer"]
+[node name="TextureRect" type="TextureRect" parent="Score"]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
-[node name="Prototype-circle" type="Sprite2D" parent="Score/HFlowContainer/TextureRect"]
+[node name="Prototype-circle" type="Sprite2D" parent="Score/TextureRect"]
 position = Vector2(-19, 25)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("7_uhx2i")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Score"]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 26.0
+offset_bottom = 51.0
 
 [node name="Label" type="Label" parent="Score/HFlowContainer"]
 layout_mode = 2
@@ -139,30 +128,23 @@ theme = ExtResource("7_cjakg")
 theme_override_font_sizes/font_size = 34
 text = "0
 "
-horizontal_alignment = 2
-vertical_alignment = 1
 
 [node name="Start Menu" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("9_73xe4")
 
 [node name="Take the Dagger" type="Label" parent="Start Menu"]
-layout_mode = 0
-offset_left = -89.0
-offset_top = 68.0
-offset_right = 133.0
-offset_bottom = 141.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = 38.5
+offset_right = 76.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "Click to Start"
 horizontal_alignment = 1
@@ -170,31 +152,27 @@ vertical_alignment = 1
 
 [node name="Pause" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
+anchors_preset = 0
+offset_left = 215.0
+offset_top = -474.0
+offset_right = 215.0
+offset_bottom = -474.0
 
 [node name="Pause Button" type="Button" parent="Pause"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -19.0
-offset_right = 77.0
-offset_bottom = 117.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 136.0
 scale = Vector2(0.39088, 0.39088)
 theme = ExtResource("7_cjakg")
 icon = ExtResource("11_4dsma")
 
 [node name="Slow-Mo Controller" parent="." instance=ExtResource("11_701jm")]
+
+[node name="Heart Health Indicator" parent="." instance=ExtResource("6_ajpxk")]
+offset_left = -237.0
+offset_top = -451.0
+offset_right = -237.0
+offset_bottom = -451.0
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
 [connection signal="button_up" from="Pause/Pause Button" to="." method="_on_pause_button_button_up"]
