@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyrfmu502pve2"
-path="res://.godot/imported/pause icon.png-9136f1dc6e6c05f904bced73e0d18f20.ctex"
+uid="uid://bty31etms461t"
+path="res://.godot/imported/explosion.jpg-47dd8a78180d306adaa3dfe844d0d14d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pause icon.png"
-dest_files=["res://.godot/imported/pause icon.png-9136f1dc6e6c05f904bced73e0d18f20.ctex"]
+source_file="res://assets/environment/explosion.jpg"
+dest_files=["res://.godot/imported/explosion.jpg-47dd8a78180d306adaa3dfe844d0d14d.ctex"]
 
 [params]
 

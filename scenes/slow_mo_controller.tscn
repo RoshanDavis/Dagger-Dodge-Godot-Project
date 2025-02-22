@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blksa1308p7xg"]
+
+[ext_resource type="Script" path="res://scripts/slow_mo_controller.gd" id="1_fbrxw"]
+
+[node name="Slow-Mo Controller" type="Node"]
+script = ExtResource("1_fbrxw")

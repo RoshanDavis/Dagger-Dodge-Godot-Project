@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8ccavladcnqg"]
 
 [ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_ue55t"]
-[ext_resource type="Texture2D" uid="uid://j52a7nxwdai6" path="res://assets/restart icon.png" id="2_b7ihj"]
+[ext_resource type="Texture2D" uid="uid://j52a7nxwdai6" path="res://assets/ui/restart icon.png" id="2_b7ihj"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="2_irsqn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r0flp"]

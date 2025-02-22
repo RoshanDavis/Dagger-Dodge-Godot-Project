@@ -10,6 +10,10 @@ var facingRight = true
 @export var recoilSpeed = 500
 @export var speed = 200
 @export var drag = 1
+@export var movement_type:int = 2
+
+@onready var slowmoController = $"../Slow-Mo Controller"
+@onready var arrows = $Arrows
 
 func _ready():
 	game = get_tree().get_root().get_node("Game")
@@ -20,9 +24,15 @@ func _ready():
 	game.set_current_health(health)
 	
 func _physics_process(delta):
-	rotate_player()
-	if canMove:
-		movement(delta)
+	match  movement_type:
+		1:
+			rotate_player()
+			if canMove:
+				movement(delta)
+		2:
+			rotate_player()
+			if canMove:
+				movement2(delta)
 		
 func rotate_player():
 	look_at(get_global_mouse_position())
@@ -39,14 +49,8 @@ func rotate_player():
 
 
 func movement(delta):
-	if Input.is_action_just_released("Throw"):
-		var daggerInstance = dagger.instantiate()
-		daggerInstance.position = $FirePoint.global_position
-		daggerInstance.rotation = rotation
-		game.add_child(daggerInstance)
-		
-		AudioManager.dagger_throw.play()
-		
+	if Input.is_action_just_pressed("Throw"):
+		spawn_dagger()
 		velocity = velocity + global_transform.basis_xform(Vector2.LEFT * recoilSpeed) 
 
 	if velocity.length() > speed:
@@ -55,6 +59,31 @@ func movement(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision: 
 		velocity = velocity.bounce(collision.get_normal())
+
+func movement2(delta):
+	if Input.is_action_just_pressed("Throw"):
+		slowmoController.start_slowmo()
+		arrows.visible = true
+		
+	if Input.is_action_just_released("Throw"):
+		slowmoController.stop_slowmo()
+		arrows.visible = false
+		spawn_dagger()
+		velocity =  global_transform.basis_xform(Vector2.LEFT * (recoilSpeed + velocity.length()))
+		
+	if velocity.length() > speed:
+		velocity -= velocity * drag * delta
+
+	var collision = move_and_collide(velocity * delta)
+	if collision: 
+		velocity = velocity.bounce(collision.get_normal())
+
+func spawn_dagger():
+	var daggerInstance = dagger.instantiate()
+	daggerInstance.position = $FirePoint.global_position
+	daggerInstance.rotation = rotation
+	game.add_child(daggerInstance)
+	AudioManager.dagger_throw.play()
 
 func take_damage(damage):
 	if has_shield:

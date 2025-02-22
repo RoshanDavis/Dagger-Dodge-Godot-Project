@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_hnbay"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="2_v2bep"]
-[ext_resource type="Texture2D" uid="uid://crcxwqg4kgycp" path="res://assets/play icon.png" id="3_7a0v4"]
-[ext_resource type="Texture2D" uid="uid://j52a7nxwdai6" path="res://assets/restart icon.png" id="4_0ltx8"]
-[ext_resource type="Texture2D" uid="uid://c50k0fsdbofmy" path="res://assets/exit icon.png" id="5_v34fx"]
+[ext_resource type="Texture2D" uid="uid://crcxwqg4kgycp" path="res://assets/ui/play icon.png" id="3_7a0v4"]
+[ext_resource type="Texture2D" uid="uid://j52a7nxwdai6" path="res://assets/ui/restart icon.png" id="4_0ltx8"]
+[ext_resource type="Texture2D" uid="uid://c50k0fsdbofmy" path="res://assets/ui/exit icon.png" id="5_v34fx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_huy7w"]
 font_size = 52

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctyuky1aelg4h"]
+[gd_scene load_steps=8 format=3 uid="uid://ctyuky1aelg4h"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tcxtc"]
 [ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/player.png" id="2_7w57g"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_o1xn5"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_iga5a"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_netxk"]
 
@@ -15,6 +16,13 @@ radius = 26.0
 motion_mode = 1
 script = ExtResource("1_tcxtc")
 health = 3
+
+[node name="Arrows" type="Sprite2D" parent="."]
+visible = false
+rotation = 0.120428
+scale = Vector2(4.4181, 3.33125)
+skew = 1.28456
+texture = ExtResource("2_o1xn5")
 
 [node name="Shield" type="Sprite2D" parent="."]
 visible = false
