@@ -10,7 +10,6 @@ var facingRight = true
 @export var recoilSpeed = 500
 @export var speed = 200
 @export var drag = 1
-@export var movement_type:int = 2
 
 @onready var slowmoController = $"Slow-Mo Controller"
 @onready var arrows = $Arrows
@@ -23,15 +22,9 @@ func _ready():
 	%"Gameplay UI".set_current_health(health)
 	
 func _physics_process(delta):
-	match  movement_type:
-		1:
-			rotate_player()
-			if canMove:
-				movement(delta)
-		2:
-			rotate_player()
-			if canMove:
-				movement2(delta)
+		rotate_player()
+		if canMove:
+			movement(delta)
 		
 func rotate_player():
 	look_at(get_global_mouse_position())
@@ -46,20 +39,7 @@ func rotate_player():
 			apply_scale(Vector2(1,-1))
 			facingRight = true
 
-
 func movement(delta):
-	if Input.is_action_just_pressed("Throw"):
-		spawn_dagger()
-		velocity = velocity + global_transform.basis_xform(Vector2.LEFT * recoilSpeed) 
-
-	if velocity.length() > speed:
-		velocity -= velocity * drag * delta
-
-	var collision = move_and_collide(velocity * delta)
-	if collision: 
-		velocity = velocity.bounce(collision.get_normal())
-
-func movement2(delta):
 	if Input.is_action_just_pressed("Throw"):
 		slowmoController.start_slowmo()
 		arrows.visible = true
