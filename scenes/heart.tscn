@@ -48,6 +48,7 @@ _data = {
 
 [node name="Heart" type="Sprite2D" parent="."]
 texture = ExtResource("1_a5yxf")
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

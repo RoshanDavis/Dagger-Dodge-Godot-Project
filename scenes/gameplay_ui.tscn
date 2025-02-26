@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc6ttbwrnnxhs"]
+
+[ext_resource type="Script" path="res://scripts/gameplay_ui.gd" id="1_7peb2"]
+[ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/heart_health_indicator.tscn" id="1_po8ec"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_g2vbh"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_ki6vb"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="3_mxevl"]
+[ext_resource type="PackedScene" uid="uid://bsdylrvnhpmts" path="res://scenes/pause_menu.tscn" id="4_hasl4"]
+[ext_resource type="Texture2D" uid="uid://dyrfmu502pve2" path="res://assets/ui/pause icon.png" id="5_hd85w"]
+[ext_resource type="PackedScene" uid="uid://b8ccavladcnqg" path="res://scenes/game_over_menu.tscn" id="5_x0t7i"]
+
+[node name="Gameplay UI" type="CanvasLayer"]
+script = ExtResource("1_7peb2")
+
+[node name="Wall L" type="TextureRect" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_right = 1.0
+grow_vertical = 2
+texture = ExtResource("2_ki6vb")
+
+[node name="Wall R" type="TextureRect" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_ki6vb")
+
+[node name="Wall T" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+texture = ExtResource("2_ki6vb")
+
+[node name="Wall B" type="TextureRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ki6vb")
+
+[node name="Heart Health Indicator" parent="." instance=ExtResource("1_po8ec")]
+offset_left = 15.0
+offset_top = 9.0
+offset_right = 15.0
+offset_bottom = 9.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 39.0
+offset_right = 50.0
+offset_bottom = 39.0
+
+[node name="TextureRect" type="TextureRect" parent="Score"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Score/TextureRect"]
+position = Vector2(-19, 25)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_g2vbh")
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 2
+offset_left = 7.0
+offset_right = 26.0
+offset_bottom = 47.0
+theme = ExtResource("3_mxevl")
+theme_override_font_sizes/font_size = 34
+text = "0
+"
+
+[node name="Pause Menu" parent="." instance=ExtResource("4_hasl4")]
+visible = false
+
+[node name="Game Over Menu" parent="." instance=ExtResource("5_x0t7i")]
+visible = false
+
+[node name="Pause Button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -66.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 141.0
+grow_horizontal = 0
+scale = Vector2(0.39088, 0.39088)
+theme = ExtResource("3_mxevl")
+icon = ExtResource("5_hd85w")
+icon_alignment = 2
+
+[connection signal="button_up" from="Pause Button" to="." method="_on_pause_button_button_up"]

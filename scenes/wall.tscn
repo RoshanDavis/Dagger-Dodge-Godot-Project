@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq53kn6frissv"]
+[gd_scene load_steps=3 format=3 uid="uid://bq53kn6frissv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_66yla"]
-size = Vector2(16, 1387)
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="1_aas7u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_74xlo"]
+normal = Vector2(0, 1)
 
 [node name="Wall" type="StaticBody2D" groups=["wall"]]
 
+[node name="wall texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_aas7u")
+centered = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["wall"]]
-shape = SubResource("RectangleShape2D_66yla")
+shape = SubResource("WorldBoundaryShape2D_74xlo")

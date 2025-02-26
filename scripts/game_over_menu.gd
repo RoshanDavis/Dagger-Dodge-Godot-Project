@@ -1,12 +1,11 @@
 extends Control
 
-func _ready():
-	var score = get_parent().score
-	set_score(score)
+@onready var game = get_tree().get_root().get_node("Game")
 
-func set_score(score):
-	$Score.text = str(score)
+
+func set_score():
+	$Score.text = str(game.score)
 
 
 func _on_restart_button_button_up():
-	get_parent().restart()
+	game.restart()

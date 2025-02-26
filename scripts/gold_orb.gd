@@ -20,7 +20,7 @@ func update_lifetime_bar():
 func _on_area_entered(area):
 		if area.is_in_group("player"):
 			AudioManager.gold_orb_pickup.play()
-			get_parent().add_score(1)
+			game.add_score(1)
 			game.powerup(powerup_index)
 			queue_free()
 

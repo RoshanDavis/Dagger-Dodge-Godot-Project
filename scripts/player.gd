@@ -16,12 +16,11 @@ var facingRight = true
 @onready var arrows = $Arrows
 
 func _ready():
-	game = get_tree().get_root().get_node("Game")
 	velocity = Vector2(0,0)
 	dagger = preload("res://scenes/dagger.tscn")
 	$HealthComponent.set_initial_health(health)
-	game.set_max_health(health)
-	game.set_current_health(health)
+	%"Gameplay UI".set_max_health(health)
+	%"Gameplay UI".set_current_health(health)
 	
 func _physics_process(delta):
 	match  movement_type:
@@ -82,7 +81,7 @@ func spawn_dagger():
 	var daggerInstance = dagger.instantiate()
 	daggerInstance.position = $FirePoint.global_position
 	daggerInstance.rotation = rotation
-	game.add_child(daggerInstance)
+	get_parent().add_child(daggerInstance)
 	AudioManager.dagger_throw.play()
 
 func take_damage(damage):
@@ -91,14 +90,14 @@ func take_damage(damage):
 		return 
 	AudioManager.player_hurt.play()
 	$HealthComponent.take_damage(damage)
-	game.set_current_health($HealthComponent.currentHealth)
+	%"Gameplay UI".set_current_health($HealthComponent.currentHealth)
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(1)
 
 func on_death():
-	game.game_over()
+	get_parent().game_over()
 	call_deferred("queue_free")
 
 func shield_gained():
@@ -112,4 +111,4 @@ func shield_broken():
 
 func heal(value):
 	$HealthComponent.heal(value)
-	game.set_current_health($HealthComponent.currentHealth)
+	%"Gameplay UI".set_current_health($HealthComponent.currentHealth)

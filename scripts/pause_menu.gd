@@ -1,21 +1,16 @@
 extends Control
 
+@onready var game = get_tree().get_root().get_node("Game")
 
-func _ready():
-	var score = get_parent().score
-	set_score(score)
-
-func set_score(score):
-	$Score.text = str(score)
-
+func set_score():
+	$Score.text = str(game.score)
 
 func _on_restart_button_button_up():
-	get_parent().restart()
-
+	game.restart()
 
 func _on_resume_button_button_up():
-	get_parent().resume_game()
-	queue_free()
+	game.resume_game()
+	visible = false
 
 func _on_exit_button_button_up():
-	get_parent().exit_game()
+	game.exit_game()

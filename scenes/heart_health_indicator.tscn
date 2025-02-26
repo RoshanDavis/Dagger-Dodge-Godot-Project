@@ -9,12 +9,14 @@ anchors_preset = 0
 script = ExtResource("1_i4kdw")
 
 [node name="Heart Container" type="HBoxContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
 offset_right = 37.0
 
 [node name="Heart" type="TextureRect" parent="Heart Container"]
-custom_minimum_size = Vector2(37, 0)
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+expand_mode = 2
+stretch_mode = 4
 
 [node name="Heart" parent="Heart Container/Heart" instance=ExtResource("2_0t8r2")]
 scale = Vector2(0.5, 0.5)
