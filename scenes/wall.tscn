@@ -8,6 +8,7 @@ normal = Vector2(0, 1)
 [node name="Wall" type="StaticBody2D" groups=["wall"]]
 
 [node name="wall texture" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_aas7u")
 centered = false
 

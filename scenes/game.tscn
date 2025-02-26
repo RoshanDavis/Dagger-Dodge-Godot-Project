@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=14 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
 [ext_resource type="Script" path="res://scripts/boundary.gd" id="6_xpbe5"]
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="9_73xe4"]
-[ext_resource type="PackedScene" uid="uid://blksa1308p7xg" path="res://scenes/slow_mo_controller.tscn" id="11_701jm"]
 
 [sub_resource type="Animation" id="Animation_oqw3s"]
 length = 0.001
@@ -134,7 +133,5 @@ shape = SubResource("RectangleShape2D_xsdpc")
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
 wait_time = 5.0
 autostart = true
-
-[node name="Slow-Mo Controller" parent="." instance=ExtResource("11_701jm")]
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]

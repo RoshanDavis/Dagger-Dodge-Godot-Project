@@ -12,7 +12,7 @@ var facingRight = true
 @export var drag = 1
 @export var movement_type:int = 2
 
-@onready var slowmoController = $"../Slow-Mo Controller"
+@onready var slowmoController = $"Slow-Mo Controller"
 @onready var arrows = $Arrows
 
 func _ready():
