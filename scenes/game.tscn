@@ -116,10 +116,6 @@ libraries = {
 "": SubResource("AnimationLibrary_2fl8b")
 }
 
-[node name="Player" parent="." instance=ExtResource("3_7iytr")]
-unique_name_in_owner = true
-position = Vector2(270, 480)
-
 [node name="Spawner" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(270, 480)
@@ -133,5 +129,9 @@ shape = SubResource("RectangleShape2D_xsdpc")
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
 wait_time = 5.0
 autostart = true
+
+[node name="Player" parent="." instance=ExtResource("3_7iytr")]
+unique_name_in_owner = true
+position = Vector2(270, 480)
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]

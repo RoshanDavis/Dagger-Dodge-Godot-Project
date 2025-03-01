@@ -1,11 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctyuky1aelg4h"]
+[gd_scene load_steps=17 format=3 uid="uid://ctyuky1aelg4h"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tcxtc"]
 [ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/player.png" id="2_7w57g"]
-[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_o1xn5"]
+[ext_resource type="Texture2D" uid="uid://xnxrr80m26mn" path="res://assets/ui/dagger.png" id="2_dcqrg"]
+[ext_resource type="Texture2D" uid="uid://bui3h57oxol45" path="res://assets/environment/dash/01.png" id="2_yn5j7"]
+[ext_resource type="Texture2D" uid="uid://1kdcw58pbc1h" path="res://assets/environment/dash/02.png" id="3_3txy3"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_iga5a"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_netxk"]
+[ext_resource type="Texture2D" uid="uid://bbywvhbtinewx" path="res://assets/environment/dash/03.png" id="4_nv5hh"]
+[ext_resource type="Texture2D" uid="uid://dnt064kyopjfm" path="res://assets/environment/dash/04.png" id="5_kpgue"]
 [ext_resource type="PackedScene" uid="uid://blksa1308p7xg" path="res://scenes/slow_mo_controller.tscn" id="6_2fax2"]
+[ext_resource type="Texture2D" uid="uid://chfj44jmu75ls" path="res://assets/environment/dash/05.png" id="6_u7fno"]
+[ext_resource type="Texture2D" uid="uid://dwijbc5i47ycw" path="res://assets/environment/dash/06.png" id="7_c4bwg"]
+[ext_resource type="Texture2D" uid="uid://d1wnoakt2ff03" path="res://assets/ui/joystick.png" id="7_j8ucc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssqb4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yn5j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3txy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nv5hh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kpgue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u7fno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c4bwg")
+}],
+"loop": true,
+"name": &"High Speed Effect",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slx66"]
 radius = 15.1327
@@ -18,14 +51,60 @@ motion_mode = 1
 script = ExtResource("1_tcxtc")
 health = 3
 
-[node name="Slow-Mo Controller" parent="." instance=ExtResource("6_2fax2")]
-
-[node name="Arrows" type="Sprite2D" parent="."]
+[node name="High Speed Effect" type="AnimatedSprite2D" parent="."]
 visible = false
-rotation = 0.120428
-scale = Vector2(4.4181, 3.33125)
-skew = 1.28456
-texture = ExtResource("2_o1xn5")
+rotation = 3.14159
+scale = Vector2(0.281394, -0.1)
+sprite_frames = SubResource("SpriteFrames_ssqb4")
+animation = &"High Speed Effect"
+autoplay = "High Speed Effect"
+speed_scale = 2.0
+offset = Vector2(370.142, 1.70983)
+
+[node name="Joystick" type="Node2D" parent="."]
+visible = false
+top_level = true
+z_index = 10
+position = Vector2(110, 126)
+
+[node name="Dagger" type="Sprite2D" parent="Joystick"]
+position = Vector2(43.695, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dcqrg")
+
+[node name="Dagger2" type="Sprite2D" parent="Joystick"]
+position = Vector2(43.695, -1)
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("2_dcqrg")
+
+[node name="Joystick" type="Sprite2D" parent="Joystick"]
+position = Vector2(-17, 0)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("7_j8ucc")
+region_rect = Rect2(125, 31, 117, 202)
+
+[node name="Slow-Mo Controller" parent="." instance=ExtResource("6_2fax2")]
+visible = false
+
+[node name="Arrows" type="Node2D" parent="."]
+visible = false
+
+[node name="Dagger" type="Sprite2D" parent="Arrows"]
+position = Vector2(51.695, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dcqrg")
+
+[node name="Dagger2" type="Sprite2D" parent="Arrows"]
+position = Vector2(51.695, -1)
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("2_dcqrg")
+
+[node name="Joystick" type="Sprite2D" parent="Arrows"]
+position = Vector2(-50, 0)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("7_j8ucc")
+region_enabled = true
+region_rect = Rect2(125, 31, 117, 202)
 
 [node name="Shield" type="Sprite2D" parent="."]
 visible = false
@@ -34,7 +113,7 @@ position = Vector2(-0.8, 0.4)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_netxk")
 
-[node name="Player Sprite" type="Sprite2D" parent="."]
+[node name="Player" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_7w57g")
 

@@ -32,7 +32,7 @@ func pause_game():
 		player.canMove = false
 	%"Gameplay UI".show_pause_menu()
 
-func powerup(x):
+func gold_powerup(x):
 	match x:
 		0:
 			player.heal(1)
