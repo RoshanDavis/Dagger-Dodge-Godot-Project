@@ -3,6 +3,7 @@ extends Node
 @onready var score:int = 0
 @onready var player = %Player
 
+
 func _ready():
 	AudioManager.game_music.play()
 
@@ -32,9 +33,5 @@ func pause_game():
 		player.canMove = false
 	%"Gameplay UI".show_pause_menu()
 
-func gold_powerup(x):
-	match x:
-		0:
-			player.heal(1)
-		1:
-			player.shield_gained()
+
+			

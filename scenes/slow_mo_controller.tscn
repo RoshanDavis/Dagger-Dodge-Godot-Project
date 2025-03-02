@@ -27,6 +27,5 @@ texture_progress = ExtResource("2_fyyfq")
 tint_progress = Color(1.44392e-06, 0.559142, 0.806137, 1)
 
 [node name="Slow Time Timer" type="Timer" parent="."]
-wait_time = 5.0
 
 [connection signal="timeout" from="Slow Time Timer" to="." method="_on_slow_time_timer_timeout"]

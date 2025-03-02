@@ -8,7 +8,7 @@ var facingRight = true
 
 var mouse_points :Array[Vector2] = [Vector2(0,0), Vector2(0,0)]
 var is_initial_rotation = true
-var initial_rotation_deadzone = 50
+var initial_rotation_deadzone = 25
 var joystick_movement_deadzone = 200
 var final_joystick_speed = 1000
 
@@ -33,15 +33,6 @@ func _physics_process(delta):
 		rotate_player()
 		if canMove:
 			movement(delta)
-		#high_speed_effect()
-		
-func high_speed_effect():
-	if velocity.length() > 100:
-		$"High Speed Effect".rotation = velocity.angle()
-		print_debug(rad_to_deg(velocity.angle()))
-		$"High Speed Effect".visible = true
-	else:
-		$"High Speed Effect".visible = false
 
 func rotate_player():
 	if (mouse_points[0]-mouse_points[1]).length() < initial_rotation_deadzone and is_initial_rotation:
