@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=22 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://chfj44jmu75ls" path="res://assets/environment/dash/05.png" id="14_gn2qa"]
 [ext_resource type="Texture2D" uid="uid://dwijbc5i47ycw" path="res://assets/environment/dash/06.png" id="15_5aj0h"]
 [ext_resource type="Script" path="res://scenes/high_speed_effect.gd" id="16_gvhhc"]
-[ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/bomb.tscn" id="17_osw05"]
 
 [sub_resource type="Animation" id="Animation_oqw3s"]
 length = 0.001
@@ -114,7 +113,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="BG" type="Sprite2D" parent="."]
-modulate = Color(0.424929, 0.61591, 0.220738, 1)
 texture_repeat = 2
 texture = ExtResource("2_3e2br")
 offset = Vector2(270, 480)
@@ -154,6 +152,7 @@ libraries = {
 unique_name_in_owner = true
 position = Vector2(270, 480)
 script = ExtResource("5_toys6")
+difficulty = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
 visible = false
@@ -178,8 +177,5 @@ script = ExtResource("16_gvhhc")
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true
 position = Vector2(270, 480)
-
-[node name="Bomb2" parent="." instance=ExtResource("17_osw05")]
-position = Vector2(329, 349)
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
