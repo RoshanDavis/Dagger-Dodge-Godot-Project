@@ -17,7 +17,6 @@ radius = 26.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_tcxtc")
-health = 3
 
 [node name="Joystick" type="Node2D" parent="."]
 visible = false

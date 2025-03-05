@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnphw58bbyjmr"]
 
 [ext_resource type="Texture2D" uid="uid://c2eu2rgrcv7a5" path="res://assets/environment/bomb.png" id="1_e8do1"]
-[ext_resource type="Script" path="res://scenes/bomb.gd" id="1_g5n0j"]
+[ext_resource type="Script" path="res://scripts/bomb.gd" id="1_g5n0j"]
 
 [sub_resource type="Animation" id="Animation_sdf3f"]
 length = 0.001
