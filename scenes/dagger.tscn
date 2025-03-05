@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3fassb2p38gs"]
+[gd_scene load_steps=7 format=3 uid="uid://c3fassb2p38gs"]
 
 [ext_resource type="Script" path="res://scripts/dagger.gd" id="1_mtrjy"]
 [ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/dagger.png" id="2_at8go"]
+[ext_resource type="PackedScene" uid="uid://b8kofxjnniq6b" path="res://scenes/hit_effect.tscn" id="2_s7c0p"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_xx0ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hgd2"]
 size = Vector2(99, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkje"]
-size = Vector2(106, 15)
+size = Vector2(101, 18)
 
 [node name="Dagger" type="CharacterBody2D" groups=["dagger"]]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_mtrjy")
+hit_effect = ExtResource("2_s7c0p")
 
 [node name="Dagger" type="Sprite2D" parent="."]
 texture = ExtResource("2_at8go")
@@ -27,14 +29,16 @@ disabled = true
 [node name="Hitbox" type="Area2D" parent="." groups=["dagger"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
-position = Vector2(2, 1.5)
+position = Vector2(4.5, 1)
 shape = SubResource("RectangleShape2D_lfkje")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 autostart = true
+
+[node name="Hit Point" type="Marker2D" parent="."]
+position = Vector2(48, 0)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8kofxjnniq6b"]
+
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/hit_effect.tres" id="1_hs4ai"]
+[ext_resource type="Texture2D" uid="uid://dpqluw85cuai7" path="res://assets/environment/hit effect.png" id="2_2kx28"]
+[ext_resource type="Script" path="res://scenes/hit_effect.gd" id="3_jr5od"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_5yr5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynlya"]
+shader = ExtResource("1_hs4ai")
+shader_parameter/Hit_Texture = ExtResource("2_2kx28")
+
+[sub_resource type="Curve" id="Curve_1y3pd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xhr16"]
+curve = SubResource("Curve_1y3pd")
+
+[sub_resource type="Gradient" id="Gradient_mjdai"]
+colors = PackedColorArray(7, 0.8, 0, 1, 0.635698, 0, 0.102939, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_os5gy"]
+gradient = SubResource("Gradient_mjdai")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_j5gbb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bd8xr"]
+curve = SubResource("Curve_j5gbb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dxin5"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_bd8xr")
+color_ramp = SubResource("GradientTexture1D_os5gy")
+alpha_curve = SubResource("CurveTexture_xhr16")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dw7sq"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 9.0
+scale_curve = SubResource("CurveTexture_bd8xr")
+color_ramp = SubResource("GradientTexture1D_os5gy")
+alpha_curve = SubResource("CurveTexture_xhr16")
+
+[node name="Hit Effect" type="Node2D"]
+script = ExtResource("3_jr5od")
+
+[node name="Hit Effect" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_ynlya")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_dxin5")
+texture = ExtResource("4_5yr5m")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[node name="Sparks" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_dw7sq")
+lifetime = 0.25
+explosiveness = 0.7
+
+[connection signal="finished" from="Hit Effect" to="." method="_on_hit_effect_finished"]

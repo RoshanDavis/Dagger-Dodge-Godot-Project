@@ -1,10 +1,9 @@
 extends Area2D
 
-var damage = 100
+var damage = 5
 
-func _on_animation_player_animation_finished(_anim_name):
-	queue_free()
-
+func _ready():
+	$"Explosion Particles".emitting = true
 
 func _on_area_entered(area):
 	if area.is_in_group("dagger"):
@@ -12,3 +11,7 @@ func _on_area_entered(area):
 		
 	if area.is_in_group("enemy"):
 		area.get_parent().take_damage(damage)
+
+
+func _on_explosion_particles_finished():
+	queue_free()
