@@ -6,7 +6,7 @@ var enemy
 
 @onready var game = get_tree().get_root().get_node("Game")
 @onready var player = game.get_node("Player")
-@onready var explosion = preload("res://scenes/orb_explosion.tscn")
+@onready var explosion = preload("res://scenes/gold_explosion.tscn")
 
 @export var powerup_sprites : Array[Sprite2D]
 @export var enemies :Array[PackedScene]

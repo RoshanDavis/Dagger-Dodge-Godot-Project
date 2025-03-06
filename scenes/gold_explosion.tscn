@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ms7c8sfl4nf"]
+
+[ext_resource type="Script" path="res://scripts/orb_explosion.gd" id="1_btce4"]
+[ext_resource type="PackedScene" uid="uid://oagdxxaggt8a" path="res://scenes/explosion_particles.tscn" id="2_sbni1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2idfu"]
+radius = 46.0109
+
+[sub_resource type="Gradient" id="Gradient_8wjqf"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.278689, 0.745902, 1)
+colors = PackedColorArray(1, 0.876, 0.07, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lgvd8"]
+gradient = SubResource("Gradient_8wjqf")
+width = 10
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1td0o"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+damping_min = 300.0
+damping_max = 300.0
+scale_min = 0.2
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_lgvd8")
+
+[node name="Gold Explosion" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_btce4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2idfu")
+
+[node name="Explosion Particles" parent="." instance=ExtResource("2_sbni1")]
+scale = Vector2(0.5, 0.5)
+process_material = SubResource("ParticleProcessMaterial_1td0o")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="Explosion Particles" to="." method="_on_explosion_particles_finished"]

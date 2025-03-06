@@ -1,0 +1,57 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4dt7t3q3qnj1"]
+
+[ext_resource type="Script" path="res://scripts/hit_effect.gd" id="1_k3ajy"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="2_wb3pc"]
+[ext_resource type="Texture2D" uid="uid://c6a8bved80uq7" path="res://assets/environment/hit effect 2.png" id="3_xnd7v"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_rcuug"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynlya"]
+shader = ExtResource("2_wb3pc")
+shader_parameter/Hit_Texture = ExtResource("3_xnd7v")
+
+[sub_resource type="Curve" id="Curve_1y3pd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xhr16"]
+curve = SubResource("Curve_1y3pd")
+
+[sub_resource type="Gradient" id="Gradient_mjdai"]
+colors = PackedColorArray(0.123812, 0.391425, 0.526143, 1, 0.357587, 0.695915, 0.999999, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_os5gy"]
+gradient = SubResource("Gradient_mjdai")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_j5gbb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.993333, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bd8xr"]
+curve = SubResource("Curve_j5gbb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dxin5"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_bd8xr")
+color_ramp = SubResource("GradientTexture1D_os5gy")
+alpha_curve = SubResource("CurveTexture_xhr16")
+
+[node name="Hit Effect 2" type="Node2D"]
+script = ExtResource("1_k3ajy")
+
+[node name="Hit Effect" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_ynlya")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_dxin5")
+texture = ExtResource("4_rcuug")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[connection signal="finished" from="Hit Effect" to="." method="_on_hit_effect_finished"]

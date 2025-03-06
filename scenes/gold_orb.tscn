@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="4_20ji5"]
 [ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="4_r3dx0"]
 [ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="5_lv3oa"]
-[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/hit_effect.tres" id="5_oqlxo"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="5_oqlxo"]
 [ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="6_0pi7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
@@ -51,12 +51,6 @@ powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
 enemies = Array[PackedScene]([ExtResource("2_n2s8o"), ExtResource("3_jtosp")])
 
 [node name="BG" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 0.941176, 0.560784, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ldre1")
-
-[node name="BG2" type="Sprite2D" parent="."]
 modulate = Color(1, 0.941176, 0.560784, 1)
 material = SubResource("ShaderMaterial_akh6t")
 scale = Vector2(0.7, 0.7)

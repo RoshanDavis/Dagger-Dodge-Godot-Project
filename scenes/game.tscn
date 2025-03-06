@@ -156,9 +156,9 @@ difficulty = 10
 wait_time = 5.0
 autostart = true
 
-[node name="High Speed Effect" type="AnimatedSprite2D" parent="."]
-visible = false
-modulate = Color(0.827451, 0, 0.231373, 1)
+[node name="VFX" type="Node" parent="."]
+
+[node name="High Speed Effect" type="AnimatedSprite2D" parent="VFX"]
 scale = Vector2(-0.281, 0.1)
 sprite_frames = SubResource("SpriteFrames_juic0")
 animation = &"High Speed Effect"
@@ -166,6 +166,10 @@ autoplay = "High Speed Effect"
 speed_scale = 2.0
 offset = Vector2(370.142, 1.70983)
 script = ExtResource("16_gvhhc")
+
+[node name="Daggers" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true

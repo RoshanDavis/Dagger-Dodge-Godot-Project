@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var player = get_tree().get_root().get_node("Game").get_node("Player")
+@onready var death_effect = preload("res://scenes/hit_effect_2.tscn")
 
 @export var speed:float = 70
 @export var health:int = 3
@@ -34,6 +35,9 @@ func take_damage(value):
 	$HealthBar.set_current_health($HealthComponent.currentHealth)
 	
 func on_death():
+	var death_effect_instance = death_effect.instantiate()
+	death_effect_instance.global_position = position
+	get_tree().current_scene.add_child(death_effect_instance)
 	call_deferred("queue_free")
 
 func _on_hitbox_area_entered(area):
