@@ -39,10 +39,9 @@ func enemy_selector():
 	enemy = enemies[enemy_index]
 	
 func spawn_enemy():
-	
 	var enemyInstance = enemy.instantiate()
 	enemyInstance.position = position
-	get_tree().get_root().get_node("Game").add_child(enemyInstance)
+	get_tree().current_scene.get_node("Enemies").add_child(enemyInstance)
 
 func powerup_selector():
 	powerup_index = randi() % powerup_sprites.size()
@@ -57,5 +56,5 @@ func powerup():
 		2: # Orb Explosion
 			var explosionInstance = explosion.instantiate()
 			explosionInstance.position = global_position
-			get_parent().call_deferred("add_child",explosionInstance)
+			get_tree().current_scene.get_node("VFX").call_deferred("add_child",explosionInstance)
 	

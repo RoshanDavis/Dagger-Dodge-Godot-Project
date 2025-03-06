@@ -5,5 +5,5 @@ extends Node2D
 func _on_animation_player_animation_finished(_anim_name):
 	var explosionInstance = explosion.instantiate()
 	explosionInstance.position = global_position
-	get_parent().add_child(explosionInstance)
+	get_tree().current_scene.get_node("VFX").add_child(explosionInstance)
 	queue_free()

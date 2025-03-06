@@ -150,7 +150,6 @@ libraries = {
 unique_name_in_owner = true
 position = Vector2(270, 480)
 script = ExtResource("5_toys6")
-difficulty = 10
 
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
 wait_time = 5.0
@@ -159,6 +158,7 @@ autostart = true
 [node name="VFX" type="Node" parent="."]
 
 [node name="High Speed Effect" type="AnimatedSprite2D" parent="VFX"]
+visible = false
 scale = Vector2(-0.281, 0.1)
 sprite_frames = SubResource("SpriteFrames_juic0")
 animation = &"High Speed Effect"
@@ -170,6 +170,8 @@ script = ExtResource("16_gvhhc")
 [node name="Daggers" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="Orbs" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true

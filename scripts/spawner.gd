@@ -1,10 +1,5 @@
 extends Node2D
 
-#@onready var spawnArea = $CollisionShape2D.shape.extents
-#@onready var origin = $CollisionShape2D.global_position -  spawnArea
-#@onready var end = $CollisionShape2D.global_position +  spawnArea
-
-
 @onready var goldOrb = preload("res://scenes/gold_orb.tscn")
 
 var origin :Vector2 = Vector2(-250,-450)
@@ -12,7 +7,7 @@ var end :Vector2 = Vector2(250,450)
 var spawn_margin :Vector2 = Vector2(20,30)
 var canSpawn = false
 
-@export var difficulty = 1
+@export var progression_rate = 1
 @export var min_wait_time = 1
 
 func _ready():
@@ -32,13 +27,19 @@ func gen_random_pos():
 func spawn_gold_orb():
 	var goldOrbInstance = goldOrb.instantiate()
 	goldOrbInstance.position = gen_random_pos()
-	get_tree().get_root().get_node("Game").add_child.call_deferred(goldOrbInstance)
+	get_tree().current_scene.get_node("Orbs").add_child(goldOrbInstance)
 
 func _on_gold_orb_spawn_timer_timeout():
 	if canSpawn:
 		spawn_gold_orb()
 
 func _process(delta):
-	# difficulty progression
-	if $"Gold Orb Spawn Timer".wait_time > min_wait_time and canSpawn:
-		$"Gold Orb Spawn Timer".wait_time -= delta * difficulty/10
+	difficulty_progression(delta)
+
+func difficulty_progression(delta):
+	if not canSpawn:
+		return
+		
+	if $"Gold Orb Spawn Timer".wait_time > min_wait_time:
+		$"Gold Orb Spawn Timer".wait_time -= delta * progression_rate
+		

@@ -91,7 +91,7 @@ func spawn_dagger():
 	var daggerInstance = dagger.instantiate()
 	daggerInstance.position = $FirePoint.global_position
 	daggerInstance.rotation = rotation
-	get_parent().add_child(daggerInstance)
+	get_tree().current_scene.get_node("Daggers").add_child(daggerInstance)
 	AudioManager.dagger_throw.play()
 
 func take_damage(damage):

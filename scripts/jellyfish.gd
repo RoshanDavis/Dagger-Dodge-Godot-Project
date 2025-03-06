@@ -37,7 +37,7 @@ func take_damage(value):
 func on_death():
 	var death_effect_instance = death_effect.instantiate()
 	death_effect_instance.global_position = position
-	get_tree().current_scene.add_child(death_effect_instance)
+	get_tree().current_scene.get_node("VFX").add_child(death_effect_instance)
 	call_deferred("queue_free")
 
 func _on_hitbox_area_entered(area):
