@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://oagdxxaggt8a" path="res://scenes/explosion_particles.tscn" id="2_sbni1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2idfu"]
-radius = 46.0109
+radius = 54.0093
 
 [sub_resource type="Gradient" id="Gradient_8wjqf"]
 interpolation_mode = 2
@@ -24,8 +24,8 @@ initial_velocity_max = 300.0
 gravity = Vector3(0, 0, 0)
 damping_min = 300.0
 damping_max = 300.0
-scale_min = 0.2
-scale_max = 0.3
+scale_min = 0.3
+scale_max = 0.4
 color_ramp = SubResource("GradientTexture1D_lgvd8")
 
 [node name="Gold Explosion" type="Area2D"]

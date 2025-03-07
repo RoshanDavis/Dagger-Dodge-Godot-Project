@@ -152,8 +152,21 @@ position = Vector2(270, 480)
 script = ExtResource("5_toys6")
 
 [node name="Gold Orb Spawn Timer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+
+[node name="Blue Orb Spawn Timer" type="Timer" parent="Spawner"]
 wait_time = 5.0
-autostart = true
+
+[node name="Red Orb Spawn Timer" type="Timer" parent="Spawner"]
+wait_time = 7.0
+
+[node name="Special Orb Spawn Timer" type="Timer" parent="Spawner"]
+
+[node name="Daggers" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Orbs" type="Node" parent="."]
 
 [node name="VFX" type="Node" parent="."]
 
@@ -167,14 +180,11 @@ speed_scale = 2.0
 offset = Vector2(370.142, 1.70983)
 script = ExtResource("16_gvhhc")
 
-[node name="Daggers" type="Node" parent="."]
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Orbs" type="Node" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true
 position = Vector2(270, 480)
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/Blue Orb Spawn Timer" to="Spawner" method="_on_blue_orb_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/Red Orb Spawn Timer" to="Spawner" method="_on_red_orb_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/Special Orb Spawn Timer" to="Spawner" method="_on_special_orb_spawn_timer_timeout"]

@@ -30,7 +30,5 @@ func request_slowmo_change():
 	else:
 		start_slowmo()
 
-
 func _on_slow_time_timer_timeout():
-	print_debug("Slow time over")
 	Input.action_release("Throw")

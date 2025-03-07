@@ -1,0 +1,119 @@
+[gd_scene load_steps=19 format=3 uid="uid://d1obwockf1ssp"]
+
+[ext_resource type="Script" path="res://scripts/blue_orb.gd" id="1_yw788"]
+[ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/jellyfish.tscn" id="2_og6hf"]
+[ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/bomb.tscn" id="3_n3grq"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_xui6x"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="5_nx6ak"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_cloc1"]
+[ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="7_5mdc3"]
+[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="8_bljdx"]
+[ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="9_583vp"]
+[ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="10_gci1n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
+shader = ExtResource("4_xui6x")
+shader_parameter/Hit_Texture = ExtResource("5_nx6ak")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yg"]
+shader = ExtResource("4_xui6x")
+shader_parameter/Hit_Texture = ExtResource("5_nx6ak")
+
+[sub_resource type="Curve" id="Curve_utcoc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vih7v"]
+curve = SubResource("Curve_utcoc")
+
+[sub_resource type="Curve" id="Curve_qfx6u"]
+_data = [Vector2(0.00666666, 0.604396), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rocmr"]
+curve = SubResource("Curve_qfx6u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chujx"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rocmr")
+color = Color(0.490196, 0.686275, 1, 1)
+alpha_curve = SubResource("CurveTexture_vih7v")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
+radius = 22.0227
+
+[node name="Blue Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites")]
+script = ExtResource("1_yw788")
+powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
+enemies = Array[PackedScene]([ExtResource("2_og6hf"), ExtResource("3_n3grq")])
+
+[node name="BG" type="Sprite2D" parent="."]
+modulate = Color(0.490196, 0.686275, 1, 1)
+material = SubResource("ShaderMaterial_akh6t")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_cloc1")
+
+[node name="Glow Effect" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_m65yg")
+scale = Vector2(0.5, 0.5)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_chujx")
+texture = ExtResource("5_nx6ak")
+
+[node name="LifetimeBar" type="TextureProgressBar" parent="."]
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(128, 128)
+max_value = 10.0
+step = 0.01
+value = 3.0
+fill_mode = 4
+texture_under = ExtResource("7_5mdc3")
+texture_progress = ExtResource("7_5mdc3")
+tint_under = Color(0.491331, 0.685573, 1, 1)
+tint_progress = Color(0, 0.278431, 0.670588, 1)
+
+[node name="Prototype-circle" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.866667, 0.101961, 1)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("6_cloc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_4b7r8")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Heart" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_bljdx")
+
+[node name="Shield" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.1875, 0.213068)
+texture = ExtResource("6_cloc1")
+
+[node name="ShieldIcon" type="Sprite2D" parent="Shield"]
+position = Vector2(1.52588e-05, 5.12)
+scale = Vector2(2.90909, 2.56)
+texture = ExtResource("9_583vp")
+
+[node name="Explosion" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("10_gci1n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

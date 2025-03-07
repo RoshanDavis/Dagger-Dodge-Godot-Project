@@ -10,7 +10,7 @@ var enemy
 
 @export var powerup_sprites : Array[Sprite2D]
 @export var enemies :Array[PackedScene]
-@export var score :int = 1
+@export var score :int = 2
 
 func _ready():
 	$LifetimeBar.max_value = $Lifetime.wait_time

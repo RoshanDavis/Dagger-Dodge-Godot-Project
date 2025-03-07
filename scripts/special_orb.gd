@@ -9,13 +9,11 @@ var enemy
 @onready var explosion = preload("res://scenes/gold_explosion.tscn")
 
 @export var powerup_sprites : Array[Sprite2D]
-@export var enemies :Array[PackedScene]
-@export var score :int = 1
+@export var score :int = 5
 
 func _ready():
 	$LifetimeBar.max_value = $Lifetime.wait_time
 	powerup_selector()
-	enemy_selector()
 	
 func _process(_delta):
 	update_lifetime_bar()
@@ -32,17 +30,9 @@ func _on_area_entered(area):
 
 
 func _on_lifetime_timeout():
-	spawn_enemy()
+	#death effect
 	call_deferred("queue_free")
 
-func enemy_selector():
-	enemy_index = randi() % enemies.size()
-	enemy = enemies[enemy_index]
-	
-func spawn_enemy():
-	var enemyInstance = enemy.instantiate()
-	enemyInstance.position = position
-	get_tree().current_scene.get_node("Enemies").add_child(enemyInstance)
 
 func powerup_selector():
 	powerup_index = randi() % powerup_sprites.size()
