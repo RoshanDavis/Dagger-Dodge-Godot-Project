@@ -11,6 +11,3 @@ func _on_restart_button_button_up():
 func _on_resume_button_button_up():
 	game.resume_game()
 	visible = false
-
-func _on_exit_button_button_up():
-	game.exit_game()

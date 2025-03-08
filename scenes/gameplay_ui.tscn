@@ -83,9 +83,10 @@ texture = ExtResource("2_g2vbh")
 
 [node name="Label" type="Label" parent="Score"]
 layout_mode = 2
-offset_left = 7.0
-offset_right = 26.0
-offset_bottom = 47.0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 30.0
+offset_bottom = 50.0
 theme = ExtResource("3_mxevl")
 theme_override_font_sizes/font_size = 34
 text = "0

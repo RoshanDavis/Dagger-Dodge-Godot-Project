@@ -1,0 +1,187 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjwode52w4feb"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_oj5pr"]
+[ext_resource type="Texture2D" uid="uid://bo3wpthdggden" path="res://assets/ui/settings.png" id="3_ckh2d"]
+[ext_resource type="Texture2D" uid="uid://t0xp1s6xroql" path="res://assets/ui/character.png" id="3_hsafi"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="3_ky14d"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="3_lnid6"]
+[ext_resource type="Texture2D" uid="uid://crcxwqg4kgycp" path="res://assets/ui/play icon.png" id="3_y8u7f"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="4_rtow4"]
+[ext_resource type="Texture2D" uid="uid://b0u46iw3pl3jj" path="res://assets/ui/daggers icon.png" id="4_s8mgm"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_vukbj"]
+[ext_resource type="Texture2D" uid="uid://qlge7kqetf1k" path="res://assets/ui/shopping_cart.png" id="5_4jpu8"]
+[ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="6_hu8go"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6y8d1"]
+shader = ExtResource("3_ky14d")
+shader_parameter/Hit_Texture = ExtResource("4_rtow4")
+
+[node name="Start Menu" type="CanvasLayer"]
+script = ExtResource("1_oj5pr")
+
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Score"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Score/TextureRect"]
+material = SubResource("ShaderMaterial_6y8d1")
+position = Vector2(-19, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("4_vukbj")
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 33.0
+offset_bottom = 50.0
+theme = ExtResource("3_lnid6")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="High Score" type="HFlowContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 40.0
+offset_right = -19.0
+offset_bottom = 87.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="High Score"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle2" type="Sprite2D" parent="High Score/TextureRect"]
+modulate = Color(1, 1, 1, 0.627451)
+material = SubResource("ShaderMaterial_6y8d1")
+position = Vector2(-34, 20)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("4_vukbj")
+
+[node name="Prototype-circle" type="Sprite2D" parent="High Score/TextureRect"]
+position = Vector2(-34, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("6_hu8go")
+
+[node name="Label" type="Label" parent="High Score"]
+layout_mode = 2
+theme = ExtResource("3_lnid6")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="Dagger Dodge" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.5
+offset_top = 117.0
+offset_right = 197.5
+offset_bottom = 346.0
+grow_horizontal = 2
+theme = ExtResource("3_lnid6")
+theme_override_font_sizes/font_size = 90
+text = "DAGGER
+DODGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_lnid6")
+icon = ExtResource("3_y8u7f")
+
+[node name="Characters Button" type="Button" parent="."]
+modulate = Color(0.0825321, 0.633506, 0.779399, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = -128.0
+offset_right = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_lnid6")
+icon = ExtResource("3_hsafi")
+icon_alignment = 1
+
+[node name="Dagger Button" type="Button" parent="."]
+modulate = Color(0.999886, 0.306038, 0.299619, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -128.0
+offset_right = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_lnid6")
+icon = ExtResource("4_s8mgm")
+icon_alignment = 1
+
+[node name="Store Button" type="Button" parent="."]
+modulate = Color(0.961513, 0.961513, 2.31028e-06, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -128.0
+offset_right = 111.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_lnid6")
+icon = ExtResource("5_4jpu8")
+icon_alignment = 1
+
+[node name="Settings Button" type="Button" parent="."]
+modulate = Color(0.89059, 0.89059, 0.89059, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -128.0
+offset_right = 207.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_lnid6")
+icon = ExtResource("3_ckh2d")
+icon_alignment = 1
+
+[connection signal="button_up" from="Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Characters Button" to="." method="_on_characters_button_button_up"]

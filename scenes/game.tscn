@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/wall.tscn" id="1_1iadt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_so7ud"]
-[ext_resource type="Texture2D" uid="uid://bf3651gsh34qd" path="res://assets/environment/Grass.png" id="2_3e2br"]
+[ext_resource type="PackedScene" uid="uid://bjwode52w4feb" path="res://scenes/start_menu.tscn" id="2_dewco"]
 [ext_resource type="PackedScene" uid="uid://cc6ttbwrnnxhs" path="res://scenes/gameplay_ui.tscn" id="2_jtc43"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
 [ext_resource type="Script" path="res://scripts/bg.gd" id="3_t07ii"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="4_nnyde"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
 [ext_resource type="Script" path="res://scripts/boundary.gd" id="6_xpbe5"]
-[ext_resource type="Script" path="res://scripts/start_menu.gd" id="9_73xe4"]
 [ext_resource type="Texture2D" uid="uid://bui3h57oxol45" path="res://assets/environment/dash/01.png" id="10_g6du4"]
 [ext_resource type="Texture2D" uid="uid://1kdcw58pbc1h" path="res://assets/environment/dash/02.png" id="11_kivkp"]
 [ext_resource type="Texture2D" uid="uid://bbywvhbtinewx" path="res://assets/environment/dash/03.png" id="12_8cycj"]
@@ -83,40 +83,25 @@ animations = [{
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
 
-[node name="UI" type="Node" parent="."]
+[node name="Environment" type="Node" parent="."]
 
-[node name="Start Menu" type="CanvasLayer" parent="UI"]
-script = ExtResource("9_73xe4")
-
-[node name="Click to Start" type="Label" parent="UI/Start Menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = 86.0
-offset_right = 77.0
-offset_bottom = 121.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 37
-text = "Click to Start"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Gameplay UI" parent="UI" instance=ExtResource("2_jtc43")]
-unique_name_in_owner = true
-visible = false
-
-[node name="BG" type="Sprite2D" parent="."]
-modulate = Color(0.423529, 0.615686, 0.219608, 1)
+[node name="BG" type="Sprite2D" parent="Environment"]
+modulate = Color(0.501961, 0.25098, 0.0431373, 1)
 texture_repeat = 2
-texture = ExtResource("2_3e2br")
+texture = ExtResource("4_nnyde")
 offset = Vector2(270, 480)
 region_enabled = true
 region_rect = Rect2(0, 0, 540, 960)
 script = ExtResource("3_t07ii")
+bg_colors = Array[Color]([Color(0.423529, 0.615686, 0.219608, 1), Color(0.501961, 0.25098, 0.0431373, 1)])
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Start Menu" parent="UI" instance=ExtResource("2_dewco")]
+
+[node name="Gameplay UI" parent="UI" instance=ExtResource("2_jtc43")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Boundary" type="Node2D" parent="."]
 position = Vector2(270, 480)
