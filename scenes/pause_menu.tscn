@@ -13,7 +13,7 @@ font_size = 52
 [sub_resource type="LabelSettings" id="LabelSettings_hfkpu"]
 font_size = 25
 
-[node name="Pause Menu" type="Control"]
+[node name="Pause Menu" type="Control" groups=["ui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

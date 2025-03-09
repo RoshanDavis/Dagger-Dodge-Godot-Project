@@ -16,7 +16,7 @@
 shader = ExtResource("3_ky14d")
 shader_parameter/Hit_Texture = ExtResource("4_rtow4")
 
-[node name="Start Menu" type="CanvasLayer"]
+[node name="Start Menu" type="CanvasLayer" groups=["ui"]]
 script = ExtResource("1_oj5pr")
 
 [node name="Score" type="Control" parent="."]
@@ -65,7 +65,7 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0.627451)
 material = SubResource("ShaderMaterial_6y8d1")
 position = Vector2(-34, 20)
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.43, 0.43)
 texture = ExtResource("4_vukbj")
 
 [node name="Prototype-circle" type="Sprite2D" parent="High Score/TextureRect"]
@@ -90,10 +90,10 @@ offset_bottom = 346.0
 grow_horizontal = 2
 theme = ExtResource("3_lnid6")
 theme_override_font_sizes/font_size = 90
-text = "DAGGER
-DODGE"
+text = "DAGGER DODGE"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Play" type="Button" parent="."]
 anchors_preset = 8

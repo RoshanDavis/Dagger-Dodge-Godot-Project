@@ -41,10 +41,10 @@ scale_curve = SubResource("CurveTexture_bd8xr")
 color_ramp = SubResource("GradientTexture1D_os5gy")
 alpha_curve = SubResource("CurveTexture_xhr16")
 
-[node name="Hit Effect 2" type="Node2D"]
+[node name="Hit Effect 2" type="Node2D" groups=["sfx"]]
 script = ExtResource("1_k3ajy")
 
-[node name="Hit Effect" type="GPUParticles2D" parent="."]
+[node name="Hit Effect" type="GPUParticles2D" parent="." groups=["sfx"]]
 material = SubResource("ShaderMaterial_ynlya")
 emitting = false
 amount = 1

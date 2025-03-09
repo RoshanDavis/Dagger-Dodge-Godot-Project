@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjwode52w4feb" path="res://scenes/start_menu.tscn" id="2_dewco"]
 [ext_resource type="PackedScene" uid="uid://cc6ttbwrnnxhs" path="res://scenes/gameplay_ui.tscn" id="2_jtc43"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player.tscn" id="3_7iytr"]
-[ext_resource type="Script" path="res://scripts/bg.gd" id="3_t07ii"]
+[ext_resource type="Script" path="res://scripts/biome.gd" id="3_t07ii"]
 [ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="4_nnyde"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_toys6"]
 [ext_resource type="Script" path="res://scripts/boundary.gd" id="6_xpbe5"]
@@ -83,27 +83,19 @@ animations = [{
 [node name="Game" type="Node"]
 script = ExtResource("1_so7ud")
 
-[node name="Environment" type="Node" parent="."]
-
-[node name="BG" type="Sprite2D" parent="Environment"]
-modulate = Color(0.501961, 0.25098, 0.0431373, 1)
+[node name="Biome" type="Sprite2D" parent="."]
+modulate = Color(0.423529, 0.615686, 0.219608, 1)
 texture_repeat = 2
+position = Vector2(270, 480)
 texture = ExtResource("4_nnyde")
-offset = Vector2(270, 480)
 region_enabled = true
 region_rect = Rect2(0, 0, 540, 960)
 script = ExtResource("3_t07ii")
-bg_colors = Array[Color]([Color(0.423529, 0.615686, 0.219608, 1), Color(0.501961, 0.25098, 0.0431373, 1)])
+biomes = Array[String](["grassland", "mudland"])
+grassland_colors = Array[Color]([Color(0.192157, 0.376471, 0.2, 1), Color(0.266667, 0.466667, 0.254902, 1), Color(0.501961, 0.694118, 0.270588, 1)])
+desert_color = Array[Color]([Color(0.745098, 0.458824, 0.298039, 1), Color(0.647059, 0.345098, 0.235294, 1), Color(0.45098, 0.266667, 0.203922, 1), Color(0.45098, 0.184314, 0.0941176, 1)])
 
-[node name="UI" type="Node" parent="."]
-
-[node name="Start Menu" parent="UI" instance=ExtResource("2_dewco")]
-
-[node name="Gameplay UI" parent="UI" instance=ExtResource("2_jtc43")]
-unique_name_in_owner = true
-visible = false
-
-[node name="Boundary" type="Node2D" parent="."]
+[node name="Boundary" type="Node2D" parent="." groups=["wall"]]
 position = Vector2(270, 480)
 script = ExtResource("6_xpbe5")
 
@@ -121,6 +113,16 @@ rotation = -1.5708
 [node name="Wall B" parent="Boundary" instance=ExtResource("1_1iadt")]
 position = Vector2(270, 480)
 rotation = -3.14159
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Start Menu" parent="UI" instance=ExtResource("2_dewco")]
+
+[node name="Gameplay UI" parent="UI" instance=ExtResource("2_jtc43")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(270, 480)
@@ -147,15 +149,9 @@ wait_time = 7.0
 
 [node name="Special Orb Spawn Timer" type="Timer" parent="Spawner"]
 
-[node name="Daggers" type="Node" parent="."]
+[node name="Player VFX" type="Node" parent="."]
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Orbs" type="Node" parent="."]
-
-[node name="VFX" type="Node" parent="."]
-
-[node name="High Speed Effect" type="AnimatedSprite2D" parent="VFX"]
+[node name="High Speed Effect" type="AnimatedSprite2D" parent="Player VFX"]
 visible = false
 scale = Vector2(-0.281, 0.1)
 sprite_frames = SubResource("SpriteFrames_juic0")
@@ -164,6 +160,14 @@ autoplay = "High Speed Effect"
 speed_scale = 2.0
 offset = Vector2(370.142, 1.70983)
 script = ExtResource("16_gvhhc")
+
+[node name="VFX" type="Node" parent="."]
+
+[node name="Orbs" type="Node" parent="."]
+
+[node name="Daggers" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_7iytr")]
 unique_name_in_owner = true

@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://clr88k1858g54"]
+[gd_scene load_steps=14 format=3 uid="uid://clr88k1858g54"]
 
-[ext_resource type="Shader" path="res://simple_shader.tres" id="1_8w3qc"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="1_mngbq"]
+[ext_resource type="Texture2D" uid="uid://dpqluw85cuai7" path="res://assets/environment/hit effect.png" id="2_rd7jv"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="3_g60ys"]
 [ext_resource type="Script" path="res://scripts/dagger_hit_effect.gd" id="4_t6ktq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_brf1e"]
-shader = ExtResource("1_8w3qc")
+shader = ExtResource("1_mngbq")
+shader_parameter/Hit_Texture = ExtResource("2_rd7jv")
 
 [sub_resource type="Curve" id="Curve_pp5a2"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.953333, 0), 0.0, 0.0, 0, 0]
@@ -32,13 +35,11 @@ particle_flag_disable_z = true
 angle_min = -180.0
 angle_max = 180.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.8
-scale_max = 1.5
+scale_min = 5.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_fe1ru")
 color_ramp = SubResource("GradientTexture1D_xoa53")
 alpha_curve = SubResource("CurveTexture_asttc")
-
-[sub_resource type="MeshTexture" id="MeshTexture_6fijy"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_838gu"]
 particle_flag_disable_z = true
@@ -50,12 +51,12 @@ scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_xoa53")
 alpha_curve = SubResource("CurveTexture_asttc")
 
-[node name="Dagger Hit Effect" type="GPUParticles2D"]
+[node name="Dagger Hit Effect" type="GPUParticles2D" groups=["sfx"]]
 material = SubResource("ShaderMaterial_brf1e")
 emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_uqmxm")
-texture = SubResource("MeshTexture_6fijy")
+texture = ExtResource("3_g60ys")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0

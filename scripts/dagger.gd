@@ -39,7 +39,7 @@ func _on_area_2d_area_entered(area):
 		get_tree().current_scene.get_node("VFX").add_child(hit_effect_instance)
 		
 		
-	if area.is_in_group("enemy"):
+	if area.is_in_group("damageable enemy"):
 		area.get_parent().take_damage(damage)
 		AudioManager.dagger_hit_body.play()
 

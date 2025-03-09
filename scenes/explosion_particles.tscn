@@ -27,7 +27,7 @@ scale_min = 0.5
 scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_nel0q")
 
-[node name="Explosion Particles" type="GPUParticles2D"]
+[node name="Explosion Particles" type="GPUParticles2D" groups=["sfx"]]
 material = SubResource("CanvasItemMaterial_pa5wc")
 emitting = false
 amount = 30

@@ -11,7 +11,7 @@ font_size = 52
 [sub_resource type="LabelSettings" id="LabelSettings_c6tok"]
 font_size = 25
 
-[node name="Game Over Menu" type="Control"]
+[node name="Game Over Menu" type="Control" groups=["ui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

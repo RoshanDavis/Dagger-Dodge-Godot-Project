@@ -9,7 +9,3 @@ func _on_play_button_up():
 	%"Spawner".spawn_gold_orb()
 	%"Gameplay UI".visible = true
 	queue_free()
-
-
-func _on_characters_button_button_up():
-	print_debug("Pressed")

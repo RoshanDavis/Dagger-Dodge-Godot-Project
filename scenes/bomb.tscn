@@ -63,7 +63,7 @@ _data = {
 "bomb ticking": SubResource("Animation_2iw1f")
 }
 
-[node name="Bomb" type="Node2D"]
+[node name="Bomb" type="Node2D" groups=["enemy", "invincible", "invincible enemy"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_g5n0j")
 

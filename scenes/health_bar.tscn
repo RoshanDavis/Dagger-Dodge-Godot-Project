@@ -9,7 +9,7 @@ bg_color = Color(0.1, 0.1, 0.1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37fa"]
 bg_color = Color(0.8, 0.188235, 0.188235, 1)
 
-[node name="HealthBar" type="ProgressBar"]
+[node name="HealthBar" type="ProgressBar" groups=["ui"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

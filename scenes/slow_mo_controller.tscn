@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/slow_mo_controller.gd" id="1_fbrxw"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_fyyfq"]
 
-[node name="Slow-Mo Controller" type="Node2D"]
+[node name="Slow-Mo Controller" type="Node2D" groups=["manager"]]
 rotation = -1.5708
 script = ExtResource("1_fbrxw")
 

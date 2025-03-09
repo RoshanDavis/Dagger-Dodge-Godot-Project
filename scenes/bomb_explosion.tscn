@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gugih"]
 radius = 46.6774
 
-[node name="Bomb Explosion" type="Area2D"]
+[node name="Bomb Explosion" type="Area2D" groups=["danger", "enemy", "invincible enemy", "unsafe damage"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_67sfj")
 

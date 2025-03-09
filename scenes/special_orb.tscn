@@ -44,7 +44,7 @@ hue_variation_max = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
 radius = 22.0227
 
-[node name="Special Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites")]
+[node name="Special Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_hmrq7")
 powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
 

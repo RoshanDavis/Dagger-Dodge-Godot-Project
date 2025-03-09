@@ -27,6 +27,23 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[global_group]
+
+player=""
+wall=""
+manager=""
+"damageable enemy"=""
+enemy=""
+orb=""
+"invincible enemy"=""
+dagger=""
+sfx=""
+ui=""
+environment=""
+"slow enemy"=""
+"safe damage"=""
+"unsafe damage"=""
+
 [input]
 
 Throw={

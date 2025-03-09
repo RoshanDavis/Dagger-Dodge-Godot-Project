@@ -23,7 +23,7 @@ initial_velocity_max = 300.0
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_nel0q")
 
-[node name="Fire Particles" type="GPUParticles2D"]
+[node name="Fire Particles" type="GPUParticles2D" groups=["sfx"]]
 material = SubResource("CanvasItemMaterial_pa5wc")
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_feoar")

@@ -218,7 +218,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svqe6"]
 size = Vector2(209, 217)
 
-[node name="Jellyfish" type="CharacterBody2D" groups=["enemy"]]
+[node name="Jellyfish" type="CharacterBody2D" groups=["damageable enemy", "enemy", "slow enemy", "unsafe damage"]]
 scale = Vector2(0.25, 0.25)
 motion_mode = 1
 script = ExtResource("1_jtgts")
@@ -337,7 +337,7 @@ autoplay = "FLOATING"
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_hq8l0")]
 
-[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+[node name="Hitbox" type="Area2D" parent="." groups=["damageable enemy", "enemy", "slow enemy", "unsafe damage"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 visible = false

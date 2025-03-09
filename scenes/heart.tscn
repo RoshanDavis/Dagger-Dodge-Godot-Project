@@ -44,7 +44,7 @@ _data = {
 "idle": SubResource("Animation_sf0iw")
 }
 
-[node name="Heart" type="Node2D"]
+[node name="Heart" type="Node2D" groups=["ui"]]
 
 [node name="Heart" type="Sprite2D" parent="."]
 texture = ExtResource("1_a5yxf")

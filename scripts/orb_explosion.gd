@@ -9,7 +9,7 @@ func _on_area_entered(area):
 	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(damage)
 		
-	if area.is_in_group("enemy"):
+	if area.is_in_group("damageable enemy"):
 		area.get_parent().take_damage(damage)
 
 

@@ -45,7 +45,7 @@ alpha_curve = SubResource("CurveTexture_vih7v")
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
 radius = 22.0227
 
-[node name="Gold Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites")]
+[node name="Gold Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_tu0c5")
 powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
 enemies = Array[PackedScene]([ExtResource("2_n2s8o"), ExtResource("3_jtosp")])

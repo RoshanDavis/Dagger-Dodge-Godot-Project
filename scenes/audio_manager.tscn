@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b7oe6o468x2nx" path="res://assets/audio/dagger out.mp3" id="10_sdnog"]
 [ext_resource type="AudioStream" uid="uid://ct7u3l530datr" path="res://assets/audio/time slow.mp3" id="11_kimi6"]
 
-[node name="AudioManager" type="Node2D"]
+[node name="AudioManager" type="Node2D" groups=["manager"]]
 script = ExtResource("1_1ufga")
 
 [node name="Dagger Throw" type="AudioStreamPlayer2D" parent="."]

@@ -53,7 +53,7 @@ scale_curve = SubResource("CurveTexture_bd8xr")
 color_ramp = SubResource("GradientTexture1D_os5gy")
 alpha_curve = SubResource("CurveTexture_xhr16")
 
-[node name="Hit Effect" type="Node2D"]
+[node name="Hit Effect" type="Node2D" groups=["sfx"]]
 script = ExtResource("3_jr5od")
 
 [node name="Hit Effect" type="GPUParticles2D" parent="."]

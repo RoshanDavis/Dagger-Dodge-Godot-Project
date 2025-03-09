@@ -1,0 +1,145 @@
+[gd_scene load_steps=12 format=3 uid="uid://wuaq6p46k4yv"]
+
+[ext_resource type="Script" path="res://scripts/grassland_bush.gd" id="1_kvsqy"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_nngir"]
+[ext_resource type="Texture2D" uid="uid://c81nn3ay86lrk" path="res://assets/environment/plants/bush2.png" id="3_00jwm"]
+[ext_resource type="Texture2D" uid="uid://d3pnngrhx0uqe" path="res://assets/environment/plants/leaf.png" id="4_d5lqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2alxu"]
+size = Vector2(79, 87)
+
+[sub_resource type="Curve" id="Curve_vj7tw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.516483), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lbamg"]
+curve = SubResource("Curve_vj7tw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nne8a"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_lbamg")
+
+[sub_resource type="Animation" id="Animation_bvw7s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bush:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bush:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bush:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_j1587"]
+resource_name = "shake"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bush:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 0), Vector2(-3, 0), Vector2(-1, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bush:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0523599, -0.0349066, -0.0174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bush:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.11, 0.09), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bybf7"]
+_data = {
+"RESET": SubResource("Animation_bvw7s"),
+"shake": SubResource("Animation_j1587")
+}
+
+[node name="Grassland Bush" type="Area2D" groups=["environment"]]
+script = ExtResource("1_kvsqy")
+bush_colors = Array[Color]([Color(3.56168e-06, 0.615319, 1.73271e-06, 1), Color(0.386152, 0.639319, 0.24799, 1)])
+bush_textures = Array[Texture2D]([ExtResource("2_nngir"), ExtResource("3_00jwm")])
+
+[node name="Bush" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_00jwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_2alxu")
+
+[node name="Bush Explosion" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0.748772, 0.0815672, 1)
+scale = Vector2(0.7, 0.7)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_nne8a")
+texture = ExtResource("4_d5lqn")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bybf7")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="Bush Explosion" to="." method="_on_bush_explosion_finished"]
