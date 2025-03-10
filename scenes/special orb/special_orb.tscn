@@ -1,21 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7yyrgxayefla"]
+[gd_scene load_steps=16 format=3 uid="uid://c7yyrgxayefla"]
 
 [ext_resource type="Script" path="res://scripts/special_orb.gd" id="1_hmrq7"]
+[ext_resource type="Texture2D" uid="uid://cfor6f45ij6m0" path="res://assets/textures/star_06.png" id="3_5chod"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_pqsxu"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="5_0f3hf"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_0f3hf"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_6t35e"]
 [ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="7_nv72w"]
-[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="8_dp676"]
-[ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="9_uibbx"]
-[ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="10_j1mpq"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
-shader = ExtResource("4_pqsxu")
-shader_parameter/Hit_Texture = ExtResource("5_0f3hf")
+[ext_resource type="Texture2D" uid="uid://bfowaktqthtdm" path="res://assets/environment/question_mark.png" id="7_ygm0e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yg"]
 shader = ExtResource("4_pqsxu")
-shader_parameter/Hit_Texture = ExtResource("5_0f3hf")
+shader_parameter/Hit_Texture = ExtResource("3_5chod")
 
 [sub_resource type="Curve" id="Curve_utcoc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -33,34 +28,38 @@ curve = SubResource("Curve_qfx6u")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chujx"]
 particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
+scale_min = 0.7
+scale_max = 0.9
 scale_curve = SubResource("CurveTexture_rocmr")
 alpha_curve = SubResource("CurveTexture_vih7v")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
+shader = ExtResource("4_pqsxu")
+shader_parameter/Hit_Texture = ExtResource("5_0f3hf")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
 radius = 22.0227
 
 [node name="Special Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_hmrq7")
-powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
-
-[node name="BG" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-material = SubResource("ShaderMaterial_akh6t")
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_6t35e")
+powerup_sprites = [NodePath("Fireball")]
 
 [node name="Glow Effect" type="GPUParticles2D" parent="."]
 material = SubResource("ShaderMaterial_m65yg")
-scale = Vector2(0.5, 0.5)
-amount = 3
 process_material = SubResource("ParticleProcessMaterial_chujx")
 texture = ExtResource("5_0f3hf")
-explosiveness = 0.7
+
+[node name="BG" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.831373)
+material = SubResource("ShaderMaterial_akh6t")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_6t35e")
 
 [node name="LifetimeBar" type="TextureProgressBar" parent="."]
 offset_left = -128.0
@@ -92,26 +91,9 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Heart" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_dp676")
-
-[node name="Shield" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.1875, 0.213068)
-texture = ExtResource("6_6t35e")
-
-[node name="ShieldIcon" type="Sprite2D" parent="Shield"]
-position = Vector2(1.52588e-05, 5.12)
-scale = Vector2(2.90909, 2.56)
-texture = ExtResource("9_uibbx")
-
-[node name="Explosion" type="Sprite2D" parent="."]
-visible = false
+[node name="Fireball" type="Sprite2D" parent="."]
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("10_j1mpq")
+texture = ExtResource("7_ygm0e")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

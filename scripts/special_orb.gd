@@ -40,12 +40,6 @@ func powerup_selector():
 
 func powerup():
 	match powerup_index:
-		0: # Heart
-			player.heal(1)
-		1: # Shield
-			player.shield_gained()
-		2: # Orb Explosion
-			var explosionInstance = explosion.instantiate()
-			explosionInstance.position = global_position
-			get_tree().current_scene.get_node("VFX").call_deferred("add_child",explosionInstance)
+		0: # Fireball
+			pass
 	

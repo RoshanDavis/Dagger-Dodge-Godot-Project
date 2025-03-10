@@ -5,6 +5,7 @@ var dagger
 var has_shield = false
 var canMove = false
 var facingRight = true
+var invincible = false
 
 var mouse_points :Array[Vector2] = [Vector2(0,0), Vector2(0,0)]
 var is_initial_rotation = true
@@ -95,12 +96,19 @@ func spawn_dagger():
 	AudioManager.dagger_throw.play()
 
 func take_damage(damage):
+	if invincible:
+		return
 	if has_shield:
 		shield_broken()
 		return 
 	AudioManager.player_hurt.play()
 	$HealthComponent.take_damage(damage)
 	%"Gameplay UI".set_current_health($HealthComponent.currentHealth)
+	i_frames()
+	
+func i_frames():
+	invincible = true
+	$"I Frame Time".start()
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("dagger"):
@@ -122,3 +130,7 @@ func shield_broken():
 func heal(value):
 	$HealthComponent.heal(value)
 	%"Gameplay UI".set_current_health($HealthComponent.currentHealth)
+
+
+func _on_i_frame_time_timeout():
+	invincible = false

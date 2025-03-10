@@ -67,7 +67,7 @@ func _on_blue_orb_spawn_timer_timeout():
 func spawn_red_orb():
 	var redOrbInstance = redOrb.instantiate()
 	redOrbInstance.position = gen_random_pos()
-	get_tree().current_scene.add_child(redOrbInstance)
+	get_tree().current_scene.get_node("Orbs").add_child(redOrbInstance)
 
 func _on_red_orb_spawn_timer_timeout():
 	if canSpawn:

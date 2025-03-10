@@ -17,7 +17,7 @@ radius = 26.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_tcxtc")
-health = 3
+health = 1000
 
 [node name="Joystick" type="Node2D" parent="."]
 visible = false
@@ -70,7 +70,8 @@ position = Vector2(-0.8, 0.4)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_netxk")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Character" type="Sprite2D" parent="."]
+modulate = Color(0.858824, 0.74902, 0.647059, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_7w57g")
 
@@ -89,4 +90,9 @@ position = Vector2(42, 0)
 visible = false
 shape = SubResource("CircleShape2D_gtph5")
 
+[node name="I Frame Time" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="I Frame Time" to="." method="_on_i_frame_time_timeout"]

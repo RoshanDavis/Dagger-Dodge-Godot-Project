@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpqluw85cuai7"
-path="res://.godot/imported/hit effect.png-13d59c73f696d4b63dc8f8095ba372c6.ctex"
+uid="uid://bam7nu32ov4c8"
+path="res://.godot/imported/soft circle.PNG-e67bed438bf7a38760f3a2072ede53eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/hit effect.png"
-dest_files=["res://.godot/imported/hit effect.png-13d59c73f696d4b63dc8f8095ba372c6.ctex"]
+source_file="res://assets/textures/soft circle.PNG"
+dest_files=["res://.godot/imported/soft circle.PNG-e67bed438bf7a38760f3a2072ede53eb.ctex"]
 
 [params]
 

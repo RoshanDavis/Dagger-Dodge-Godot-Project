@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://clr88k1858g54"]
 
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="1_mngbq"]
-[ext_resource type="Texture2D" uid="uid://dpqluw85cuai7" path="res://assets/environment/hit effect.png" id="2_rd7jv"]
+[ext_resource type="Texture2D" uid="uid://dpqluw85cuai7" path="res://assets/textures/hit effect.png" id="2_rd7jv"]
 [ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="3_g60ys"]
 [ext_resource type="Script" path="res://scripts/dagger_hit_effect.gd" id="4_t6ktq"]
 
