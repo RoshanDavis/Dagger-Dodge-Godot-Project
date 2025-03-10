@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://nyf3f1x2fins"]
+[gd_scene load_steps=7 format=3 uid="uid://cpjgt8om120ql"]
 
-[ext_resource type="Script" path="res://scripts/orb_explosion.gd" id="1_23b2l"]
-[ext_resource type="PackedScene" uid="uid://oagdxxaggt8a" path="res://scenes/explosion_particles.tscn" id="2_6dc1s"]
+[ext_resource type="Script" path="res://scripts/red_explosion.gd" id="1_lhg03"]
+[ext_resource type="PackedScene" uid="uid://oagdxxaggt8a" path="res://scenes/sfx/explosion_particles.tscn" id="2_3kqo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2idfu"]
-radius = 81.0247
+radius = 115.027
 
 [sub_resource type="Gradient" id="Gradient_8wjqf"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.278689, 0.745902, 1)
-colors = PackedColorArray(1, 0.876, 0.07, 0, 1.75677e-06, 0.331712, 0.315956, 1, 3.85046e-07, 0.601088, 0.687795, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.269006, 0.745902, 1)
+colors = PackedColorArray(1, 0, 0, 0, 0.999721, 0.21332, 0.160246, 1, 0.646888, 0, 0.219962, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lgvd8"]
 gradient = SubResource("Gradient_8wjqf")
@@ -24,19 +24,20 @@ initial_velocity_max = 300.0
 gravity = Vector3(0, 0, 0)
 damping_min = 300.0
 damping_max = 300.0
-scale_min = 0.5
-scale_max = 0.7
+scale_min = 0.7
+scale_max = 0.9
+color = Color(1, 0, 0, 1)
 color_ramp = SubResource("GradientTexture1D_lgvd8")
 
-[node name="Orb Explosion" type="Area2D"]
+[node name="Red Explosion" type="Area2D" groups=["safe damage"]]
 scale = Vector2(2, 2)
-script = ExtResource("1_23b2l")
+script = ExtResource("1_lhg03")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["safe damage"]]
 shape = SubResource("CircleShape2D_2idfu")
 
-[node name="Explosion Particles" parent="." instance=ExtResource("2_6dc1s")]
-scale = Vector2(0.5, 0.5)
+[node name="Explosion Particles" parent="." instance=ExtResource("2_3kqo2")]
+scale = Vector2(0.9, 0.9)
 process_material = SubResource("ParticleProcessMaterial_1td0o")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

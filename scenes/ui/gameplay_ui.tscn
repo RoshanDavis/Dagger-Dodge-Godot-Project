@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://cc6ttbwrnnxhs"]
 
 [ext_resource type="Script" path="res://scripts/gameplay_ui.gd" id="1_7peb2"]
-[ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/heart_health_indicator.tscn" id="1_po8ec"]
+[ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/ui/heart_health_indicator.tscn" id="1_po8ec"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_g2vbh"]
 [ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_ki6vb"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="3_mxevl"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_frcks"]
-[ext_resource type="PackedScene" uid="uid://bsdylrvnhpmts" path="res://scenes/pause_menu.tscn" id="4_hasl4"]
+[ext_resource type="PackedScene" uid="uid://bsdylrvnhpmts" path="res://scenes/ui/pause_menu.tscn" id="4_hasl4"]
 [ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="5_g3ato"]
 [ext_resource type="Texture2D" uid="uid://dyrfmu502pve2" path="res://assets/ui/pause icon.png" id="5_hd85w"]
-[ext_resource type="PackedScene" uid="uid://b8ccavladcnqg" path="res://scenes/game_over_menu.tscn" id="5_x0t7i"]
+[ext_resource type="PackedScene" uid="uid://b8ccavladcnqg" path="res://scenes/ui/game_over_menu.tscn" id="5_x0t7i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_an8ik"]
 shader = ExtResource("4_frcks")

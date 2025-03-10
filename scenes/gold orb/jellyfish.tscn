@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/jellyfish.gd" id="1_jtgts"]
 [ext_resource type="Texture2D" uid="uid://civx5qw1pa1d2" path="res://assets/environment/JellyFish Enemy Parts.png" id="2_bp6rv"]
-[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_hq8l0"]
-[ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/health_bar.tscn" id="4_3ynr1"]
+[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="3_hq8l0"]
+[ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/ui/health_bar.tscn" id="4_3ynr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p84pf"]
 size = Vector2(179, 190)

@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var goldOrb = preload("res://scenes/gold_orb.tscn")
-@onready var blueOrb = preload("res://scenes/blue_orb.tscn")
-@onready var redOrb = preload("res://scenes/red_orb.tscn")
-@onready var specialOrb = preload("res://scenes/special_orb.tscn")
+@onready var goldOrb = preload("res://scenes/gold orb/gold_orb.tscn")
+@onready var blueOrb = preload("res://scenes/blue orb/blue_orb.tscn")
+@onready var redOrb = preload("res://scenes/red orb/red_orb.tscn")
+@onready var specialOrb = preload("res://scenes/special orb/special_orb.tscn")
 
 var origin :Vector2 = Vector2(-250,-450)
 var end :Vector2 = Vector2(250,450)

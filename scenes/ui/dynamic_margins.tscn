@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy1brp4dx2a8u"]
 
-[ext_resource type="Script" path="res://scripts/dynamic_margins.gd" id="1_fi4vq"]
+[ext_resource type="Script" path="res://scripts/dynamic_margins.gd" id="1_h2mps"]
 
 [node name="Dynamic Margins" type="MarginContainer" groups=["ui"]]
 anchors_preset = 15
@@ -10,4 +10,4 @@ offset_right = -540.0
 offset_bottom = -960.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fi4vq")
+script = ExtResource("1_h2mps")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://wuaq6p46k4yv"]
 
-[ext_resource type="Script" path="res://scripts/grassland_bush.gd" id="1_kvsqy"]
-[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_nngir"]
-[ext_resource type="Texture2D" uid="uid://c81nn3ay86lrk" path="res://assets/environment/plants/bush2.png" id="3_00jwm"]
-[ext_resource type="Texture2D" uid="uid://d3pnngrhx0uqe" path="res://assets/environment/plants/leaf.png" id="4_d5lqn"]
+[ext_resource type="Script" path="res://scripts/grassland_bush.gd" id="1_p2v37"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_jdpp2"]
+[ext_resource type="Texture2D" uid="uid://c81nn3ay86lrk" path="res://assets/environment/plants/bush2.png" id="3_up882"]
+[ext_resource type="Texture2D" uid="uid://d3pnngrhx0uqe" path="res://assets/environment/plants/leaf.png" id="4_gvurk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2alxu"]
 size = Vector2(79, 87)
@@ -113,13 +113,13 @@ _data = {
 }
 
 [node name="Grassland Bush" type="Area2D" groups=["environment"]]
-script = ExtResource("1_kvsqy")
-bush_colors = Array[Color]([Color(3.56168e-06, 0.615319, 1.73271e-06, 1), Color(0.386152, 0.639319, 0.24799, 1)])
-bush_textures = Array[Texture2D]([ExtResource("2_nngir"), ExtResource("3_00jwm")])
+script = ExtResource("1_p2v37")
+bush_colors = Array[Color]([Color(0.105882, 0.564706, 0.203922, 1), Color(0.290605, 0.706437, 3.85046e-07, 1)])
+bush_textures = Array[Texture2D]([ExtResource("2_jdpp2"), ExtResource("3_up882")])
 
 [node name="Bush" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_00jwm")
+texture = ExtResource("3_up882")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -131,7 +131,7 @@ modulate = Color(0, 0.748772, 0.0815672, 1)
 scale = Vector2(0.7, 0.7)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_nne8a")
-texture = ExtResource("4_d5lqn")
+texture = ExtResource("4_gvurk")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0

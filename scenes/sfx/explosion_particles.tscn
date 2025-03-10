@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://oagdxxaggt8a"]
 
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="1_tcm4g"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="1_s3plv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pa5wc"]
 blend_mode = 1
@@ -32,7 +32,7 @@ material = SubResource("CanvasItemMaterial_pa5wc")
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_61aqf")
-texture = ExtResource("1_tcm4g")
+texture = ExtResource("1_s3plv")
 lifetime = 0.3
 one_shot = true
 explosiveness = 0.7

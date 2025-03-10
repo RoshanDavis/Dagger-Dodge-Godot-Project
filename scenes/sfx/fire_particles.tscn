@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b50vyjx22dd0u"]
 
-[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="1_udaem"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="1_2afut"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pa5wc"]
 blend_mode = 1
@@ -27,6 +27,6 @@ color_ramp = SubResource("GradientTexture1D_nel0q")
 material = SubResource("CanvasItemMaterial_pa5wc")
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_feoar")
-texture = ExtResource("1_udaem")
+texture = ExtResource("1_2afut")
 explosiveness = 0.1
 randomness = 0.3

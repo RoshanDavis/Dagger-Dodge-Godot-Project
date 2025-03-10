@@ -6,7 +6,7 @@ var enemy
 
 @onready var game = get_tree().get_root().get_node("Game")
 @onready var player = game.get_node("Player")
-@onready var explosion = preload("res://scenes/gold_explosion.tscn")
+@onready var explosion = preload("res://scenes/red orb/red_explosion.tscn")
 
 @export var powerup_sprites : Array[Sprite2D]
 @export var enemies :Array[PackedScene]
@@ -50,11 +50,7 @@ func powerup_selector():
 
 func powerup():
 	match powerup_index:
-		0: # Heart
-			player.heal(1)
-		1: # Shield
-			player.shield_gained()
-		2: # Orb Explosion
+		0: # Orb Explosion
 			var explosionInstance = explosion.instantiate()
 			explosionInstance.position = global_position
 			get_tree().current_scene.get_node("VFX").call_deferred("add_child",explosionInstance)

@@ -1,23 +1,23 @@
 [gd_scene load_steps=19 format=3 uid="uid://qlc0ewgx7a0r"]
 
-[ext_resource type="Script" path="res://scripts/gold_orb.gd" id="1_tu0c5"]
-[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_ldre1"]
-[ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/jellyfish.tscn" id="2_n2s8o"]
-[ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/bomb.tscn" id="3_jtosp"]
-[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="3_rv5qb"]
-[ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="4_20ji5"]
-[ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="4_r3dx0"]
-[ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="5_lv3oa"]
-[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="5_oqlxo"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="6_0pi7u"]
+[ext_resource type="Script" path="res://scripts/gold_orb.gd" id="1_e44wt"]
+[ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/gold orb/jellyfish.tscn" id="2_6ectr"]
+[ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/gold orb/bomb.tscn" id="3_txj3h"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_e3xtq"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/environment/soft circle.PNG" id="5_vudhu"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_v01aq"]
+[ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="7_y744e"]
+[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="8_n3cys"]
+[ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="9_44vjn"]
+[ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="10_t0hm1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
-shader = ExtResource("5_oqlxo")
-shader_parameter/Hit_Texture = ExtResource("6_0pi7u")
+shader = ExtResource("4_e3xtq")
+shader_parameter/Hit_Texture = ExtResource("5_vudhu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m65yg"]
-shader = ExtResource("5_oqlxo")
-shader_parameter/Hit_Texture = ExtResource("6_0pi7u")
+shader = ExtResource("4_e3xtq")
+shader_parameter/Hit_Texture = ExtResource("5_vudhu")
 
 [sub_resource type="Curve" id="Curve_utcoc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -46,22 +46,22 @@ alpha_curve = SubResource("CurveTexture_vih7v")
 radius = 22.0227
 
 [node name="Gold Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
-script = ExtResource("1_tu0c5")
+script = ExtResource("1_e44wt")
 powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
-enemies = Array[PackedScene]([ExtResource("2_n2s8o"), ExtResource("3_jtosp")])
+enemies = Array[PackedScene]([ExtResource("2_6ectr"), ExtResource("3_txj3h")])
 
 [node name="BG" type="Sprite2D" parent="."]
 modulate = Color(1, 0.941176, 0.560784, 1)
 material = SubResource("ShaderMaterial_akh6t")
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_ldre1")
+texture = ExtResource("6_v01aq")
 
 [node name="Glow Effect" type="GPUParticles2D" parent="."]
 material = SubResource("ShaderMaterial_m65yg")
 scale = Vector2(0.5, 0.5)
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_chujx")
-texture = ExtResource("6_0pi7u")
+texture = ExtResource("5_vudhu")
 
 [node name="LifetimeBar" type="TextureProgressBar" parent="."]
 offset_left = -128.0
@@ -74,8 +74,8 @@ max_value = 10.0
 step = 0.01
 value = 3.0
 fill_mode = 4
-texture_under = ExtResource("4_20ji5")
-texture_progress = ExtResource("4_20ji5")
+texture_under = ExtResource("7_y744e")
+texture_progress = ExtResource("7_y744e")
 tint_under = Color(1, 0.921255, 0.554243, 1)
 tint_progress = Color(0.961795, 0.74636, 0, 1)
 
@@ -83,7 +83,7 @@ tint_progress = Color(0.961795, 0.74636, 0, 1)
 visible = false
 modulate = Color(1, 0.866667, 0.101961, 1)
 scale = Vector2(0.31, 0.31)
-texture = ExtResource("2_ldre1")
+texture = ExtResource("6_v01aq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -97,23 +97,23 @@ autostart = true
 [node name="Heart" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_rv5qb")
+texture = ExtResource("8_n3cys")
 
 [node name="Shield" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0, 1, 1, 1)
 scale = Vector2(0.1875, 0.213068)
-texture = ExtResource("2_ldre1")
+texture = ExtResource("6_v01aq")
 
 [node name="ShieldIcon" type="Sprite2D" parent="Shield"]
 position = Vector2(1.52588e-05, 5.12)
 scale = Vector2(2.90909, 2.56)
-texture = ExtResource("4_r3dx0")
+texture = ExtResource("9_44vjn")
 
 [node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("5_lv3oa")
+texture = ExtResource("10_t0hm1")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

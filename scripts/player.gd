@@ -23,7 +23,7 @@ var final_joystick_speed = 1000
 
 func _ready():
 	velocity = Vector2(0,0)
-	dagger = preload("res://scenes/dagger.tscn")
+	dagger = preload("res://scenes/daggers/dagger.tscn")
 	$HealthComponent.set_initial_health(health)
 	%"Gameplay UI".set_max_health(health)
 	%"Gameplay UI".set_current_health(health)

@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Dagger Dodge"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/managers/game.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://scenes/audio_manager.tscn"
+AudioManager="*res://scenes/managers/audio_manager.tscn"
 
 [display]
 

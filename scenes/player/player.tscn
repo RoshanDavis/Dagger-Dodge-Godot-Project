@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tcxtc"]
 [ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/player.png" id="2_7w57g"]
 [ext_resource type="Texture2D" uid="uid://xnxrr80m26mn" path="res://assets/ui/dagger.png" id="2_dcqrg"]
-[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/health_component.tscn" id="3_iga5a"]
+[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="3_iga5a"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_netxk"]
-[ext_resource type="PackedScene" uid="uid://blksa1308p7xg" path="res://scenes/slow_mo_controller.tscn" id="6_2fax2"]
+[ext_resource type="PackedScene" uid="uid://blksa1308p7xg" path="res://scenes/player/slow_mo_controller.tscn" id="6_2fax2"]
 [ext_resource type="Texture2D" uid="uid://d1wnoakt2ff03" path="res://assets/ui/joystick.png" id="7_j8ucc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slx66"]
@@ -17,7 +17,7 @@ radius = 26.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_tcxtc")
-health = 1000
+health = 3
 
 [node name="Joystick" type="Node2D" parent="."]
 visible = false

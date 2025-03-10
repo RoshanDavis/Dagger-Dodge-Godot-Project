@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player = get_tree().get_root().get_node("Game").get_node("Player")
-@onready var death_effect = preload("res://scenes/hit_effect_2.tscn")
+@onready var death_effect = preload("res://scenes/sfx/hit_effect_2.tscn")
 
 @export var speed:float = 70
 @export var health:int = 3

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bftmupls70oan"]
 
 [ext_resource type="Script" path="res://scripts/heart_health_indicator.gd" id="1_i4kdw"]
-[ext_resource type="PackedScene" uid="uid://duvjauxy3sw12" path="res://scenes/heart.tscn" id="2_0t8r2"]
+[ext_resource type="PackedScene" uid="uid://duvjauxy3sw12" path="res://scenes/ui/heart.tscn" id="2_0t8r2"]
 
 [node name="Heart Health Indicator" type="Control" groups=["ui"]]
 layout_mode = 3

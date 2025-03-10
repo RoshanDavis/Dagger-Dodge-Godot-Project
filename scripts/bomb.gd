@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var explosion = preload("res://scenes/bomb_explosion.tscn")
+@onready var explosion = preload("res://scenes/gold orb/bomb_explosion.tscn")
 
 func _on_animation_player_animation_finished(_anim_name):
 	var explosionInstance = explosion.instantiate()
