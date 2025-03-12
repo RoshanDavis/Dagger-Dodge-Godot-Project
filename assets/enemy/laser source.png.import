@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://civx5qw1pa1d2"
-path="res://.godot/imported/JellyFish Enemy Parts.png-be86c0afd94e796a55afa7c61d9dd9c6.ctex"
+uid="uid://qlap8ky48x8b"
+path="res://.godot/imported/laser source.png-e987c18ef272a34e92e24caa61a6200e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/JellyFish Enemy Parts.png"
-dest_files=["res://.godot/imported/JellyFish Enemy Parts.png-be86c0afd94e796a55afa7c61d9dd9c6.ctex"]
+source_file="res://assets/enemy/laser source.png"
+dest_files=["res://.godot/imported/laser source.png-e987c18ef272a34e92e24caa61a6200e.ctex"]
 
 [params]
 

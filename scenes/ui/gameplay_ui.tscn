@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="3_mxevl"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_frcks"]
 [ext_resource type="PackedScene" uid="uid://bsdylrvnhpmts" path="res://scenes/ui/pause_menu.tscn" id="4_hasl4"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_g3ato"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://scenes/gold orb/soft circle.PNG" id="5_g3ato"]
 [ext_resource type="Texture2D" uid="uid://dyrfmu502pve2" path="res://assets/ui/pause icon.png" id="5_hd85w"]
 [ext_resource type="PackedScene" uid="uid://b8ccavladcnqg" path="res://scenes/ui/game_over_menu.tscn" id="5_x0t7i"]
 

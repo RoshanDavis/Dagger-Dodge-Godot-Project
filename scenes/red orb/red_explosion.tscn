@@ -32,6 +32,7 @@ color_ramp = SubResource("GradientTexture1D_lgvd8")
 [node name="Red Explosion" type="Area2D" groups=["safe damage"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_lhg03")
+damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["safe damage"]]
 shape = SubResource("CircleShape2D_2idfu")

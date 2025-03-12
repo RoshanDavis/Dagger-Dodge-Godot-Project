@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rtknx3cbb8st"
-path="res://.godot/imported/explosion (10).png-1c53610e226e68274b3d069b75f42229.ctex"
+uid="uid://b0pgg23cv3mcp"
+path="res://.godot/imported/Grass BW.png-43e0ac4bd5fd55d96781fe767a671a93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/explosion (10).png"
-dest_files=["res://.godot/imported/explosion (10).png-1c53610e226e68274b3d069b75f42229.ctex"]
+source_file="res://assets/environment/Grass BW.png"
+dest_files=["res://.godot/imported/Grass BW.png-43e0ac4bd5fd55d96781fe767a671a93.ctex"]
 
 [params]
 

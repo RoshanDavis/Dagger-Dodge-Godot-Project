@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://oagdxxaggt8a"]
 
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="1_s3plv"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://scenes/gold orb/soft circle.PNG" id="1_s3plv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pa5wc"]
 blend_mode = 1

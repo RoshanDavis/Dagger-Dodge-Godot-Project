@@ -2,7 +2,7 @@ extends Sprite2D
 
 @export var biomes :Array[String]
 @export var grassland_colors :Array[Color]
-@export var desert_color :Array[Color]
+@export var mudland_colors :Array[Color]
 
 # grassland
 @onready var grassland_bush = preload("res://scenes/environment/grassland_bush.tscn")
@@ -53,7 +53,7 @@ func biome_generation():
 			modulate = grassland_colors.pick_random()
 			spawn_items(grassland_bush,population)
 		"mudland":
-			modulate = desert_color.pick_random()
+			modulate = mudland_colors.pick_random()
 			spawn_items(mudland_bush,population)
 	
 

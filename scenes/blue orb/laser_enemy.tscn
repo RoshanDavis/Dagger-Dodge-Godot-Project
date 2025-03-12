@@ -1,0 +1,196 @@
+[gd_scene load_steps=20 format=3 uid="uid://dxvtiw3f3w3sx"]
+
+[ext_resource type="Texture2D" uid="uid://qlap8ky48x8b" path="res://assets/enemy/laser source.png" id="1_7omb6"]
+[ext_resource type="Script" path="res://scripts/laser_enemy.gd" id="1_yk7da"]
+[ext_resource type="Texture2D" uid="uid://cghtt15fkg4sw" path="res://assets/enemy/gear.png" id="2_whqa4"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_pgq7c"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://scenes/gold orb/soft circle.PNG" id="5_123d8"]
+[ext_resource type="Texture2D" uid="uid://cvwx5vsb7ojt3" path="res://assets/textures/trace_01.png" id="7_j2565"]
+[ext_resource type="PackedScene" uid="uid://cvbx6g5o8r7a2" path="res://scenes/blue orb/blue_laser.tscn" id="8_qf2tp"]
+[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="8_rrhwm"]
+[ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/ui/health_bar.tscn" id="9_wdtwq"]
+
+[sub_resource type="Animation" id="Animation_bcjpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Gear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Gear2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.279253]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Gear3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n3dqj"]
+resource_name = "rotating_gears"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Gear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Gear2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.279253, -2.86234]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Gear3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jp5is"]
+_data = {
+"RESET": SubResource("Animation_bcjpx"),
+"rotating_gears": SubResource("Animation_n3dqj")
+}
+
+[sub_resource type="Curve" id="Curve_6ibcr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492462, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7w8r3"]
+curve = SubResource("Curve_6ibcr")
+
+[sub_resource type="Curve" id="Curve_5yjva"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yeqik"]
+curve = SubResource("Curve_5yjva")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1lnd"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 128.0
+emission_ring_inner_radius = 128.0
+spread = 180.0
+radial_velocity_min = -300.0
+radial_velocity_max = -300.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_yeqik")
+color = Color(0.216722, 1, 0.999172, 1)
+alpha_curve = SubResource("CurveTexture_7w8r3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhhw4"]
+shader = ExtResource("4_pgq7c")
+shader_parameter/Hit_Texture = ExtResource("5_123d8")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3sgkw"]
+radius = 87.4786
+
+[node name="Laser Enemy" type="Node2D"]
+script = ExtResource("1_yk7da")
+health = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jp5is")
+}
+autoplay = "rotating_gears"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_l1lnd")
+texture = ExtResource("7_j2565")
+lifetime = 0.5
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Gear" type="Sprite2D" parent="Body"]
+modulate = Color(0.129559, 0.129558, 0.129558, 1)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_whqa4")
+
+[node name="Gear2" type="Sprite2D" parent="Body"]
+modulate = Color(0.190762, 0.190762, 0.190762, 1)
+rotation = 0.279253
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_whqa4")
+
+[node name="Gear3" type="Sprite2D" parent="Body"]
+modulate = Color(0.310617, 0.310617, 0.310617, 1)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_whqa4")
+
+[node name="Laser" parent="." instance=ExtResource("8_qf2tp")]
+
+[node name="LaserSource" type="Sprite2D" parent="."]
+modulate = Color(0, 0.671, 7, 0)
+material = SubResource("ShaderMaterial_qhhw4")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7omb6")
+
+[node name="HealthComponent" parent="." instance=ExtResource("8_rrhwm")]
+
+[node name="HealthBar" parent="." instance=ExtResource("9_wdtwq")]
+offset_left = -18.0
+offset_top = -84.0
+offset_right = 19.0
+offset_bottom = -80.0
+isHeartVisible = false
+
+[node name="Hitbox" type="Area2D" parent="." groups=["damageable enemy", "enemy", "slow enemy", "unsafe damage"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+shape = SubResource("CircleShape2D_3sgkw")
+
+[connection signal="firing_finished" from="Laser" to="." method="_on_laser_firing_finished"]

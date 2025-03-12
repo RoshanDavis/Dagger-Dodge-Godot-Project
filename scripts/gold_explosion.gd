@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage = 5
+@export var damage = 5
 
 @onready var explosion_mark = preload("res://scenes/gold orb/gold_explosion_mark.tscn")
 

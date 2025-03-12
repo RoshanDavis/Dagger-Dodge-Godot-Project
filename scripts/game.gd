@@ -3,7 +3,6 @@ extends Node
 @onready var score:int = 0
 @onready var player = %Player
 
-
 func _ready():
 	AudioManager.game_music.play()
 

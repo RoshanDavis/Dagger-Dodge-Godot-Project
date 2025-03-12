@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioManager="*res://scenes/managers/audio_manager.tscn"
+Global="*res://scripts/global.gd"
 
 [display]
 
@@ -55,7 +56,7 @@ Throw={
 [layer_names]
 
 2d_physics/layer_1="Default"
-2d_physics/layer_2="Shield"
+2d_physics/layer_2="Wall"
 
 [rendering]
 

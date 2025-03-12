@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=22 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_2pfyb"]
-[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="2_luwm7"]
+[ext_resource type="Texture2D" uid="uid://b0pgg23cv3mcp" path="res://assets/environment/Grass BW.png" id="2_baea2"]
 [ext_resource type="Script" path="res://scripts/biome.gd" id="3_ky6os"]
 [ext_resource type="Script" path="res://scripts/boundary.gd" id="4_bnhsf"]
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/environment/wall.tscn" id="5_ssti2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dwijbc5i47ycw" path="res://assets/environment/dash/06.png" id="14_43uxu"]
 [ext_resource type="Script" path="res://scripts/high_speed_effect.gd" id="15_l6oye"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player/player.tscn" id="16_s4xmy"]
+[ext_resource type="PackedScene" uid="uid://dxvtiw3f3w3sx" path="res://scenes/blue orb/laser_enemy.tscn" id="17_u058y"]
 
 [sub_resource type="Animation" id="Animation_oqw3s"]
 length = 0.001
@@ -84,16 +85,16 @@ animations = [{
 script = ExtResource("1_2pfyb")
 
 [node name="Biome" type="Sprite2D" parent="."]
-modulate = Color(0.423529, 0.615686, 0.219608, 1)
+modulate = Color(0.403922, 0.768627, 0.282353, 1)
 texture_repeat = 2
 position = Vector2(270, 480)
-texture = ExtResource("2_luwm7")
+texture = ExtResource("2_baea2")
 region_enabled = true
 region_rect = Rect2(0, 0, 540, 960)
 script = ExtResource("3_ky6os")
 biomes = Array[String](["grassland", "mudland"])
-grassland_colors = Array[Color]([Color(0.192157, 0.376471, 0.2, 1), Color(0.266667, 0.466667, 0.254902, 1), Color(0.501961, 0.694118, 0.270588, 1)])
-desert_color = Array[Color]([Color(0.745098, 0.458824, 0.298039, 1), Color(0.647059, 0.345098, 0.235294, 1), Color(0.45098, 0.266667, 0.203922, 1), Color(0.45098, 0.184314, 0.0941176, 1)])
+grassland_colors = Array[Color]([Color(0.192157, 0.376471, 0.2, 1), Color(0.266667, 0.466667, 0.254902, 1), Color(0.403922, 0.768627, 0.282353, 1)])
+mudland_colors = Array[Color]([Color(0.447059, 0.211765, 0.0666667, 1), Color(0.443137, 0.305882, 0.219608, 1), Color(0.603922, 0.396078, 0.0823529, 1)])
 
 [node name="Boundary" type="Node2D" parent="." groups=["wall"]]
 position = Vector2(270, 480)
@@ -101,18 +102,22 @@ script = ExtResource("4_bnhsf")
 
 [node name="Wall T" parent="Boundary" instance=ExtResource("5_ssti2")]
 position = Vector2(-270, -480)
+collision_layer = 3
 
 [node name="Wall R" parent="Boundary" instance=ExtResource("5_ssti2")]
 position = Vector2(270, -480)
 rotation = 1.5708
+collision_layer = 3
 
 [node name="Wall L" parent="Boundary" instance=ExtResource("5_ssti2")]
 position = Vector2(-270, 480)
 rotation = -1.5708
+collision_layer = 3
 
 [node name="Wall B" parent="Boundary" instance=ExtResource("5_ssti2")]
 position = Vector2(270, 480)
 rotation = -3.14159
+collision_layer = 3
 
 [node name="Environment" type="Node" parent="."]
 
@@ -172,6 +177,9 @@ script = ExtResource("15_l6oye")
 [node name="Player" parent="." instance=ExtResource("16_s4xmy")]
 unique_name_in_owner = true
 position = Vector2(270, 480)
+
+[node name="Laser Enemy" parent="." instance=ExtResource("17_u058y")]
+position = Vector2(242, 615)
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/Blue Orb Spawn Timer" to="Spawner" method="_on_blue_orb_spawn_timer_timeout"]
