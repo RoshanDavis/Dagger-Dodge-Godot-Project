@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://l4t56jitchda"]
+
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="1_yt58f"]
+[ext_resource type="Texture2D" uid="uid://dlrdssyiq34b2" path="res://assets/textures/spark_07.png" id="2_nry3e"]
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="3_nitlr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82d7t"]
+shader = ExtResource("1_yt58f")
+shader_parameter/Hit_Texture = ExtResource("2_nry3e")
+
+[sub_resource type="Gradient" id="Gradient_smcpu"]
+colors = PackedColorArray(0.310617, 0.310617, 0.310617, 0, 0.205117, 0.205117, 0.205117, 1)
+
+[node name="Blue Laser Mark" type="Line2D"]
+modulate = Color(7.12335e-06, 0.678742, 0.898123, 1)
+material = SubResource("ShaderMaterial_82d7t")
+points = PackedVector2Array(0, 0, 100, 0)
+width = 100.0
+gradient = SubResource("Gradient_smcpu")
+texture = ExtResource("3_nitlr")
+texture_mode = 2

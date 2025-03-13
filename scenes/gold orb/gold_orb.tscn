@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/gold orb/jellyfish.tscn" id="2_6ectr"]
 [ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/gold orb/bomb.tscn" id="3_txj3h"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_e3xtq"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://scenes/gold orb/soft circle.PNG" id="5_vudhu"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_vudhu"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_v01aq"]
 [ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="7_y744e"]
 [ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="8_n3cys"]

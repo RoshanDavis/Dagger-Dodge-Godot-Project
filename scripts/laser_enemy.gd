@@ -6,7 +6,7 @@ var tween :Tween
 @onready var death_effect = preload("res://scenes/sfx/hit_effect_2.tscn")
 
 @export var charge_time :float =  2
-@export var health:int = 3
+@export var health:int = 5
 
 func _ready():
 	$HealthComponent.set_initial_health(health)

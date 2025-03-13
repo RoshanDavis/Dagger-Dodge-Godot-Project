@@ -6,6 +6,7 @@ var has_shield = false
 var canMove = false
 var facingRight = true
 var invincible = false
+var powerup_invincibility = false
 
 var mouse_points :Array[Vector2] = [Vector2(0,0), Vector2(0,0)]
 var is_initial_rotation = true
@@ -18,6 +19,8 @@ var final_joystick_speed = 1000
 @export var speed = 200
 @export var drag = 1
 @export var joystick_speed :float = 500
+@export var powerup_speed_multiplier = 3 # can not be 0
+@export var powerup_recoil_multiplier = 2 # can not be 0
 
 @onready var slowmoController = $"Slow-Mo Controller"
 @onready var arrows = $Arrows
@@ -31,9 +34,9 @@ func _ready():
 	final_joystick_speed = joystick_speed/$"Slow-Mo Controller".slowmo_time_scale
 	
 func _physics_process(delta):
-		rotate_player()
-		if canMove:
-			movement(delta)
+	rotate_player()
+	if canMove:
+		movement(delta)
 
 func rotate_player():
 	if (mouse_points[0]-mouse_points[1]).length() < initial_rotation_deadzone and is_initial_rotation:
@@ -79,8 +82,6 @@ func movement(delta):
 		spawn_dagger()
 		velocity =  global_transform.basis_xform(Vector2.LEFT * (recoilSpeed + velocity.length()))
 	
-
-	
 	if velocity.length() > speed:
 		velocity -= velocity * drag * delta
 
@@ -96,6 +97,8 @@ func spawn_dagger():
 	AudioManager.dagger_throw.play()
 
 func take_damage(damage):
+	if powerup_invincibility:
+		return
 	if invincible:
 		return
 	if has_shield:
@@ -134,3 +137,24 @@ func heal(value):
 
 func _on_i_frame_time_timeout():
 	invincible = false
+
+func _on_fireball_power_up_started():
+	powerup_invincibility = true
+	speed *= powerup_speed_multiplier
+	recoilSpeed *= powerup_recoil_multiplier
+	velocity *= powerup_speed_multiplier
+
+func _on_fireball_power_up_done():
+	powerup_invincibility = false
+	speed /= powerup_speed_multiplier
+	recoilSpeed /= powerup_recoil_multiplier
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/laser.gd" id="1_te5la"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="2_1asyg"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="3_g0hd2"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://scenes/gold orb/soft circle.PNG" id="4_73tdb"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="4_73tdb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8krba"]
 shader = ExtResource("3_g0hd2")
@@ -67,6 +67,8 @@ script = ExtResource("1_te5la")
 [node name="Line2D" type="Line2D" parent="."]
 modulate = Color(0, 0.670588, 7, 0.27451)
 points = PackedVector2Array(0, 0, 100, 0)
+width = 30.0
+texture_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 

@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dxvtiw3f3w3sx"]
+[gd_scene load_steps=22 format=3 uid="uid://dxvtiw3f3w3sx"]
 
 [ext_resource type="Texture2D" uid="uid://qlap8ky48x8b" path="res://assets/enemy/laser source.png" id="1_7omb6"]
 [ext_resource type="Script" path="res://scripts/laser_enemy.gd" id="1_yk7da"]
 [ext_resource type="Texture2D" uid="uid://cghtt15fkg4sw" path="res://assets/enemy/gear.png" id="2_whqa4"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_pgq7c"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://scenes/gold orb/soft circle.PNG" id="5_123d8"]
-[ext_resource type="Texture2D" uid="uid://cvwx5vsb7ojt3" path="res://assets/textures/trace_01.png" id="7_j2565"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_123d8"]
+[ext_resource type="Texture2D" uid="uid://glkedh7nbsch" path="res://assets/textures/trace_01.png" id="7_j2565"]
 [ext_resource type="PackedScene" uid="uid://cvbx6g5o8r7a2" path="res://scenes/blue orb/blue_laser.tscn" id="8_qf2tp"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="8_rrhwm"]
 [ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/ui/health_bar.tscn" id="9_wdtwq"]
@@ -96,6 +96,10 @@ _data = {
 "rotating_gears": SubResource("Animation_n3dqj")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ym481"]
+shader = ExtResource("4_pgq7c")
+shader_parameter/Hit_Texture = ExtResource("7_j2565")
+
 [sub_resource type="Curve" id="Curve_6ibcr"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492462, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -123,11 +127,14 @@ radial_velocity_min = -300.0
 radial_velocity_max = -300.0
 gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
-scale_min = 3.0
-scale_max = 3.0
+scale_min = 0.5
+scale_max = 0.7
 scale_curve = SubResource("CurveTexture_yeqik")
 color = Color(0.216722, 1, 0.999172, 1)
 alpha_curve = SubResource("CurveTexture_7w8r3")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yncuw"]
+load_path = "res://.godot/imported/trace_01.png-d2d1caa10fd3c97b20b2654f64e73820.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhhw4"]
 shader = ExtResource("4_pgq7c")
@@ -147,9 +154,10 @@ libraries = {
 autoplay = "rotating_gears"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_ym481")
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_l1lnd")
-texture = ExtResource("7_j2565")
+texture = SubResource("CompressedTexture2D_yncuw")
 lifetime = 0.5
 
 [node name="Body" type="Node2D" parent="."]

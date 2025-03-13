@@ -31,6 +31,3 @@ func pause_game():
 	if player != null:
 		player.canMove = false
 	%"Gameplay UI".show_pause_menu()
-
-
-			

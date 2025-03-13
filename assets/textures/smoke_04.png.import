@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bam7nu32ov4c8"
-path="res://.godot/imported/soft circle.PNG-12dff9f09b7c41d483e2dac1c88fb5d7.ctex"
+uid="uid://0x8q362o0cux"
+path="res://.godot/imported/smoke_04.png-5654e0e4588eb0fa5e0934e2488623db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/gold orb/soft circle.PNG"
-dest_files=["res://.godot/imported/soft circle.PNG-12dff9f09b7c41d483e2dac1c88fb5d7.ctex"]
+source_file="res://assets/textures/smoke_04.png"
+dest_files=["res://.godot/imported/smoke_04.png-5654e0e4588eb0fa5e0934e2488623db.ctex"]
 
 [params]
 

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4ei2shuuapsj"]
+
+[ext_resource type="PackedScene" uid="uid://b50vyjx22dd0u" path="res://scenes/sfx/fire_particles.tscn" id="1_3pe0r"]
+[ext_resource type="Script" path="res://scripts/fireball_power_up.gd" id="1_hlwnn"]
+[ext_resource type="Texture2D" uid="uid://0x8q362o0cux" path="res://assets/textures/smoke_04.png" id="2_hc7hg"]
+
+[sub_resource type="Gradient" id="Gradient_04q0m"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.278689, 0.745902, 1)
+colors = PackedColorArray(1, 0.876, 0.07, 0, 1, 0.876, 0.07, 1, 1, 0, 0.0166664, 1, 1, 0, 0.0166664, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nel0q"]
+gradient = SubResource("Gradient_04q0m")
+width = 10
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_emks1"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.37
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_nel0q")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tnl0w"]
+radius = 170.95
+
+[node name="Fireball Power Up" type="Area2D" groups=["safe damage"]]
+position = Vector2(0, 51)
+script = ExtResource("1_hlwnn")
+
+[node name="Fire Particles" parent="." instance=ExtResource("1_3pe0r")]
+process_material = SubResource("ParticleProcessMaterial_emks1")
+texture = ExtResource("2_hc7hg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -70)
+shape = SubResource("CircleShape2D_tnl0w")
+
+[node name="Power Up Time" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Power Up Time" to="." method="_on_power_up_time_timeout"]

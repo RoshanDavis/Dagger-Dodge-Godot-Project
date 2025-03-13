@@ -4,15 +4,20 @@ var slowmo_active = false
 
 @export var normal_time_scale: float = 1.0
 @export var slowmo_time_scale: float = 0.1
+@export var slomo_time = 3
 
 func  _ready():
+	set_initial_values()
 	$"Slow Time Timer".wait_time *= slowmo_time_scale
 	$LifetimeBar.step *= slowmo_time_scale
 	$LifetimeBar.max_value = $"Slow Time Timer".wait_time
 	
 func _process(_delta):
 	$LifetimeBar.value = $"Slow Time Timer".time_left
-	
+
+func set_initial_values():
+	$"Slow Time Timer".wait_time = slomo_time
+
 func start_slowmo():
 	Engine.time_scale = slowmo_time_scale
 	slowmo_active = true

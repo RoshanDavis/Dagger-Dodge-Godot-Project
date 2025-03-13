@@ -6,7 +6,7 @@ var enemy
 
 @onready var game = get_tree().get_root().get_node("Game")
 @onready var player = game.get_node("Player")
-@onready var explosion = preload("res://scenes/gold orb/gold_explosion.tscn")
+@onready var fireball = preload("res://scenes/special orb/fireball_power_up.tscn")
 
 @export var powerup_sprites : Array[Sprite2D]
 @export var score :int = 5
@@ -41,5 +41,7 @@ func powerup_selector():
 func powerup():
 	match powerup_index:
 		0: # Fireball
-			pass
+			var fireball_instance = fireball.instantiate()
+			player.call_deferred("add_child",fireball_instance)
+			
 	

@@ -4,10 +4,12 @@ var tween: Tween
 var can_damage = false
 var player
 signal firing_finished
+var cast_point := target_position
 
 @onready var beam_particles = $"Beam Particles"
 @onready var target_particles = $"Target Particles"
 @onready var damage_zone = $"Damage Zone"
+@onready var laser_mark = preload("res://scenes/blue orb/blue_laser_mark.tscn")
 
 @export var charge_time: float = 2 # aiming time
 @export var firing_time: float = 2
@@ -27,14 +29,13 @@ var is_casting := false:
 
 func _ready():
 	target_position.x = max(Global.viewport_size.x,Global.viewport_size.y)
-	print_debug(target_position)
 	if get_tree().current_scene.has_node("Player"):
 		player = get_tree().current_scene.get_node("Player")
 	set_physics_process(false)
 	$Line2D.points[0] = Vector2.ZERO
 	
 func _physics_process(_delta):
-	var cast_point := target_position
+	cast_point = target_position
 	force_raycast_update()
 	
 	target_particles.emitting = is_colliding() and can_damage
@@ -67,7 +68,7 @@ func rotate_to_player():
 	else:
 		var rot = randf_range(0,360)
 		tween = create_tween()
-		tween.tween_property(get_parent(),"rotation_degrees",rot,charge_time)
+		tween.tween_property(self,"rotation_degrees",rot,charge_time)
 		
 func start_laser():
 	self.is_casting = true
@@ -85,6 +86,7 @@ func fire_laser():
 	self.is_casting = false
 	can_damage=false
 	damage_zone.process_mode = Node.PROCESS_MODE_DISABLED
+	spawn_laser_mark()
 	firing_finished.emit()
 	
 func re_fire_laser():
@@ -98,3 +100,11 @@ func _on_damage_zone_area_entered(area):
 			
 	if area.is_in_group("player"):
 		area.get_parent().take_damage(damage)
+
+func spawn_laser_mark():
+	var laser_mark_instance = laser_mark.instantiate()
+	laser_mark_instance.position = global_position
+	laser_mark_instance.rotation = rotation
+	laser_mark_instance.points[0] = Vector2.ZERO
+	laser_mark_instance.points[1] = cast_point
+	get_tree().current_scene.get_node("Marks").add_child(laser_mark_instance)

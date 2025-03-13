@@ -18,6 +18,8 @@ radius = 26.0
 motion_mode = 1
 script = ExtResource("1_tcxtc")
 health = 1000
+powerup_speed_multiplier = 10
+powerup_recoil_multiplier = 3
 
 [node name="Joystick" type="Node2D" parent="."]
 visible = false
@@ -42,6 +44,7 @@ texture = ExtResource("7_j8ucc")
 region_rect = Rect2(125, 31, 117, 202)
 
 [node name="Slow-Mo Controller" parent="." instance=ExtResource("6_2fax2")]
+slomo_time = 100
 
 [node name="Arrows" type="Node2D" parent="."]
 visible = false
