@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dujp6a6uyyyw3"
-path="res://.godot/imported/rocks.png-b180988d6011878a5936e71956683262.ctex"
+uid="uid://bwh84mtshl5hi"
+path="res://.godot/imported/scorch_01.png-07d8b8ff3b4974dc7fdf337812a44559.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/rocks.png"
-dest_files=["res://.godot/imported/rocks.png-b180988d6011878a5936e71956683262.ctex"]
+source_file="res://assets/environment/scorch_01.png"
+dest_files=["res://.godot/imported/scorch_01.png-07d8b8ff3b4974dc7fdf337812a44559.ctex"]
 
 [params]
 

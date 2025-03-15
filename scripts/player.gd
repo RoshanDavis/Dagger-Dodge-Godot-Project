@@ -149,10 +149,22 @@ func _on_fireball_power_up_done():
 	speed /= powerup_speed_multiplier
 	recoilSpeed /= powerup_recoil_multiplier
 	
+func freeze(this_node,freeze_time):
+	if powerup_invincibility:
+		this_node.death_effect()
+		return
+	canMove = false
+	velocity = velocity.normalized() * speed
+	slowmoController.stop_slowmo()
+	await get_tree().create_timer(freeze_time).timeout
+	canMove =  true
 	
-	
-	
-	
+func freeze2(freeze_time):
+	canMove = false
+	velocity = velocity.normalized() * speed
+	slowmoController.stop_slowmo()
+	await get_tree().create_timer(freeze_time).timeout
+	canMove =  true
 	
 	
 	

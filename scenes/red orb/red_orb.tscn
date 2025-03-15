@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bg2tmwidfql2k"]
+[gd_scene load_steps=18 format=3 uid="uid://bg2tmwidfql2k"]
 
 [ext_resource type="Script" path="res://scripts/red_orb.gd" id="1_x80g3"]
-[ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/gold orb/jellyfish.tscn" id="2_jmmfe"]
-[ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/gold orb/bomb.tscn" id="3_sos0c"]
+[ext_resource type="PackedScene" uid="uid://bx5gs2kemh0u3" path="res://scenes/red orb/target_lock_enemy.tscn" id="2_gi6to"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_uwfui"]
 [ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_a4ysx"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_ns522"]
@@ -48,7 +47,7 @@ radius = 22.0227
 [node name="Red Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_x80g3")
 powerup_sprites = [NodePath("Explosion")]
-enemies = Array[PackedScene]([ExtResource("2_jmmfe"), ExtResource("3_sos0c")])
+enemies = Array[PackedScene]([ExtResource("2_gi6to")])
 
 [node name="BG" type="Sprite2D" parent="."]
 modulate = Color(0.992157, 0.576471, 0.580392, 1)

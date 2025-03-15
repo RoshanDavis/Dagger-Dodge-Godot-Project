@@ -11,7 +11,7 @@ shader_parameter/Hit_Texture = ExtResource("2_xkjkv")
 
 [sub_resource type="Gradient" id="Gradient_eld4y"]
 offsets = PackedFloat32Array(0, 0.537688, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.592157, 0, 0, 0, 0)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.470588, 0, 0, 0, 0)
 
 [node name="Scorch Line" type="Line2D"]
 top_level = true

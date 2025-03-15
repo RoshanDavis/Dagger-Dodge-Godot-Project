@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbb6mlbuk2rlp"]
+
+[ext_resource type="Texture2D" uid="uid://bwh84mtshl5hi" path="res://assets/environment/scorch_01.png" id="1_mgc2q"]
+
+[node name="Ice Explosion Mark" type="Sprite2D"]
+modulate = Color(0.462745, 0.862745, 1, 0.745098)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_mgc2q")

@@ -17,8 +17,8 @@ radius = 26.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_tcxtc")
-health = 1000
-powerup_speed_multiplier = 10
+health = 100
+powerup_speed_multiplier = 4
 powerup_recoil_multiplier = 3
 
 [node name="Joystick" type="Node2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=22 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_2pfyb"]
 [ext_resource type="Texture2D" uid="uid://b0pgg23cv3mcp" path="res://assets/environment/Grass BW.png" id="2_baea2"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dwijbc5i47ycw" path="res://assets/environment/dash/06.png" id="14_43uxu"]
 [ext_resource type="Script" path="res://scripts/high_speed_effect.gd" id="15_l6oye"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player/player.tscn" id="16_s4xmy"]
-[ext_resource type="PackedScene" uid="uid://c7yyrgxayefla" path="res://scenes/special orb/special_orb.tscn" id="17_ca01b"]
 
 [sub_resource type="Animation" id="Animation_oqw3s"]
 length = 0.001
@@ -85,6 +84,14 @@ animations = [{
 [node name="Game" type="Node"]
 script = ExtResource("1_2pfyb")
 
+[node name="UI" type="Node" parent="."]
+
+[node name="Start Menu" parent="UI" instance=ExtResource("6_fof1k")]
+
+[node name="Gameplay UI" parent="UI" instance=ExtResource("7_8cau3")]
+unique_name_in_owner = true
+visible = false
+
 [node name="Biome" type="Sprite2D" parent="."]
 modulate = Color(0.403922, 0.768627, 0.282353, 1)
 texture_repeat = 2
@@ -120,16 +127,6 @@ position = Vector2(270, 480)
 rotation = -3.14159
 collision_layer = 3
 
-[node name="Environment" type="Node" parent="."]
-
-[node name="UI" type="Node" parent="."]
-
-[node name="Start Menu" parent="UI" instance=ExtResource("6_fof1k")]
-
-[node name="Gameplay UI" parent="UI" instance=ExtResource("7_8cau3")]
-unique_name_in_owner = true
-visible = false
-
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(270, 480)
 zoom = Vector2(1.75, 1.75)
@@ -160,6 +157,8 @@ wait_time = 7.0
 [node name="Marks" type="Node" parent="."]
 script = ExtResource("9_m2ngy")
 
+[node name="Environment" type="Node" parent="."]
+
 [node name="Daggers" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
@@ -169,6 +168,7 @@ script = ExtResource("9_m2ngy")
 [node name="VFX" type="Node" parent="."]
 
 [node name="High Speed Effect" type="AnimatedSprite2D" parent="VFX"]
+visible = false
 scale = Vector2(-0.281, 0.1)
 sprite_frames = SubResource("SpriteFrames_juic0")
 animation = &"High Speed Effect"
@@ -180,9 +180,6 @@ script = ExtResource("15_l6oye")
 [node name="Player" parent="." instance=ExtResource("16_s4xmy")]
 unique_name_in_owner = true
 position = Vector2(270, 480)
-
-[node name="Special Orb" parent="." instance=ExtResource("17_ca01b")]
-position = Vector2(279, 365)
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/Blue Orb Spawn Timer" to="Spawner" method="_on_blue_orb_spawn_timer_timeout"]

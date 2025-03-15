@@ -25,10 +25,10 @@ scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_nel0q")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnl0w"]
-radius = 170.95
+radius = 105.019
 
 [node name="Fireball Power Up" type="Area2D" groups=["safe damage"]]
-position = Vector2(0, 51)
+position = Vector2(0, 70)
 script = ExtResource("1_hlwnn")
 
 [node name="Fire Particles" parent="." instance=ExtResource("1_3pe0r")]

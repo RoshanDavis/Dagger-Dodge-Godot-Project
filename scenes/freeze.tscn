@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq8dk1xby1lvt"]
+
+[ext_resource type="Script" path="res://scripts/freeze.gd" id="1_4m1se"]
+[ext_resource type="Texture2D" uid="uid://c0dauk5kl035v" path="res://assets/environment/iceBlock.png" id="2_g03n8"]
+
+[node name="Freeze" type="Node2D"]
+modulate = Color(1, 1, 1, 0.627451)
+script = ExtResource("1_4m1se")
+freeze_time = 1.2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+pivot_offset = Vector2(35, 35)
+max_value = 1.0
+step = 0.01
+value = 0.5
+fill_mode = 8
+radial_initial_angle = 180.0
+texture_under = ExtResource("2_g03n8")
+texture_progress = ExtResource("2_g03n8")
+
+[node name="Freeze Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Freeze Timer" to="." method="_on_freeze_timer_timeout"]

@@ -145,7 +145,7 @@ radius = 87.4786
 
 [node name="Laser Enemy" type="Node2D"]
 script = ExtResource("1_yk7da")
-health = 5
+charge_time = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

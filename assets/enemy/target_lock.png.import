@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2eu2rgrcv7a5"
-path="res://.godot/imported/bomb.png-153d3f0f16e0a329b4eec80d2f988f8e.ctex"
+uid="uid://bd1kcc6npj40i"
+path="res://.godot/imported/target_lock.png-781be514c8bf2b566844e9ac8147e5ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/bomb.png"
-dest_files=["res://.godot/imported/bomb.png-153d3f0f16e0a329b4eec80d2f988f8e.ctex"]
+source_file="res://assets/enemy/target_lock.png"
+dest_files=["res://.godot/imported/target_lock.png-781be514c8bf2b566844e9ac8147e5ff.ctex"]
 
 [params]
 

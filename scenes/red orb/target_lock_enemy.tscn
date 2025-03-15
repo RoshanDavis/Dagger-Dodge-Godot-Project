@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx5gs2kemh0u3"]
+
+[ext_resource type="Script" path="res://scripts/target_lock_enemy.gd" id="1_2bat6"]
+[ext_resource type="Texture2D" uid="uid://bd1kcc6npj40i" path="res://assets/enemy/target_lock.png" id="1_jjbqv"]
+
+[node name="Target Lock Enemy" type="Node2D"]
+script = ExtResource("1_2bat6")
+color = Array[Color]([Color(0.911621, 0.0672538, 4.81307e-07, 1), Color(6.44952e-06, 0.584029, 0.793683, 1)])
+
+[node name="TargetLock" type="Sprite2D" parent="."]
+texture = ExtResource("1_jjbqv")
+
+[node name="Charge Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Charge Timer" to="." method="_on_charge_timer_timeout"]

@@ -19,15 +19,14 @@ func charge_laser():
 	tween = create_tween().set_parallel(true)
 	tween.tween_property(laser_source, "modulate:a", 1, charge_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.tween_property(laser_source, "scale", Vector2(1,1), charge_time).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
-	
+	await tween.finished
 
 func _on_laser_firing_finished():
 	tween = create_tween().set_parallel(true)
-	tween.tween_property(laser_source, "modulate:a", 0, 2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	tween.tween_property(laser_source, "scale", Vector2(0.5,0.5), 2).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
-	await get_tree().create_timer(charge_time).timeout # decharge time
+	tween.tween_property(laser_source, "modulate:a", 0, charge_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.tween_property(laser_source, "scale", Vector2(0.5,0.5), charge_time).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
 	charge_laser()
-	await get_tree().create_timer(charge_time).timeout # charge time
 	$Laser.start_laser()
 	
 func take_damage(value):

@@ -17,11 +17,11 @@ shader_parameter/Hit_Texture = ExtResource("4_lpbwx")
 scale = Vector2(1.2, 1.2)
 
 [node name="layer 1" type="Sprite2D" parent="."]
-modulate = Color(0, 0.247059, 0.352941, 0.670588)
+modulate = Color(9.62615e-07, 0.455609, 0.634595, 0.670588)
 material = SubResource("ShaderMaterial_y74ut")
 texture = ExtResource("3_vfdu1")
 
 [node name="layer 2" type="Sprite2D" parent="."]
-modulate = Color(0, 0.247059, 0.352941, 0.670588)
+modulate = Color(9.62615e-07, 0.455609, 0.634595, 0.670588)
 material = SubResource("ShaderMaterial_q5dep")
 texture = ExtResource("3_vfdu1")
