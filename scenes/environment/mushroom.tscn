@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://blhyr7hytbbn6"]
+
+[ext_resource type="Script" path="res://scripts/mushroom.gd" id="1_a7k3v"]
+[ext_resource type="Texture2D" uid="uid://bac2sjl2ewj2g" path="res://assets/environment/plants/mushroom.png" id="2_6ebwq"]
+[ext_resource type="Texture2D" uid="uid://cvd3wfcuagjrg" path="res://assets/environment/plants/mushroom 2.png" id="3_ytw6t"]
+[ext_resource type="Texture2D" uid="uid://ddnkhgctwul65" path="res://assets/environment/plants/mushroom 3.png" id="4_5wdsq"]
+[ext_resource type="Texture2D" uid="uid://y1e0uwwr7gpa" path="res://assets/environment/plants/mushroom stem.png" id="5_vfqs1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bomu"]
+size = Vector2(72, 78)
+
+[sub_resource type="Curve" id="Curve_by4vt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.180905, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_q5kla"]
+curve = SubResource("Curve_by4vt")
+
+[sub_resource type="Curve" id="Curve_wadwi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cu6a7"]
+curve = SubResource("Curve_wadwi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kk8gw"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_cu6a7")
+alpha_curve = SubResource("CurveTexture_q5kla")
+
+[node name="Mushroom" type="Area2D"]
+script = ExtResource("1_a7k3v")
+mushroom_textures = Array[Texture2D]([ExtResource("2_6ebwq"), ExtResource("3_ytw6t"), ExtResource("4_5wdsq")])
+
+[node name="Mushroom" type="Sprite2D" parent="."]
+texture = ExtResource("2_6ebwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4, 5)
+shape = SubResource("RectangleShape2D_5bomu")
+
+[node name="Mushroom Explosion" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_kk8gw")
+texture = ExtResource("5_vfqs1")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="Mushroom Explosion" to="." method="_on_mushroom_explosion_finished"]

@@ -6,9 +6,14 @@ extends Sprite2D
 
 # grassland
 @onready var grassland_bush = preload("res://scenes/environment/grassland_bush.tscn")
+@onready var grassland_rock = preload("res://scenes/environment/grassland_rock.tscn")
+@onready var flower = preload("res://scenes/environment/flower.tscn")
+@onready var grassland_berry_bush = preload("res://scenes/environment/grassland_berry_bush.tscn")
 
 # mudland
 @onready var mudland_bush = preload("res://scenes/environment/mudland_bush.tscn")
+@onready var mudland_rock = preload("res://scenes/environment/mudland_rock.tscn")
+@onready var mushroom = preload("res://scenes/environment/mushroom.tscn")
 
 var origin :Vector2 = Vector2(-250,-450)
 var end :Vector2 = Vector2(250,450)
@@ -51,10 +56,16 @@ func biome_generation():
 	match biomes.pick_random():
 		"grassland":
 			modulate = grassland_colors.pick_random()
-			spawn_items(grassland_bush,population)
+			spawn_items(grassland_rock, population * 0.5)
+			spawn_items(flower, population * 2)
+			spawn_items(grassland_bush, population)
+			spawn_items(grassland_berry_bush, population * randi_range(1,5) * 0.1)
+
 		"mudland":
 			modulate = mudland_colors.pick_random()
-			spawn_items(mudland_bush,population)
+			spawn_items(mudland_rock, population * 2)
+			spawn_items(mushroom, population)
+			spawn_items(mudland_bush, population)
 	
 
 func population_calc()->int:

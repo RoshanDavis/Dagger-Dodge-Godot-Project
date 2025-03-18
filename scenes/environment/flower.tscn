@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://covningqlawui"]
+
+[ext_resource type="Texture2D" uid="uid://cfuqd7eu1atao" path="res://assets/environment/plants/flower.png" id="1_536g8"]
+[ext_resource type="Script" path="res://scripts/flower.gd" id="2_ae02b"]
+[ext_resource type="Texture2D" uid="uid://dgkak2kaxp7nd" path="res://assets/environment/plants/petal.png" id="3_bk4ox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56m7u"]
+radius = 56.7539
+
+[sub_resource type="Curve" id="Curve_0rttf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.516483), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lbamg"]
+curve = SubResource("Curve_0rttf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3wb4c"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_lbamg")
+
+[node name="Flower" type="Area2D"]
+modulate = Color(1, 0.655509, 0.924446, 1)
+script = ExtResource("2_ae02b")
+flower_colors = Array[Color]([Color(1, 0.654902, 0.92549, 1), Color(0.909804, 1, 0, 1), Color(0.993866, 0.452861, 0.430855, 1), Color(0.824803, 0.55021, 1, 1), Color(0.151396, 0.633797, 0.814211, 1)])
+
+[node name="Flower" type="Sprite2D" parent="."]
+texture = ExtResource("1_536g8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_56m7u")
+
+[node name="Flower Explosion" type="GPUParticles2D" parent="."]
+scale = Vector2(0.7, 0.7)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_3wb4c")
+texture = ExtResource("3_bk4ox")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="Flower Explosion" to="." method="_on_flower_explosion_finished"]

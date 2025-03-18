@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var tween :Tween
 
 func set_max_health(health):
 	$"Heart Health Indicator".set_max_health(health)
@@ -7,8 +8,26 @@ func set_max_health(health):
 func set_current_health(health):
 	$"Heart Health Indicator".set_current_health(health)
 	
-func set_score(score):
+func set_score(score, value_added):
 	$Score/Label.text = str(score)
+	scale_score_label(value_added * 0.2)
+	rotate_score_label()
+	scale_score_texture(value_added * 0.05)
+
+func scale_score_label(scale_factor):
+	tween = create_tween()
+	tween.tween_property($Score/Label,"scale",Vector2(scale_factor, scale_factor),0.1).as_relative().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($Score/Label,"scale",Vector2(1,1),1)
+	
+func scale_score_texture(scale_factor):
+	tween = create_tween()
+	tween.tween_property($Score/TextureRect,"scale",Vector2(scale_factor, scale_factor),0.1).as_relative().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($Score/TextureRect,"scale",Vector2(1,1),1)
+
+func rotate_score_label():
+	tween = create_tween()
+	tween.tween_property($Score/Label,"rotation_degrees",randi_range(-7,7),0.1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($Score/Label,"rotation_degrees",0,1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT_IN)
 
 func show_game_over_menu():
 	$"Game Over Menu".set_score()

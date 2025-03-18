@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://fqjtkqk4yqpd"]
+
+[ext_resource type="Script" path="res://scripts/rock.gd" id="1_fcgr8"]
+[ext_resource type="Texture2D" uid="uid://c0mkrfppkd6ak" path="res://assets/environment/rocks/rock 1.png" id="2_a4c3c"]
+[ext_resource type="Texture2D" uid="uid://b72pw0w8cynht" path="res://assets/environment/rocks/rock 2.png" id="3_3up5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyvom"]
+radius = 53.0377
+
+[sub_resource type="Curve" id="Curve_n0xpv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.497487, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mlm2b"]
+curve = SubResource("Curve_n0xpv")
+
+[sub_resource type="Curve" id="Curve_w7kme"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bhcym"]
+curve = SubResource("Curve_w7kme")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f7q7v"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_bhcym")
+alpha_curve = SubResource("CurveTexture_mlm2b")
+
+[node name="Grassland Rock" type="Area2D"]
+script = ExtResource("1_fcgr8")
+rock_colors = Array[Color]([Color(0.309033, 0.451429, 0.403405, 1), Color(0.377447, 0.378324, 0.449785, 1)])
+rock_textures = Array[Texture2D]([ExtResource("2_a4c3c"), ExtResource("3_3up5g")])
+
+[node name="Rock" type="Sprite2D" parent="."]
+texture = ExtResource("2_a4c3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_fyvom")
+
+[node name="Rock Explosion" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_f7q7v")
+texture = ExtResource("3_3up5g")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="Rock Explosion" to="." method="_on_rock_explosion_finished"]

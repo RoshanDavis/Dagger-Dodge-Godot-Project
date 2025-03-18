@@ -8,7 +8,7 @@ func _ready():
 
 func add_score(value):
 	score += value 
-	%"Gameplay UI".set_score(score)
+	%"Gameplay UI".set_score(score, value)
 	
 func game_over():
 	Engine.time_scale = 0

@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://byktvguhob423"]
+
+[ext_resource type="Script" path="res://scripts/bush.gd" id="1_6v0dp"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_8ip31"]
+[ext_resource type="Texture2D" uid="uid://c81nn3ay86lrk" path="res://assets/environment/plants/bush2.png" id="3_lco8k"]
+[ext_resource type="Texture2D" uid="uid://d3pnngrhx0uqe" path="res://assets/environment/plants/leaf.png" id="4_nqfmg"]
+[ext_resource type="Script" path="res://scripts/berries.gd" id="5_1tqkt"]
+[ext_resource type="Texture2D" uid="uid://bqprakrm88e8e" path="res://assets/environment/plants/berry.png" id="6_sp1rp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2alxu"]
+size = Vector2(79, 87)
+
+[sub_resource type="Curve" id="Curve_vj7tw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.516483), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_56pk1"]
+curve = SubResource("Curve_vj7tw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nne8a"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_56pk1")
+
+[node name="Grassland Bush" type="Area2D" groups=["environment"]]
+script = ExtResource("1_6v0dp")
+bush_colors = Array[Color]([Color(0.105882, 0.564706, 0.203922, 1), Color(0.290605, 0.706437, 3.85046e-07, 1)])
+bush_textures = Array[Texture2D]([ExtResource("2_8ip31"), ExtResource("3_lco8k")])
+
+[node name="Bush" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_lco8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_2alxu")
+
+[node name="Bush Explosion" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0.748772, 0.0815672, 1)
+scale = Vector2(0.7, 0.7)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_nne8a")
+texture = ExtResource("4_nqfmg")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[node name="Berries" type="Node2D" parent="." node_paths=PackedStringArray("berry_patterns")]
+script = ExtResource("5_1tqkt")
+berry_patterns = [NodePath("Pattern 1"), NodePath("Pattern 2"), NodePath("Pattern 3"), NodePath("Pattern 4")]
+berry_colors = Array[Color]([Color(0.999868, 0.324285, 0.259122, 1), Color(0.77154, 0.464107, 1, 1), Color(1, 0.520114, 0.223654, 1)])
+
+[node name="Pattern 1" type="Node2D" parent="Berries"]
+visible = false
+
+[node name="Berry" type="Sprite2D" parent="Berries/Pattern 1"]
+position = Vector2(-15, -8)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Berry2" type="Sprite2D" parent="Berries/Pattern 1"]
+position = Vector2(19, 11)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Pattern 2" type="Node2D" parent="Berries"]
+visible = false
+
+[node name="Berry" type="Sprite2D" parent="Berries/Pattern 2"]
+position = Vector2(-15, -8)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Berry2" type="Sprite2D" parent="Berries/Pattern 2"]
+position = Vector2(19, 11)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Berry3" type="Sprite2D" parent="Berries/Pattern 2"]
+position = Vector2(-5, 21)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Pattern 3" type="Node2D" parent="Berries"]
+visible = false
+
+[node name="Berry" type="Sprite2D" parent="Berries/Pattern 3"]
+position = Vector2(-19, 7)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Berry2" type="Sprite2D" parent="Berries/Pattern 3"]
+position = Vector2(11, -14)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Berry3" type="Sprite2D" parent="Berries/Pattern 3"]
+position = Vector2(14, 18)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Pattern 4" type="Node2D" parent="Berries"]
+visible = false
+
+[node name="Berry" type="Sprite2D" parent="Berries/Pattern 4"]
+position = Vector2(-16, -5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[node name="Berry2" type="Sprite2D" parent="Berries/Pattern 4"]
+position = Vector2(21, 15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_sp1rp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="Bush Explosion" to="." method="_on_bush_explosion_finished"]
