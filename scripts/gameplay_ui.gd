@@ -11,7 +11,7 @@ func set_current_health(health):
 func set_score(score, value_added):
 	$Score/Label.text = str(score)
 	scale_score_label(value_added * 0.2)
-	rotate_score_label()
+	#rotate_score_label()
 	scale_score_texture(value_added * 0.05)
 
 func scale_score_label(scale_factor):

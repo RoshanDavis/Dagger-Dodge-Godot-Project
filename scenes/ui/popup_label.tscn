@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnmmt6jlrpyrh"]
+
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="1_0uvji"]
+[ext_resource type="Script" path="res://scripts/popup_label.gd" id="2_m5pks"]
+
+[node name="Popup Label" type="Label"]
+offset_left = 270.0
+offset_top = 480.0
+offset_right = 333.0
+offset_bottom = 606.0
+theme = ExtResource("1_0uvji")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_m5pks")

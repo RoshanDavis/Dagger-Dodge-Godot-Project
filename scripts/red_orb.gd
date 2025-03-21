@@ -7,6 +7,7 @@ var enemy
 @onready var game = get_tree().get_root().get_node("Game")
 @onready var player = game.get_node("Player")
 @onready var explosion = preload("res://scenes/red orb/red_explosion.tscn")
+@onready var fireball = preload("res://scenes/red orb/mini_fireball.tscn")
 
 @export var powerup_sprites : Array[Sprite2D]
 @export var enemies :Array[PackedScene]
@@ -54,4 +55,12 @@ func powerup():
 			var explosionInstance = explosion.instantiate()
 			explosionInstance.position = global_position
 			get_tree().current_scene.get_node("VFX").call_deferred("add_child",explosionInstance)
-	
+		
+		1: # Mini Fireball Spread
+			for i in range(0, 360, 45):
+				var fireball_instance = fireball.instantiate()
+				fireball_instance.position = position
+				fireball_instance.rotation_degrees = i
+				get_tree().current_scene.get_node("Enemies").call_deferred("add_child",fireball_instance)
+			
+		

@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5qqkx2m8afps"]
+
+[ext_resource type="Texture2D" uid="uid://cn40emfty6dtn" path="res://assets/prototype-square.png" id="1_imthn"]
+[ext_resource type="Script" path="res://scripts/gold_saw_explosion.gd" id="1_y3ftq"]
+
+[sub_resource type="Curve" id="Curve_uwes0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.236181, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rjt0d"]
+curve = SubResource("Curve_uwes0")
+
+[sub_resource type="Gradient" id="Gradient_onujo"]
+colors = PackedColorArray(1.992, 2, 0.848, 1, 2, 0.518, 0.15, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f0xlf"]
+gradient = SubResource("Gradient_onujo")
+
+[sub_resource type="Curve" id="Curve_6kl82"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5dgux"]
+curve = SubResource("Curve_6kl82")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_knbju"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5dgux")
+color_ramp = SubResource("GradientTexture1D_f0xlf")
+alpha_curve = SubResource("CurveTexture_rjt0d")
+
+[node name="Gold Saw Explosion" type="GPUParticles2D" groups=["sfx"]]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_knbju")
+texture = ExtResource("1_imthn")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.75
+script = ExtResource("1_y3ftq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

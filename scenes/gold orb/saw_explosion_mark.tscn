@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ekbpm85wx6k"]
+
+[ext_resource type="Texture2D" uid="uid://baljaar3l1wmx" path="res://assets/environment/scorch_02.png" id="1_88i5s"]
+
+[node name="Saw Explosion Mark" type="Sprite2D"]
+modulate = Color(1, 1, 0.380392, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_88i5s")
