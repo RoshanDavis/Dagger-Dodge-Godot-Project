@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://fifto8opwn42"]
+[gd_scene load_steps=8 format=3 uid="uid://fifto8opwn42"]
 
 [ext_resource type="Texture2D" uid="uid://ban1xfaro6uql" path="res://assets/enemy/gold saw.png" id="1_7odhj"]
 [ext_resource type="Script" path="res://scripts/gold_saw.gd" id="1_nj27j"]
 [ext_resource type="PackedScene" uid="uid://xh1glnux7hf6" path="res://scenes/sfx/trail.tscn" id="2_iupw8"]
-[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="4_mmqro"]
 
 [sub_resource type="Curve" id="Curve_djv1q"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.52499, 0.0, 0, 0]
@@ -44,7 +43,5 @@ shape = SubResource("CircleShape2D_28db0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saw/Hitbox"]
 shape = SubResource("CircleShape2D_neigl")
-
-[node name="HealthComponent" parent="Saw" instance=ExtResource("4_mmqro")]
 
 [connection signal="area_entered" from="Saw/Hitbox" to="Saw" method="_on_hitbox_area_entered"]

@@ -7,6 +7,7 @@ var canMove = false
 var facingRight = true
 var invincible = false
 var powerup_invincibility = false
+var can_throw_dagger = true
 
 var mouse_points :Array[Vector2] = [Vector2(0,0), Vector2(0,0)]
 var is_initial_rotation = true
@@ -90,6 +91,8 @@ func movement(delta):
 		velocity = velocity.bounce(collision.get_normal())
 
 func spawn_dagger():
+	if not can_throw_dagger:
+		return
 	var daggerInstance = dagger.instantiate()
 	daggerInstance.position = $FirePoint.global_position
 	daggerInstance.rotation = rotation
@@ -166,7 +169,16 @@ func freeze2(freeze_time):
 	await get_tree().create_timer(freeze_time).timeout
 	canMove =  true
 	
-	
-	
+func _on_paintball_power_up_started():
+	powerup_invincibility = true
+	$CollisionShape2D.scale = Vector2(10, 10)
+	$Hitbox.scale = Vector2(7, 7)
+	can_throw_dagger = false
+
+func _on_paintball_power_up_done():
+	powerup_invincibility = false
+	$CollisionShape2D.scale = Vector2(1, 1)
+	$Hitbox.scale = Vector2(1, 1)
+	can_throw_dagger = true
 	
 	

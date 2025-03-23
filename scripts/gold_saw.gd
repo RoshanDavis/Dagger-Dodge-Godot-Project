@@ -11,6 +11,7 @@ var player
 @export var damage: int = 1
 
 func _ready():
+
 	if get_tree().current_scene.has_node("Player"):
 		player = get_tree().current_scene.get_node("Player")
 	look_at(player.global_position)

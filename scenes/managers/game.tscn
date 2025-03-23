@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dwijbc5i47ycw" path="res://assets/environment/dash/06.png" id="14_43uxu"]
 [ext_resource type="Script" path="res://scripts/high_speed_effect.gd" id="15_l6oye"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player/player.tscn" id="16_s4xmy"]
-[ext_resource type="PackedScene" uid="uid://d1obwockf1ssp" path="res://scenes/blue orb/blue_orb.tscn" id="19_eytxq"]
+[ext_resource type="PackedScene" uid="uid://c7yyrgxayefla" path="res://scenes/special orb/special_orb.tscn" id="19_wqg84"]
 
 [sub_resource type="Animation" id="Animation_oqw3s"]
 length = 0.001
@@ -188,8 +188,8 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_qmae5")
 
-[node name="Blue Orb" parent="." instance=ExtResource("19_eytxq")]
-position = Vector2(349, 415)
+[node name="Special Orb" parent="." instance=ExtResource("19_wqg84")]
+position = Vector2(394, 414)
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/Blue Orb Spawn Timer" to="Spawner" method="_on_blue_orb_spawn_timer_timeout"]

@@ -48,7 +48,7 @@ radius = 22.0227
 
 [node name="Special Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_hmrq7")
-powerup_sprites = [NodePath("Fireball")]
+powerup_sprites = [NodePath("Fireball"), NodePath("Paintball")]
 
 [node name="Glow Effect" type="GPUParticles2D" parent="."]
 material = SubResource("ShaderMaterial_m65yg")
@@ -92,6 +92,12 @@ one_shot = true
 autostart = true
 
 [node name="Fireball" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("7_ygm0e")
+
+[node name="Paintball" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("7_ygm0e")
 
