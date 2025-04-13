@@ -8,8 +8,7 @@ radius = 248.453
 
 [node name="Paint Explosions Power Up" type="Area2D" groups=["safe damage"]]
 modulate = Color(0.835294, 0, 1, 1)
-position = Vector2(-2, -3)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_h3q4o")
 paint_colors = Array[Color]([Color(0, 0.676216, 0.764561, 1), Color(0.994566, 0.368995, 6.68055e-05, 1), Color(0.900967, 0.00103423, 0.954913, 1), Color(0, 0.821409, 0.151496, 1), Color(1, 1, 0, 1), Color(0.915856, 0.238494, 0, 1), Color(0.505674, 0.000684997, 0.609357, 1)])
 

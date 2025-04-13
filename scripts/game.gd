@@ -14,6 +14,7 @@ func game_over():
 	Engine.time_scale = 0
 	AudioManager.game_over.play()
 	%"Gameplay UI".show_game_over_menu()
+	GameSave.save_score_data(score)
 	
 func restart():
 	Engine.time_scale = 1

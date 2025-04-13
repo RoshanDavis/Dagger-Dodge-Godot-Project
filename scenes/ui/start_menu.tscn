@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="3_ky14d"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="3_lnid6"]
 [ext_resource type="Texture2D" uid="uid://crcxwqg4kgycp" path="res://assets/ui/play icon.png" id="3_y8u7f"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="4_rtow4"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="4_rtow4"]
 [ext_resource type="Texture2D" uid="uid://b0u46iw3pl3jj" path="res://assets/ui/daggers icon.png" id="4_s8mgm"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_vukbj"]
 [ext_resource type="Texture2D" uid="uid://qlge7kqetf1k" path="res://assets/ui/shopping_cart.png" id="5_4jpu8"]
@@ -19,7 +19,7 @@ shader_parameter/Hit_Texture = ExtResource("4_rtow4")
 [node name="Start Menu" type="CanvasLayer" groups=["ui"]]
 script = ExtResource("1_oj5pr")
 
-[node name="Score" type="Control" parent="."]
+[node name="Total Orbs" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 50.0
@@ -27,17 +27,17 @@ offset_top = 40.0
 offset_right = 50.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Score"]
+[node name="TextureRect" type="TextureRect" parent="Total Orbs"]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
-[node name="Prototype-circle" type="Sprite2D" parent="Score/TextureRect"]
+[node name="Prototype-circle" type="Sprite2D" parent="Total Orbs/TextureRect"]
 material = SubResource("ShaderMaterial_6y8d1")
 position = Vector2(-19, 25)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_vukbj")
 
-[node name="Label" type="Label" parent="Score"]
+[node name="Total Orbs" type="Label" parent="Total Orbs"]
 layout_mode = 2
 offset_left = 9.0
 offset_top = 3.0
@@ -73,7 +73,7 @@ position = Vector2(-34, 25)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("6_hu8go")
 
-[node name="Label" type="Label" parent="High Score"]
+[node name="High Score" type="Label" parent="High Score"]
 layout_mode = 2
 theme = ExtResource("3_lnid6")
 theme_override_font_sizes/font_size = 34

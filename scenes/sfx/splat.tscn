@@ -1,0 +1,13 @@
+[gd_scene load_steps=7 format=3 uid="uid://d25itjme4njou"]
+
+[ext_resource type="Texture2D" uid="uid://br5u3xj8jkmxg" path="res://assets/environment/splats/splat00.png" id="1_lm2hg"]
+[ext_resource type="Script" path="res://scripts/splat.gd" id="2_w5slw"]
+[ext_resource type="Texture2D" uid="uid://mbma21kpjt70" path="res://assets/environment/splats/splat01.png" id="3_ullti"]
+[ext_resource type="Texture2D" uid="uid://c8lnv1nnmeapj" path="res://assets/environment/splats/splat02.png" id="4_fbirj"]
+[ext_resource type="Texture2D" uid="uid://dpo4yrjg3xde8" path="res://assets/environment/splats/splat03.png" id="5_ewelk"]
+[ext_resource type="Texture2D" uid="uid://bvd73ka2dmppa" path="res://assets/environment/splats/splat04.png" id="6_5pwqd"]
+
+[node name="Splat" type="Sprite2D"]
+texture = ExtResource("1_lm2hg")
+script = ExtResource("2_w5slw")
+splats = Array[Texture2D]([ExtResource("1_lm2hg"), ExtResource("3_ullti"), ExtResource("4_fbirj"), ExtResource("5_ewelk"), ExtResource("6_5pwqd")])

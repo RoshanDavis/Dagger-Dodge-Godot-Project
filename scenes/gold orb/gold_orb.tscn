@@ -1,15 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://qlc0ewgx7a0r"]
+[gd_scene load_steps=22 format=3 uid="uid://qlc0ewgx7a0r"]
 
 [ext_resource type="Script" path="res://scripts/gold_orb.gd" id="1_e44wt"]
 [ext_resource type="PackedScene" uid="uid://cnphw58bbyjmr" path="res://scenes/gold orb/bomb.tscn" id="3_txj3h"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_e3xtq"]
 [ext_resource type="PackedScene" uid="uid://fifto8opwn42" path="res://scenes/gold orb/gold_saw.tscn" id="4_n6vfi"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_vudhu"]
+[ext_resource type="PackedScene" uid="uid://jwtysg53vclc" path="res://scenes/gold orb/gold_spikes.tscn" id="4_v0kbd"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="5_vudhu"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_v01aq"]
 [ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="7_y744e"]
 [ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="8_n3cys"]
 [ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="9_44vjn"]
 [ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="10_t0hm1"]
+[ext_resource type="Texture2D" uid="uid://b7j3vqou11pqt" path="res://assets/environment/Slash symmetrical.png" id="11_goclg"]
+[ext_resource type="Texture2D" uid="uid://beluumu6psuat" path="res://assets/ui/arrow 2dir.png" id="12_q31pq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
 shader = ExtResource("4_e3xtq")
@@ -47,8 +50,10 @@ radius = 22.0227
 
 [node name="Gold Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_e44wt")
-powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion")]
-enemies = Array[PackedScene]([ExtResource("3_txj3h"), ExtResource("4_n6vfi")])
+powerup_sprites = [NodePath("Heart"), NodePath("Shield"), NodePath("Explosion"), NodePath("Slash"), NodePath("Mini Gold Balls Horizontal"), NodePath("Mini Gold Balls Vertical")]
+enemies = Array[PackedScene]([ExtResource("3_txj3h"), ExtResource("4_n6vfi"), ExtResource("4_v0kbd")])
+splat_color = Color(0.960784, 0.745098, 0, 1)
+slash_color = Color(1, 1, 0.0431373, 1)
 
 [node name="BG" type="Sprite2D" parent="."]
 modulate = Color(1, 0.941176, 0.560784, 1)
@@ -114,6 +119,26 @@ texture = ExtResource("9_44vjn")
 visible = false
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("10_t0hm1")
+
+[node name="Slash" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0.0431373, 1)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("11_goclg")
+
+[node name="Mini Gold Balls Horizontal" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.596078, 0, 1)
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_q31pq")
+
+[node name="Mini Gold Balls Vertical" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.596078, 0, 1)
+rotation = -0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_q31pq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

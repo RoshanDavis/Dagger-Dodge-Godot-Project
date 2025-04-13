@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://m8wfmwaqox8e"]
+
+[ext_resource type="Texture2D" uid="uid://baljaar3l1wmx" path="res://assets/environment/scorch_02.png" id="1_b5xuc"]
+
+[node name="Explosion Mark" type="Sprite2D"]
+modulate = Color(1, 1, 0.380392, 1)
+texture = ExtResource("1_b5xuc")

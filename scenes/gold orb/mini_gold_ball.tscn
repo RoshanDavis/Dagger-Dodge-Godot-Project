@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc7uvrxq8n4s"]
+
+[ext_resource type="Script" path="res://scripts/mini_gold_ball.gd" id="1_b4cm5"]
+[ext_resource type="PackedScene" uid="uid://b50vyjx22dd0u" path="res://scenes/sfx/fire_particles.tscn" id="2_atwso"]
+
+[sub_resource type="Gradient" id="Gradient_vhf4o"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.0877193, 0.807018, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.717647, 0, 1, 0.717, 0.332471, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nel0q"]
+gradient = SubResource("Gradient_vhf4o")
+width = 10
+
+[sub_resource type="Curve" id="Curve_2nu3m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eifot"]
+curve = SubResource("Curve_2nu3m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a85wy"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_eifot")
+color_ramp = SubResource("GradientTexture1D_nel0q")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5i0v"]
+radius = 81.0432
+
+[node name="Mini Gold Ball" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_b4cm5")
+
+[node name="Gold Particles" parent="." instance=ExtResource("2_atwso")]
+position = Vector2(49, 0)
+rotation = -1.5708
+process_material = SubResource("ParticleProcessMaterial_a85wy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_f5i0v")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

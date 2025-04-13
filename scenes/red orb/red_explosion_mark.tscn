@@ -2,14 +2,14 @@
 
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="1_4dk0x"]
 [ext_resource type="Texture2D" uid="uid://0x8q362o0cux" path="res://assets/textures/smoke_04.png" id="3_a8oll"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="4_gcbdk"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="4_gcbdk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mi87"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_545vp"]
 shader = ExtResource("1_4dk0x")
 shader_parameter/Hit_Texture = ExtResource("4_gcbdk")
 
 [node name="Red Explosion Mark" type="Sprite2D"]
 modulate = Color(1, 0.28, 0.28, 1)
-material = SubResource("ShaderMaterial_4mi87")
+material = SubResource("ShaderMaterial_545vp")
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("3_a8oll")

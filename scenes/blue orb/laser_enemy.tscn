@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/laser_enemy.gd" id="1_yk7da"]
 [ext_resource type="Texture2D" uid="uid://cghtt15fkg4sw" path="res://assets/enemy/gear.png" id="2_whqa4"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_pgq7c"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_123d8"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="5_123d8"]
 [ext_resource type="Texture2D" uid="uid://glkedh7nbsch" path="res://assets/textures/trace_01.png" id="7_j2565"]
 [ext_resource type="PackedScene" uid="uid://cvbx6g5o8r7a2" path="res://scenes/blue orb/blue_laser.tscn" id="8_qf2tp"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="8_rrhwm"]

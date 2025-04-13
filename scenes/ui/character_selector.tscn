@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b8cgvpsr33hmd"]
+
+[node name="Character Selector" type="ScrollContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Slide 1" type="TextureRect" parent="CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2

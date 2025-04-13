@@ -171,9 +171,13 @@ func freeze2(freeze_time):
 	
 func _on_paintball_power_up_started():
 	powerup_invincibility = true
-	$CollisionShape2D.scale = Vector2(10, 10)
-	$Hitbox.scale = Vector2(7, 7)
+	$CollisionShape2D.scale = Vector2(5, 5)
+	$Hitbox.scale = Vector2(5, 5)
 	can_throw_dagger = false
+	
+	speed *= powerup_speed_multiplier
+	recoilSpeed *= powerup_recoil_multiplier
+	velocity *= powerup_speed_multiplier
 
 func _on_paintball_power_up_done():
 	powerup_invincibility = false
@@ -181,4 +185,5 @@ func _on_paintball_power_up_done():
 	$Hitbox.scale = Vector2(1, 1)
 	can_throw_dagger = true
 	
-	
+	speed /= powerup_speed_multiplier
+	recoilSpeed /= powerup_recoil_multiplier

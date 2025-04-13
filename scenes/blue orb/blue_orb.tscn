@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dxvtiw3f3w3sx" path="res://scenes/blue orb/laser_enemy.tscn" id="2_g4g85"]
 [ext_resource type="PackedScene" uid="uid://60aocnu06g8n" path="res://scenes/blue orb/jellyfish.tscn" id="3_xvhqj"]
 [ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="4_3gba2"]
-[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/textures/soft circle.PNG" id="5_544aj"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="5_544aj"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="6_34stu"]
 [ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="7_o2h5v"]
-[ext_resource type="Texture2D" uid="uid://cmpyo6hjhthd4" path="res://assets/environment/heart.png" id="8_ouoel"]
-[ext_resource type="Texture2D" uid="uid://c001ndlu6isb" path="res://assets/environment/shield icon.png" id="9_di02q"]
+[ext_resource type="Texture2D" uid="uid://b7j3vqou11pqt" path="res://assets/environment/Slash symmetrical.png" id="9_cbesh"]
+[ext_resource type="Texture2D" uid="uid://cr7tr6vpvfnrm" path="res://assets/ui/arrows 2.png" id="10_fdh0e"]
 [ext_resource type="Texture2D" uid="uid://djd72cge4f4n1" path="res://assets/environment/explosion.png" id="10_ku7bg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_akh6t"]
@@ -47,8 +47,10 @@ radius = 22.0227
 
 [node name="Blue Orb" type="Area2D" node_paths=PackedStringArray("powerup_sprites") groups=["orb"]]
 script = ExtResource("1_qj31d")
-powerup_sprites = [NodePath("Explosion")]
+powerup_sprites = [NodePath("Explosion"), NodePath("Slash"), NodePath("Mini Waterball")]
 enemies = Array[PackedScene]([ExtResource("2_g4g85"), ExtResource("3_xvhqj")])
+splat_color = Color(0, 0.278431, 0.670588, 1)
+slash_color = Color(0, 1, 1, 1)
 
 [node name="BG" type="Sprite2D" parent="."]
 modulate = Color(0.490196, 0.686275, 1, 1)
@@ -90,30 +92,26 @@ visible = false
 shape = SubResource("CircleShape2D_4b7r8")
 
 [node name="Lifetime" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 autostart = true
-
-[node name="Heart" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_ouoel")
-
-[node name="Shield" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.1875, 0.213068)
-texture = ExtResource("6_34stu")
-
-[node name="ShieldIcon" type="Sprite2D" parent="Shield"]
-position = Vector2(1.52588e-05, 5.12)
-scale = Vector2(2.90909, 2.56)
-texture = ExtResource("9_di02q")
 
 [node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("10_ku7bg")
+
+[node name="Slash" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("9_cbesh")
+
+[node name="Mini Waterball" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_fdh0e")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

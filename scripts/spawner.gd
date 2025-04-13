@@ -11,8 +11,8 @@ var spawn_margin :Vector2 = Vector2(20,30)
 var canSpawn = false
 
 @export var progression_rate = 1
-@export var min_wait_time :Array[float] = [1.5, 2.5, 3.7] 
-@export var special_orb_spawn_time_range :Array[int] = [10, 20]
+@export var min_wait_time :Array[float] = [1.2, 2.3, 3.4] 
+@export var special_orb_spawn_time_range :Array[int] = [20, 50]
 
 func _ready():
 	_handle_screen_resize()
