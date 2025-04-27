@@ -1,17 +1,859 @@
-[gd_scene format=3 uid="uid://b8cgvpsr33hmd"]
+[gd_scene load_steps=25 format=3 uid="uid://b8cgvpsr33hmd"]
 
-[node name="Character Selector" type="ScrollContainer"]
-offset_right = 40.0
+[ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/GroundZero.png" id="1_chw3d"]
+[ext_resource type="Script" path="res://scripts/character_selector.gd" id="1_fhboh"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="2_5f5sa"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_r40oy"]
+[ext_resource type="Texture2D" uid="uid://7dkapdsxrwjt" path="res://assets/characters/DoubleorNothing.png" id="3_487kh"]
+[ext_resource type="Texture2D" uid="uid://cqn3dp00kcutg" path="res://assets/ui/arrow 1dir.png" id="3_gewq8"]
+[ext_resource type="Texture2D" uid="uid://dtu211c4nfron" path="res://assets/characters/SlipShade.png" id="4_mfqxl"]
+[ext_resource type="Texture2D" uid="uid://cnib3q3u8kkky" path="res://assets/characters/tank.png" id="5_igtn3"]
+[ext_resource type="Texture2D" uid="uid://camtmcddaovcp" path="res://assets/ui/locked.png" id="5_uacc3"]
+[ext_resource type="Texture2D" uid="uid://bfjas11y1nyj3" path="res://assets/ui/heart.png" id="6_1t0mu"]
+[ext_resource type="Texture2D" uid="uid://bsl1ajch0tvsy" path="res://assets/ui/speed.png" id="7_03ha2"]
+[ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="7_4s3ek"]
+[ext_resource type="Texture2D" uid="uid://c2term8ml3jel" path="res://assets/ui/timer.png" id="8_q6nft"]
+[ext_resource type="Texture2D" uid="uid://dis2qjediwrrv" path="res://assets/ui/return.png" id="9_sgby8"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="13_g11hv"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="14_3om7u"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="15_6bb8b"]
+[ext_resource type="FontFile" uid="uid://c6tjq1nrukid5" path="res://assets/fonts/Rye-Regular.ttf" id="16_vjdbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_456pj"]
+shader = ExtResource("13_g11hv")
+shader_parameter/Hit_Texture = ExtResource("14_3om7u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jflm"]
+shader = ExtResource("13_g11hv")
+shader_parameter/Hit_Texture = ExtResource("14_3om7u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbwpu"]
+bg_color = Color(1, 0.933333, 0, 0.239216)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.929412, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifak8"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.929412, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivatu"]
+bg_color = Color(1, 1, 1, 0.239216)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueqs4"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 10.0
+
+[node name="Character Selector" type="Control" node_paths=PackedStringArray("characters")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fhboh")
+character_names = Array[String](["GroundZero", "DoubleOrNothing", "SlipShade", "Tank"])
+characters = [NodePath("Ground Zero Character"), NodePath("Double or Nothing Character"), NodePath("Slip Shade Character"), NodePath("Tank Character")]
+character_costs = Array[int]([0, 10, 20, 30])
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.18136e-07, 0.200231, 0.00401538, 1)
+
+[node name="Bush" type="TextureRect" parent="."]
+modulate = Color(6.85863e-07, 0.329533, 0.00801974, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r40oy")
+stretch_mode = 6
+
+[node name="Total Orbs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 50.0
 offset_bottom = 40.0
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Total Orbs"]
+modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="Prototype-circle" type="Sprite2D" parent="Total Orbs/TextureRect"]
+material = SubResource("ShaderMaterial_456pj")
+position = Vector2(-19, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("15_6bb8b")
+
+[node name="Total Orbs" type="Label" parent="Total Orbs"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 33.0
+offset_bottom = 50.0
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="High Score" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 40.0
+offset_right = -19.0
+offset_bottom = 87.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="High Score"]
+modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer"]
-layout_mode = 2
+[node name="Prototype-circle2" type="Sprite2D" parent="High Score/TextureRect"]
+modulate = Color(1, 1, 1, 0.627451)
+material = SubResource("ShaderMaterial_456pj")
+position = Vector2(-34, 20)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("15_6bb8b")
 
-[node name="Slide 1" type="TextureRect" parent="CenterContainer/MarginContainer/HBoxContainer"]
+[node name="Prototype-circle" type="Sprite2D" parent="High Score/TextureRect"]
+position = Vector2(-34, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("7_4s3ek")
+
+[node name="High Score" type="Label" parent="High Score"]
 layout_mode = 2
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="Right Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+icon = ExtResource("3_gewq8")
+
+[node name="Left Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 78.0
+offset_top = -39.0
+offset_right = 156.0
+offset_bottom = 39.0
+grow_vertical = 2
+scale = Vector2(-1, 1)
+theme = ExtResource("2_5f5sa")
+icon = ExtResource("3_gewq8")
+
+[node name="Return Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -134.0
+offset_right = 85.0
+offset_bottom = -56.0
+grow_vertical = 0
+scale = Vector2(1.6, 1.6)
+theme = ExtResource("2_5f5sa")
+icon = ExtResource("9_sgby8")
+
+[node name="Ground Zero Character" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -155.0
+offset_right = 64.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="TextureRect" parent="Ground Zero Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_chw3d")
+
+[node name="Hearts" type="TextureRect" parent="Ground Zero Character"]
+modulate = Color(1, 0.12549, 0, 1)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 193.0
+offset_right = 132.0
+offset_bottom = 193.0
+
+[node name="Heart" type="Sprite2D" parent="Ground Zero Character/Hearts"]
+position = Vector2(15, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart2" type="Sprite2D" parent="Ground Zero Character/Hearts"]
+position = Vector2(65, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart3" type="Sprite2D" parent="Ground Zero Character/Hearts"]
+position = Vector2(115, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Speed" type="TextureRect" parent="Ground Zero Character"]
+modulate = Color(0, 0.684076, 0.993941, 1)
+layout_mode = 2
+offset_top = 252.0
+offset_right = 128.0
+offset_bottom = 252.0
+
+[node name="Speed" type="Sprite2D" parent="Ground Zero Character/Speed"]
+position = Vector2(66.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Slow Time" type="TextureRect" parent="Ground Zero Character"]
+modulate = Color(1, 0.698039, 0, 1)
+layout_mode = 2
+offset_left = 25.0
+offset_top = 314.0
+offset_right = 153.0
+offset_bottom = 314.0
+
+[node name="Slow Time" type="Sprite2D" parent="Ground Zero Character/Slow Time"]
+position = Vector2(40.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_q6nft")
+
+[node name="Name" type="Label" parent="Ground Zero Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -210.0
+offset_right = 235.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 70
+text = "Ground Zero"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Ground Zero Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -134.0
+offset_right = 235.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+text = "Just a normal dude"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Double or Nothing Character" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -155.0
+offset_right = 64.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="TextureRect" parent="Double or Nothing Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_487kh")
+
+[node name="Hearts" type="TextureRect" parent="Double or Nothing Character"]
+modulate = Color(1, 0.12549, 0, 1)
+layout_mode = 2
+offset_left = -6.0
+offset_top = 193.0
+offset_right = 122.0
+offset_bottom = 193.0
+
+[node name="Heart" type="Sprite2D" parent="Double or Nothing Character/Hearts"]
+position = Vector2(69, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Speed" type="TextureRect" parent="Double or Nothing Character"]
+modulate = Color(0, 0.684076, 0.993941, 1)
+layout_mode = 2
+offset_left = -10.0
+offset_top = 252.0
+offset_right = 118.0
+offset_bottom = 252.0
+
+[node name="Speed" type="Sprite2D" parent="Double or Nothing Character/Speed"]
+position = Vector2(47.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Speed2" type="Sprite2D" parent="Double or Nothing Character/Speed"]
+position = Vector2(98.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Slow Time" type="TextureRect" parent="Double or Nothing Character"]
+modulate = Color(1, 0.698039, 0, 1)
+layout_mode = 2
+offset_left = 14.0
+offset_top = 313.0
+offset_right = 142.0
+offset_bottom = 313.0
+
+[node name="Slow Time" type="Sprite2D" parent="Double or Nothing Character/Slow Time"]
+position = Vector2(48.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_q6nft")
+
+[node name="Name" type="Label" parent="Double or Nothing Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -210.0
+offset_right = 261.5
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 54
+text = "Double or Nothing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Double or Nothing Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -134.0
+offset_right = 235.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+text = "Orbs will double in value"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slip Shade Character" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -155.0
+offset_right = 64.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="TextureRect" parent="Slip Shade Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mfqxl")
+
+[node name="Hearts" type="TextureRect" parent="Slip Shade Character"]
+modulate = Color(1, 0.12549, 0, 1)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 193.0
+offset_right = 132.0
+offset_bottom = 193.0
+
+[node name="Heart" type="Sprite2D" parent="Slip Shade Character/Hearts"]
+position = Vector2(15, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart2" type="Sprite2D" parent="Slip Shade Character/Hearts"]
+position = Vector2(65, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart3" type="Sprite2D" parent="Slip Shade Character/Hearts"]
+position = Vector2(115, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Speed" type="TextureRect" parent="Slip Shade Character"]
+modulate = Color(0, 0.684076, 0.993941, 1)
+layout_mode = 2
+offset_top = 252.0
+offset_right = 128.0
+offset_bottom = 252.0
+
+[node name="Speed" type="Sprite2D" parent="Slip Shade Character/Speed"]
+position = Vector2(-7, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Speed2" type="Sprite2D" parent="Slip Shade Character/Speed"]
+position = Vector2(46, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Speed3" type="Sprite2D" parent="Slip Shade Character/Speed"]
+position = Vector2(98, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Speed4" type="Sprite2D" parent="Slip Shade Character/Speed"]
+position = Vector2(151, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Slow Time" type="TextureRect" parent="Slip Shade Character"]
+modulate = Color(1, 0.698039, 0, 1)
+layout_mode = 2
+offset_left = 25.0
+offset_top = 314.0
+offset_right = 153.0
+offset_bottom = 314.0
+
+[node name="Slow Time" type="Sprite2D" parent="Slip Shade Character/Slow Time"]
+position = Vector2(20.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_q6nft")
+
+[node name="Slow Time2" type="Sprite2D" parent="Slip Shade Character/Slow Time"]
+position = Vector2(68.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_q6nft")
+
+[node name="Name" type="Label" parent="Slip Shade Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -210.0
+offset_right = 235.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 70
+text = "Slip Shade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Slip Shade Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -134.0
+offset_right = 235.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+text = "Small chance to dodge attacks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tank Character" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -155.0
+offset_right = 64.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="TextureRect" parent="Tank Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_igtn3")
+
+[node name="Hearts" type="TextureRect" parent="Tank Character"]
+modulate = Color(1, 0.12549, 0, 1)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 193.0
+offset_right = 132.0
+offset_bottom = 193.0
+
+[node name="Heart" type="Sprite2D" parent="Tank Character/Hearts"]
+position = Vector2(15, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart2" type="Sprite2D" parent="Tank Character/Hearts"]
+position = Vector2(65, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart3" type="Sprite2D" parent="Tank Character/Hearts"]
+position = Vector2(115, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart4" type="Sprite2D" parent="Tank Character/Hearts"]
+position = Vector2(-33, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Heart5" type="Sprite2D" parent="Tank Character/Hearts"]
+position = Vector2(163, 16)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1t0mu")
+
+[node name="Speed" type="TextureRect" parent="Tank Character"]
+modulate = Color(0, 0.684076, 0.993941, 1)
+layout_mode = 2
+offset_top = 252.0
+offset_right = 128.0
+offset_bottom = 252.0
+
+[node name="Speed" type="Sprite2D" parent="Tank Character/Speed"]
+position = Vector2(44.5, 16.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Speed2" type="Sprite2D" parent="Tank Character/Speed"]
+position = Vector2(100, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_03ha2")
+
+[node name="Slow Time" type="TextureRect" parent="Tank Character"]
+modulate = Color(1, 0.698039, 0, 1)
+layout_mode = 2
+offset_left = 25.0
+offset_top = 314.0
+offset_right = 153.0
+offset_bottom = 314.0
+
+[node name="Slow Time" type="Sprite2D" parent="Tank Character/Slow Time"]
+position = Vector2(20, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_q6nft")
+
+[node name="Slow Time2" type="Sprite2D" parent="Tank Character/Slow Time"]
+position = Vector2(74, 17)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_q6nft")
+
+[node name="Name" type="Label" parent="Tank Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -210.0
+offset_right = 235.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 70
+text = "Tank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Tank Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -134.0
+offset_right = 235.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+text = "Small chance to block attacks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Locked" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lock" type="TextureRect" parent="Locked"]
+modulate = Color(0.758192, 0.758192, 0.758192, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("5_uacc3")
+expand_mode = 5
+
+[node name="Orb" type="TextureRect" parent="Locked"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 169.0
+offset_top = 270.0
+offset_right = 169.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Locked/Orb"]
+material = SubResource("ShaderMaterial_6jflm")
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("15_6bb8b")
+
+[node name="Orb2" type="TextureRect" parent="Locked"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = 267.0
+offset_right = -177.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Locked/Orb2"]
+material = SubResource("ShaderMaterial_6jflm")
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("15_6bb8b")
+
+[node name="Buy Button" type="Button" parent="Locked"]
+self_modulate = Color(1, 0.941176, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 226.0
+offset_right = 228.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("16_vjdbj")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_nbwpu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nbwpu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nbwpu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ifak8")
+text = "5000"
+
+[node name="Select Button" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 226.0
+offset_right = 113.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("16_vjdbj")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_ivatu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ivatu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ivatu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ueqs4")
+text = "SELECT"
+alignment = 0
+
+[node name="Selected" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = 230.0
+offset_right = 261.5
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5f5sa")
+theme_override_font_sizes/font_size = 45
+text = "Selected"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="button_up" from="Right Button" to="." method="_on_right_button_button_up"]
+[connection signal="button_up" from="Left Button" to="." method="_on_left_button_button_up"]
+[connection signal="button_up" from="Return Button" to="." method="_on_return_button_button_up"]
+[connection signal="button_up" from="Locked/Buy Button" to="." method="_on_buy_button_button_up"]
+[connection signal="button_up" from="Select Button" to="." method="_on_select_button_button_up"]

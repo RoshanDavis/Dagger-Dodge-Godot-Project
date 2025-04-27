@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3fassb2p38gs"]
+[gd_scene load_steps=7 format=3 uid="uid://c3fassb2p38gs"]
 
 [ext_resource type="Script" path="res://scripts/dagger.gd" id="1_kn5at"]
 [ext_resource type="PackedScene" uid="uid://b8kofxjnniq6b" path="res://scenes/sfx/hit_effect.tscn" id="2_54mlv"]
-[ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/dagger.png" id="3_eq2dd"]
-[ext_resource type="Shader" uid="uid://brtyvrekh086g" path="res://shaders/outline.tres" id="3_q086v"]
+[ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/KitchenKnife.png" id="3_eq2dd"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="4_1w76m"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvt71"]
-shader = ExtResource("3_q086v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hgd2"]
 size = Vector2(99, 6)
@@ -20,11 +16,6 @@ scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_kn5at")
 hit_effect = ExtResource("2_54mlv")
-
-[node name="Outline" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_gvt71")
-scale = Vector2(1.07, 1.3)
-texture = ExtResource("3_eq2dd")
 
 [node name="Dagger" type="Sprite2D" parent="."]
 texture = ExtResource("3_eq2dd")

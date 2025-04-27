@@ -185,3 +185,6 @@ icon_alignment = 1
 
 [connection signal="button_up" from="Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="Characters Button" to="." method="_on_characters_button_button_up"]
+[connection signal="button_up" from="Dagger Button" to="." method="_on_dagger_button_button_up"]
+[connection signal="button_up" from="Store Button" to="." method="_on_store_button_button_up"]
+[connection signal="button_up" from="Settings Button" to="." method="_on_settings_button_button_up"]

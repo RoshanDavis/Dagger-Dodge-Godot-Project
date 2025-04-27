@@ -14,14 +14,17 @@ var is_initial_rotation = true
 var initial_rotation_deadzone = 25
 var joystick_movement_deadzone = 200
 var final_joystick_speed = 1000
+var joystick_speed :float = 500
 
-@export var health = 5
-@export var recoilSpeed = 500
-@export var speed = 200
-@export var drag = 1
-@export var joystick_speed :float = 500
-@export var powerup_speed_multiplier = 3 # can not be 0
-@export var powerup_recoil_multiplier = 2 # can not be 0
+var health = 2
+var recoilSpeed = 500
+var speed = 200
+var drag = 1
+
+var powerup_speed_multiplier = 3 # can not be 0
+var powerup_recoil_multiplier = 2 # can not be 0
+
+@export var characters_textures :Array[Texture2D]
 
 @onready var slowmoController = $"Slow-Mo Controller"
 @onready var arrows = $Arrows
@@ -29,11 +32,45 @@ var final_joystick_speed = 1000
 func _ready():
 	velocity = Vector2(0,0)
 	dagger = preload("res://scenes/daggers/dagger.tscn")
+	initialize_player()
+	final_joystick_speed = joystick_speed/$"Slow-Mo Controller".slowmo_time_scale
+
+func initialize_player():
+	match GameSave.save_data["recent_character"]:
+		"GroundZero":
+			health = 3
+			recoilSpeed = 400
+			speed = 100
+			drag = 1
+			$Character.texture = characters_textures[0]
+			$"Slow-Mo Controller".slomo_time = 0.5
+		"DoubleOrNothing":
+			health = 1
+			recoilSpeed = 500
+			speed = 200
+			drag = 1
+			$Character.texture = characters_textures[1]
+			$"Slow-Mo Controller".slomo_time = 0.5
+		"SlipShade":
+			health = 3
+			recoilSpeed = 700
+			speed = 400
+			drag = 1
+			$Character.texture = characters_textures[2]
+			$"Slow-Mo Controller".slomo_time = 1
+		"Tank":
+			health = 5
+			recoilSpeed = 500
+			speed = 200
+			drag = 1
+			$Character.texture = characters_textures[3]
+			$"Slow-Mo Controller".slomo_time = 1
+			
 	$HealthComponent.set_initial_health(health)
 	%"Gameplay UI".set_max_health(health)
 	%"Gameplay UI".set_current_health(health)
-	final_joystick_speed = joystick_speed/$"Slow-Mo Controller".slowmo_time_scale
-	
+	#$"Slow-Mo Controller".set_initial_values()
+
 func _physics_process(delta):
 	rotate_player()
 	if canMove:
@@ -107,6 +144,12 @@ func take_damage(damage):
 	if has_shield:
 		shield_broken()
 		return 
+	if GameSave.save_data["recent_character"] == "SlipShade" and randf() < 0.3:
+		print_debug("Damage Dodged")
+		return
+	if GameSave.save_data["recent_character"] == "Tank" and randf() < 0.3:
+		print_debug("Damage Blocked")
+		return
 	AudioManager.player_hurt.play()
 	$HealthComponent.take_damage(damage)
 	%"Gameplay UI".set_current_health($HealthComponent.currentHealth)

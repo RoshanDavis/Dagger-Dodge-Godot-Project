@@ -19,3 +19,18 @@ func update_high_score():
 
 func update_total_orbs():
 	$"Total Orbs/Total Orbs".text = str(GameSave.save_data["total_orbs"])
+
+
+func _on_dagger_button_button_up():
+	pass # Replace with function body.
+
+
+func _on_store_button_button_up():
+	pass # Replace with function body.
+
+
+func _on_settings_button_button_up():
+	pass # Replace with function body.
+
+func _on_characters_button_button_up():
+	get_tree().change_scene_to_file("res://scenes/ui/character_selector.tscn")

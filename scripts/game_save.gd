@@ -5,11 +5,11 @@ const save_path = "user://savegame.data"
 var save_data :Dictionary = {
 	"high_score" : 0,
 	"total_orbs" : 0,
-	"current_character" : 0,
-	"current_dagger" : 0,
-	"characters_unlocked" : [],
-	"daggers_unlocked" : [],
-	"achievements_unlocked" : []
+	"recent_character" : "GroundZero",
+	"unlocked_characters" : ["GroundZero"],
+	"recent_dagger" : "RustBlade",
+	"unlocked_daggers" : ["RustBlade"],
+	"unlocked_achievements" :[]
 }
 
 func _ready():
@@ -41,7 +41,26 @@ func load_game_data():
 	
 	file.close()
 	
+func update_total_orbs(amount :int):
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
+	save_data["total_orbs"] = amount
 	
+	file.store_var(save_data)
+	file.close()
+
+func unlock_character(character :String):
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
+	save_data["unlocked_characters"].append(character)
 	
+	file.store_var(save_data)
+	file.close()
+
+func update_recent_character(character :String):
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	
+	save_data["recent_character"] = character
+	
+	file.store_var(save_data)
+	file.close()

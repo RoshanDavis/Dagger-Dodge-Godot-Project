@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=22 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_2pfyb"]
-[ext_resource type="Texture2D" uid="uid://b0pgg23cv3mcp" path="res://assets/environment/Grass BW.png" id="2_baea2"]
-[ext_resource type="Script" path="res://scripts/biome.gd" id="3_ky6os"]
+[ext_resource type="PackedScene" uid="uid://du7c2ynieo2px" path="res://scenes/environment/biome.tscn" id="2_3omxs"]
 [ext_resource type="Script" path="res://scripts/boundary.gd" id="4_bnhsf"]
 [ext_resource type="Script" path="res://scripts/pop_ups.gd" id="5_qmae5"]
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/environment/wall.tscn" id="5_ssti2"]
@@ -85,17 +84,7 @@ animations = [{
 [node name="Game" type="Node"]
 script = ExtResource("1_2pfyb")
 
-[node name="Biome" type="Sprite2D" parent="."]
-modulate = Color(0.403922, 0.768627, 0.282353, 1)
-texture_repeat = 2
-position = Vector2(270, 480)
-texture = ExtResource("2_baea2")
-region_enabled = true
-region_rect = Rect2(0, 0, 540, 960)
-script = ExtResource("3_ky6os")
-biomes = Array[String](["grassland", "mudland"])
-grassland_colors = Array[Color]([Color(0.192157, 0.376471, 0.2, 1), Color(0.266667, 0.466667, 0.254902, 1), Color(0.403922, 0.768627, 0.282353, 1)])
-mudland_colors = Array[Color]([Color(0.447059, 0.211765, 0.0666667, 1), Color(0.443137, 0.305882, 0.219608, 1), Color(0.603922, 0.396078, 0.0823529, 1)])
+[node name="Biome" parent="." instance=ExtResource("2_3omxs")]
 
 [node name="Boundary" type="Node2D" parent="." groups=["wall"]]
 position = Vector2(270, 480)

@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctyuky1aelg4h"]
+[gd_scene load_steps=13 format=3 uid="uid://ctyuky1aelg4h"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tcxtc"]
-[ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/player.png" id="2_7w57g"]
+[ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/GroundZero.png" id="2_7w57g"]
 [ext_resource type="Texture2D" uid="uid://xnxrr80m26mn" path="res://assets/ui/dagger.png" id="2_dcqrg"]
+[ext_resource type="Texture2D" uid="uid://7dkapdsxrwjt" path="res://assets/characters/DoubleorNothing.png" id="3_0rh0y"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="3_iga5a"]
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_netxk"]
+[ext_resource type="Texture2D" uid="uid://dtu211c4nfron" path="res://assets/characters/SlipShade.png" id="4_u6pki"]
+[ext_resource type="Texture2D" uid="uid://cnib3q3u8kkky" path="res://assets/characters/tank.png" id="5_l0c2b"]
 [ext_resource type="PackedScene" uid="uid://blksa1308p7xg" path="res://scenes/player/slow_mo_controller.tscn" id="6_2fax2"]
 [ext_resource type="Texture2D" uid="uid://d1wnoakt2ff03" path="res://assets/ui/joystick.png" id="7_j8ucc"]
 
@@ -17,6 +20,7 @@ radius = 26.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_tcxtc")
+characters_textures = Array[Texture2D]([ExtResource("2_7w57g"), ExtResource("3_0rh0y"), ExtResource("4_u6pki"), ExtResource("5_l0c2b")])
 
 [node name="Joystick" type="Node2D" parent="."]
 visible = false
@@ -41,7 +45,6 @@ texture = ExtResource("7_j8ucc")
 region_rect = Rect2(125, 31, 117, 202)
 
 [node name="Slow-Mo Controller" parent="." instance=ExtResource("6_2fax2")]
-slomo_time = 1
 
 [node name="Arrows" type="Node2D" parent="."]
 visible = false

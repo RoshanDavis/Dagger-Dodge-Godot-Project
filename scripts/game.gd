@@ -7,6 +7,8 @@ func _ready():
 	AudioManager.game_music.play()
 
 func add_score(value):
+	if GameSave.save_data["recent_character"] == "DoubleOrNothing":
+		value *= 2
 	score += value 
 	%"Gameplay UI".set_score(score, value)
 	
