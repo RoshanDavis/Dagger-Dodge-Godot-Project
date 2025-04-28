@@ -29,6 +29,7 @@ func _on_area_entered(area):
 		explode()
 
 func shake():
+	AudioManager.bush_shake.play()
 	tween = create_tween().parallel()
 	tween.tween_property(self,"position:x",2,0.1).as_relative()
 	tween.tween_property(self,"position:x",-3,0.1).as_relative()
@@ -36,6 +37,7 @@ func shake():
 	tween.tween_property(bush,"rotation_degrees",-2,0.1).as_relative()
 
 func explode():
+	AudioManager.bush_break.play()
 	$Bush.visible = false
 	if has_node("Berries"):
 		$Berries.visible = false

@@ -11,6 +11,7 @@ var tween: Tween
 @onready var scorch_line = preload("res://scenes/special orb/scorch_line.tscn")
 
 func _ready():
+	$Fire.play()
 	if get_parent().name == "Player":
 		started.connect(get_parent()._on_fireball_power_up_started)
 		done.connect(get_parent()._on_fireball_power_up_done)
@@ -31,6 +32,7 @@ func _on_area_entered(area):
 
 
 func _on_power_up_time_timeout():
+	$Fire.stop()
 	tween = create_tween()
 	tween.tween_property(self,"modulate:a",0,fade_out_time)
 	await get_tree().create_timer(fade_out_time).timeout

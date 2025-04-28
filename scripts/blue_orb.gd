@@ -46,6 +46,7 @@ func enemy_selector():
 	enemy = enemies[enemy_index]
 	
 func spawn_enemy():
+	AudioManager.orb_pop.play()
 	var enemyInstance = enemy.instantiate()
 	enemyInstance.position = position
 	get_tree().current_scene.get_node("Enemies").add_child(enemyInstance)

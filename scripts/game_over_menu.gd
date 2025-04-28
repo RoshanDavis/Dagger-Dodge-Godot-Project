@@ -8,4 +8,5 @@ func set_score():
 
 
 func _on_restart_button_button_up():
+	AudioManager.button_press.play()
 	game.restart()

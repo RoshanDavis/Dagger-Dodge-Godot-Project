@@ -5,6 +5,7 @@ extends Area2D
 @onready var explosion_mark = preload("res://scenes/blue orb/blue_explosion_mark.tscn")
 
 func _ready():
+	AudioManager.orb_explosion.play()
 	$"Explosion Particles".emitting = true
 	var explosion_mark_instance = explosion_mark.instantiate()
 	explosion_mark_instance.position = position

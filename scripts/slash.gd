@@ -6,6 +6,8 @@ extends Area2D
 @onready var explosion = preload("res://scenes/sfx/explosion_spread.tscn")
 @onready var explosion_mark = preload("res://scenes/sfx/explosion_spread_mark.tscn")
 
+func _ready():
+	AudioManager.slash.play()
 
 func _physics_process(delta):
 	position += global_transform.basis_xform(Vector2.RIGHT) * speed * delta
@@ -23,6 +25,8 @@ func _on_body_entered(body):
 		explode()
 
 func explode():
+	AudioManager.small_explosion.play()
+	
 	var explosion_instance = explosion.instantiate()
 	explosion_instance.position = global_position
 	explosion_instance.modulate = modulate

@@ -35,6 +35,7 @@ func take_damage(value):
 	$HealthBar.set_current_health($HealthComponent.currentHealth)
 	
 func on_death():
+	AudioManager.jelly_death.play()
 	var death_effect_instance = death_effect.instantiate()
 	death_effect_instance.global_position = position
 	get_tree().current_scene.get_node("VFX").add_child(death_effect_instance)

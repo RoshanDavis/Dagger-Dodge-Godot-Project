@@ -44,7 +44,7 @@ func initialize_player():
 			drag = 1
 			$Character.texture = characters_textures[0]
 			$"Slow-Mo Controller".slomo_time = 0.5
-		"DoubleOrNothing":
+		"OneShot":
 			health = 1
 			recoilSpeed = 500
 			speed = 200

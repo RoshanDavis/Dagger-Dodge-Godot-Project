@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnphw58bbyjmr"]
+[gd_scene load_steps=7 format=3 uid="uid://cnphw58bbyjmr"]
 
 [ext_resource type="Texture2D" uid="uid://c2eu2rgrcv7a5" path="res://assets/enemy/bomb.png" id="1_e8do1"]
 [ext_resource type="Script" path="res://scripts/bomb.gd" id="1_g5n0j"]
+[ext_resource type="AudioStream" uid="uid://bc5abqyy77ik2" path="res://assets/audio/fuse.mp3" id="3_sm7p8"]
 
 [sub_resource type="Animation" id="Animation_sdf3f"]
 length = 0.001
@@ -75,5 +76,10 @@ libraries = {
 "": SubResource("AnimationLibrary_hesqh")
 }
 autoplay = "bomb ticking"
+
+[node name="Fuse" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sm7p8")
+volume_db = -3.0
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

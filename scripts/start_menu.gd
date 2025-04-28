@@ -22,15 +22,19 @@ func update_total_orbs():
 
 
 func _on_dagger_button_button_up():
+	AudioManager.button_press.play()
 	get_tree().change_scene_to_file("res://scenes/ui/dagger_selector.tscn")
 
 
 func _on_store_button_button_up():
+	AudioManager.button_press.play()
 	pass # Replace with function body.
 
 
 func _on_settings_button_button_up():
+	AudioManager.button_press.play()
 	pass # Replace with function body.
 
 func _on_characters_button_button_up():
+	AudioManager.button_press.play()
 	get_tree().change_scene_to_file("res://scenes/ui/character_selector.tscn")

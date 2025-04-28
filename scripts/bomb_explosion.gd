@@ -6,6 +6,7 @@ extends Area2D
 
 
 func _ready():
+	AudioManager.bomb_explosion.play()
 	$"Explosion Particles".emitting = true
 	var explosion_mark_instance = explosion_mark.instantiate()
 	explosion_mark_instance.position = position

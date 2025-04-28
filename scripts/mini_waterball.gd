@@ -5,7 +5,7 @@ extends Area2D
 @onready var explosion = preload("res://scenes/blue orb/mini_waterball_explosion.tscn")
 
 func _ready():
-	pass
+	AudioManager.whoosh.play()
 
 func _physics_process(delta):
 	position += global_transform.basis_xform(Vector2.RIGHT) * speed * delta
@@ -19,6 +19,7 @@ func _on_area_entered(area):
 		explode()
 
 func explode():
+	AudioManager.small_explosion.play()
 	$"Water Particles".visible = false
 	$"Water Particles".emitting = false
 	var explosion_instance = explosion.instantiate()

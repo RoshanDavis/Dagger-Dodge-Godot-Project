@@ -10,6 +10,7 @@ var power_index :int
 @onready var freeze = preload("res://scenes/freeze.tscn")
 
 func _ready():
+	AudioManager.beeping.play()
 	if get_tree().current_scene.has_node("Player"):
 		player = get_tree().current_scene.get_node("Player")
 		position = player.global_position
@@ -41,6 +42,7 @@ func movement(_delta):
 		await tween.finished
 
 func _on_charge_timer_timeout():
+	AudioManager.beeping.stop()
 	match power_index:
 		0:
 			var explosion_instance = explosion.instantiate()

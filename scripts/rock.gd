@@ -25,6 +25,7 @@ func _on_area_entered(area):
 		explode()
 
 func explode():
+	AudioManager.rock_break.play()
 	rock.visible = false
 	$"Rock Explosion".emitting = true
 

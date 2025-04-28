@@ -39,4 +39,5 @@ func show_pause_menu():
 
 
 func _on_pause_button_button_up():
+	AudioManager.button_press.play()
 	get_tree().get_root().get_node("Game").pause_game()

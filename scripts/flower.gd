@@ -33,6 +33,7 @@ func shake():
 	tween.tween_property(self,"rotation_degrees",-3,0.1).as_relative()
 
 func explode():
+	AudioManager.flower_break.play()
 	$Flower.visible = false
 	$"Flower Explosion".emitting = true
 

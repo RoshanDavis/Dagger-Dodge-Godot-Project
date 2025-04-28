@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7dkapdsxrwjt"
-path="res://.godot/imported/DoubleorNothing.png-4481e35b08af31375a67e271ae9eae7b.ctex"
+path="res://.godot/imported/OneShot.png-4fa9e95122b1b9192383939916910286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/DoubleorNothing.png"
-dest_files=["res://.godot/imported/DoubleorNothing.png-4481e35b08af31375a67e271ae9eae7b.ctex"]
+source_file="res://assets/characters/OneShot.png"
+dest_files=["res://.godot/imported/OneShot.png-4fa9e95122b1b9192383939916910286.ctex"]
 
 [params]
 

@@ -21,6 +21,7 @@ func _ready():
 		death_effect()
 
 func shake():
+	$Struggle.play()
 	tween = create_tween().set_loops()
 	tween.tween_property(self,"position:x",5,0.1)
 	tween.tween_property(self,"position:x",-5,0.1)
@@ -34,8 +35,10 @@ func _on_freeze_timer_timeout():
 	death_effect()
 
 func death_effect():
+	$Struggle.stop()
 	if not is_frozen:
 		return
+	AudioManager.ice_break.play()
 	is_frozen = false
 	var explosion_instance = explosion.instantiate()
 	explosion_instance.position = global_position

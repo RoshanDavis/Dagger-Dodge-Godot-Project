@@ -23,6 +23,7 @@ func _ready():
 	$Selected.visible = true
 
 func _on_right_button_button_up():
+	AudioManager.button_press.play()
 	characters[current_index].visible = false
 	
 	current_index += 1
@@ -47,6 +48,7 @@ func _on_right_button_button_up():
 	
 
 func _on_left_button_button_up():
+	AudioManager.button_press.play()
 	characters[current_index].visible = false
 	
 	current_index -= 1
@@ -70,22 +72,26 @@ func _on_left_button_button_up():
 	characters[current_index].visible = true
 	
 func _on_select_button_button_up():
+	AudioManager.button_press.play()
 	selected_index = current_index
 	GameSave.update_recent_character(character_names[selected_index])
 	$"Select Button".visible = false
 	$Selected.visible = true
 
 func _on_buy_button_button_up():
+	AudioManager.button_press.play()
 	var new_total_orbs = total_orbs - character_costs[current_index]
 	if new_total_orbs < 0:
 		return
 	GameSave.update_total_orbs(new_total_orbs)
 	total_orbs = new_total_orbs
 	GameSave.unlock_character(character_names[current_index])
+	AudioManager.success.play()
 	
 	$"Total Orbs/Total Orbs".text = str(total_orbs)
 	$Locked.visible = false
 	$"Select Button".visible = true
 	
 func _on_return_button_button_up():
+	AudioManager.button_press.play()
 	get_tree().change_scene_to_file("res://scenes/managers/game.tscn")

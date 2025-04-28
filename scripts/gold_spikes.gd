@@ -6,6 +6,9 @@ extends Area2D
 @onready var explosion = preload("res://scenes/gold orb/gold_spike_explosion.tscn")
 @onready var explosion_mark = preload("res://scenes/gold orb/gold_spike_explosion_mark.tscn")
 
+func _ready():
+	AudioManager.spikes_out.play()
+
 func _on_area_entered(area):
 	if area.is_in_group("dagger"):
 		area.get_parent().take_damage(damage)
@@ -20,6 +23,7 @@ func _on_area_entered(area):
 		explode()
 
 func explode():
+	AudioManager.metal_hit.play()
 	var explosion_instance = explosion.instantiate()
 	explosion_instance.position = global_position
 	get_tree().current_scene.get_node("VFX").add_child(explosion_instance)

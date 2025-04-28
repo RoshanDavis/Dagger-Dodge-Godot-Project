@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x4hp76n8ylrt"
+path="res://.godot/imported/spikes out.mp3-81dc82b418415b88d42081456fc30005.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/spikes out.mp3"
+dest_files=["res://.godot/imported/spikes out.mp3-81dc82b418415b88d42081456fc30005.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

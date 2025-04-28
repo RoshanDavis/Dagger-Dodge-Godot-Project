@@ -8,7 +8,7 @@ func _ready():
 	pass
 
 func add_score(value):
-	if GameSave.save_data["recent_character"] == "DoubleOrNothing":
+	if GameSave.save_data["recent_character"] == "OneShot":
 		value *= 2
 	if GameSave.save_data["recent_dagger"] == "Hydra":
 		value *= 2

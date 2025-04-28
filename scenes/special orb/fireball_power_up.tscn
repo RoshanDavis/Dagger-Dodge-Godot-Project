@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4ei2shuuapsj"]
+[gd_scene load_steps=9 format=3 uid="uid://b4ei2shuuapsj"]
 
 [ext_resource type="PackedScene" uid="uid://b50vyjx22dd0u" path="res://scenes/sfx/fire_particles.tscn" id="1_3pe0r"]
 [ext_resource type="Script" path="res://scripts/fireball_power_up.gd" id="1_hlwnn"]
 [ext_resource type="Texture2D" uid="uid://0x8q362o0cux" path="res://assets/textures/smoke_04.png" id="2_hc7hg"]
+[ext_resource type="AudioStream" uid="uid://basx0ifjg7qpn" path="res://assets/audio/fire.mp3" id="4_v266f"]
 
 [sub_resource type="Gradient" id="Gradient_04q0m"]
 interpolation_mode = 2
@@ -43,6 +44,9 @@ shape = SubResource("CircleShape2D_tnl0w")
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v266f")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Power Up Time" to="." method="_on_power_up_time_timeout"]

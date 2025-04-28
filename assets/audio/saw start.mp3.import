@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhvataey2prt"
+path="res://.godot/imported/saw start.mp3-06c8439a3edab70125fa9b39a5231d4d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/saw start.mp3"
+dest_files=["res://.godot/imported/saw start.mp3-06c8439a3edab70125fa9b39a5231d4d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

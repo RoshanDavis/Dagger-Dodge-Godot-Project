@@ -11,7 +11,7 @@ var player
 @export var damage: int = 1
 
 func _ready():
-
+	AudioManager.saw_start.play()
 	if get_tree().current_scene.has_node("Player"):
 		player = get_tree().current_scene.get_node("Player")
 	look_at(player.global_position)
@@ -34,6 +34,7 @@ func spin():
 	tween.tween_property(rot_saw,"rotation_degrees",0,0)
 
 func explode():
+	AudioManager.metal_hit.play()
 	var explosion_instance = explosion.instantiate()
 	explosion_instance.position = global_position
 	get_tree().current_scene.get_node("VFX").add_child(explosion_instance)

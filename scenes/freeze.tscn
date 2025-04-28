@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq8dk1xby1lvt"]
+[gd_scene load_steps=4 format=3 uid="uid://dq8dk1xby1lvt"]
 
 [ext_resource type="Script" path="res://scripts/freeze.gd" id="1_4m1se"]
 [ext_resource type="Texture2D" uid="uid://c0dauk5kl035v" path="res://assets/environment/iceBlock.png" id="2_g03n8"]
+[ext_resource type="AudioStream" uid="uid://cveqsuyjmseeb" path="res://assets/audio/struggle.mp3" id="4_jgmb5"]
 
 [node name="Freeze" type="Node2D"]
 modulate = Color(1, 1, 1, 0.627451)
@@ -24,5 +25,9 @@ texture_progress = ExtResource("2_g03n8")
 
 [node name="Freeze Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Struggle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jgmb5")
+volume_db = 10.0
 
 [connection signal="timeout" from="Freeze Timer" to="." method="_on_freeze_timer_timeout"]

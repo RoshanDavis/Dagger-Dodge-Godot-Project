@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dxvtiw3f3w3sx"]
+[gd_scene load_steps=23 format=3 uid="uid://dxvtiw3f3w3sx"]
 
 [ext_resource type="Texture2D" uid="uid://qlap8ky48x8b" path="res://assets/enemy/laser source.png" id="1_7omb6"]
 [ext_resource type="Script" path="res://scripts/laser_enemy.gd" id="1_yk7da"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvbx6g5o8r7a2" path="res://scenes/blue orb/blue_laser.tscn" id="8_qf2tp"]
 [ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="8_rrhwm"]
 [ext_resource type="PackedScene" uid="uid://dmvpjjyhh4aps" path="res://scenes/ui/health_bar.tscn" id="9_wdtwq"]
+[ext_resource type="AudioStream" uid="uid://cokubsoofw4cs" path="res://assets/audio/laser charge.mp3" id="10_j8jqs"]
 
 [sub_resource type="Animation" id="Animation_bcjpx"]
 length = 0.001
@@ -200,5 +201,8 @@ isHeartVisible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 visible = false
 shape = SubResource("CircleShape2D_3sgkw")
+
+[node name="Laser Charge" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_j8jqs")
 
 [connection signal="firing_finished" from="Laser" to="." method="_on_laser_firing_finished"]

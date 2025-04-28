@@ -46,6 +46,7 @@ func enemy_selector():
 	enemy = enemies[enemy_index]
 	
 func spawn_enemy():
+	AudioManager.orb_pop.play()
 	var enemyInstance = enemy.instantiate()
 	enemyInstance.position = position
 	get_tree().current_scene.get_node("Enemies").add_child(enemyInstance)
@@ -63,6 +64,7 @@ func powerup():
 			spawn_splat()
 			player.shield_gained()
 		2: # Orb Explosion
+			AudioManager.orb_explosion.play()
 			var explosionInstance = explosion.instantiate()
 			explosionInstance.position = global_position
 			get_tree().current_scene.get_node("VFX").call_deferred("add_child",explosionInstance)

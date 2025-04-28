@@ -35,6 +35,7 @@ func _on_area_entered(area):
 		area.get_parent().take_damage(damage)
 
 func explode():
+	AudioManager.orb_pop.play()
 	# spawn splash with selected color
 	var splat_instance = splat.instantiate()
 	splat_instance.position = global_position
