@@ -10,3 +10,6 @@ extends Node2D
 @onready var shield_broke = $"Shield Broke"
 @onready var dagger_out = $"Dagger Out"
 @onready var time_stop = $"Time Stop"
+
+func _ready():
+	game_music.play()

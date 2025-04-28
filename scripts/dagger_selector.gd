@@ -71,7 +71,7 @@ func _on_left_button_button_up():
 	
 func _on_select_button_button_up():
 	selected_index = current_index
-	GameSave.update_recent_character(dagger_names[selected_index])
+	GameSave.update_recent_dagger(dagger_names[selected_index])
 	$"Select Button".visible = false
 	$Selected.visible = true
 
@@ -81,7 +81,7 @@ func _on_buy_button_button_up():
 		return
 	GameSave.update_total_orbs(new_total_orbs)
 	total_orbs = new_total_orbs
-	GameSave.unlock_character(dagger_names[current_index])
+	GameSave.unlock_dagger(dagger_names[current_index])
 	
 	$"Total Orbs/Total Orbs".text = str(total_orbs)
 	$Locked.visible = false

@@ -4,11 +4,11 @@ const save_path = "user://savegame.data"
 
 var save_data :Dictionary = {
 	"high_score" : 0,
-	"total_orbs" : 0,
+	"total_orbs" : 10000,
 	"recent_character" : "GroundZero",
 	"unlocked_characters" : ["GroundZero"],
-	"recent_dagger" : "RustBlade",
-	"unlocked_daggers" : ["RustBlade"],
+	"recent_dagger" : "KitchenKnife",
+	"unlocked_daggers" : ["KitchenKnife"],
 	"unlocked_achievements" :[]
 }
 
@@ -64,3 +64,21 @@ func update_recent_character(character :String):
 	
 	file.store_var(save_data)
 	file.close()
+
+func unlock_dagger(character :String):
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	
+	save_data["unlocked_daggers"].append(character)
+	
+	file.store_var(save_data)
+	file.close()
+
+func update_recent_dagger(character :String):
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	
+	save_data["recent_dagger"] = character
+	
+	file.store_var(save_data)
+	file.close()
+	
+	

@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3fassb2p38gs"]
+[gd_scene load_steps=7 format=3 uid="uid://dmdgmtsqb5q3p"]
 
-[ext_resource type="Script" path="res://scripts/dagger.gd" id="1_kn5at"]
-[ext_resource type="PackedScene" uid="uid://b8kofxjnniq6b" path="res://scenes/daggers/hit_effect.tscn" id="2_54mlv"]
-[ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/KitchenKnife.png" id="3_eq2dd"]
-[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="4_1w76m"]
+[ext_resource type="Script" path="res://scripts/rust_blade.gd" id="1_0n2jo"]
+[ext_resource type="PackedScene" uid="uid://b8kofxjnniq6b" path="res://scenes/daggers/hit_effect.tscn" id="2_veaui"]
+[ext_resource type="Texture2D" uid="uid://bu52a4qc5m8vf" path="res://assets/daggers/RustBlade.png" id="3_l3hbb"]
+[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="4_nc8ug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hgd2"]
 size = Vector2(99, 6)
@@ -14,18 +14,19 @@ size = Vector2(101, 18)
 [node name="Dagger" type="CharacterBody2D" groups=["dagger", "unsafe damage"]]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
-script = ExtResource("1_kn5at")
-hit_effect = ExtResource("2_54mlv")
+script = ExtResource("1_0n2jo")
+hit_effect = ExtResource("2_veaui")
 
 [node name="Dagger" type="Sprite2D" parent="."]
-texture = ExtResource("3_eq2dd")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_l3hbb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_3hgd2")
 disabled = true
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_1w76m")]
+[node name="HealthComponent" parent="." instance=ExtResource("4_nc8ug")]
 
 [node name="Hitbox" type="Area2D" parent="." groups=["dagger"]]
 visible = false

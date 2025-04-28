@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5h5lpwbvke0o"]
+
+[ext_resource type="Script" path="res://scripts/hydra.gd" id="1_f35c5"]
+[ext_resource type="PackedScene" uid="uid://b8kofxjnniq6b" path="res://scenes/daggers/hit_effect.tscn" id="2_l84mb"]
+[ext_resource type="Texture2D" uid="uid://bpr4643h5uogl" path="res://assets/daggers/Hydra.png" id="3_e8630"]
+[ext_resource type="PackedScene" uid="uid://dinw35tn3p0mw" path="res://scenes/components/health_component.tscn" id="4_5mruh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hgd2"]
+size = Vector2(99, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkje"]
+size = Vector2(101, 18)
+
+[node name="Hydra" type="CharacterBody2D" groups=["dagger", "unsafe damage"]]
+scale = Vector2(0.5, 0.5)
+motion_mode = 1
+script = ExtResource("1_f35c5")
+hit_effect = ExtResource("2_l84mb")
+spawn_chance = 0.75
+spawn_limit = 12
+
+[node name="Dagger" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_e8630")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_3hgd2")
+disabled = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_5mruh")]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["dagger"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+position = Vector2(4.5, 1)
+shape = SubResource("RectangleShape2D_lfkje")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="Hit Point" type="Marker2D" parent="."]
+position = Vector2(48, 0)
+
+[node name="SpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(-120, -22)
+rotation = -2.53073
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(-120, 22)
+rotation = 2.53073
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

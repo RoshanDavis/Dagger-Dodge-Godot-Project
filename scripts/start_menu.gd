@@ -22,7 +22,7 @@ func update_total_orbs():
 
 
 func _on_dagger_button_button_up():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/ui/dagger_selector.tscn")
 
 
 func _on_store_button_button_up():

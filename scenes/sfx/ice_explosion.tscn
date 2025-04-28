@@ -32,6 +32,7 @@ scale_curve = SubResource("CurveTexture_8h05d")
 alpha_curve = SubResource("CurveTexture_xjv2d")
 
 [node name="Ice Explosion" type="GPUParticles2D"]
+modulate = Color(7.70092e-07, 0.937282, 0.941124, 1)
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_pb4b0")

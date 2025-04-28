@@ -31,8 +31,8 @@ var powerup_recoil_multiplier = 2 # can not be 0
 
 func _ready():
 	velocity = Vector2(0,0)
-	dagger = preload("res://scenes/daggers/dagger.tscn")
 	initialize_player()
+	initialize_dagger()
 	final_joystick_speed = joystick_speed/$"Slow-Mo Controller".slowmo_time_scale
 
 func initialize_player():
@@ -69,7 +69,15 @@ func initialize_player():
 	$HealthComponent.set_initial_health(health)
 	%"Gameplay UI".set_max_health(health)
 	%"Gameplay UI".set_current_health(health)
-	#$"Slow-Mo Controller".set_initial_values()
+
+func initialize_dagger():
+	match GameSave.save_data["recent_dagger"]:
+		"KitchenKnife" :
+			dagger = preload("res://scenes/daggers/KitchenKnife.tscn")
+		"RustBlade" :
+			dagger = preload("res://scenes/daggers/RustBlade.tscn")
+		"Hydra" :
+			dagger = preload("res://scenes/daggers/Hydra.tscn")
 
 func _physics_process(delta):
 	rotate_player()

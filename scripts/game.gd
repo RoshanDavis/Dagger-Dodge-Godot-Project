@@ -4,10 +4,13 @@ extends Node
 @onready var player = %Player
 
 func _ready():
-	AudioManager.game_music.play()
+	
+	pass
 
 func add_score(value):
 	if GameSave.save_data["recent_character"] == "DoubleOrNothing":
+		value *= 2
+	if GameSave.save_data["recent_dagger"] == "Hydra":
 		value *= 2
 	score += value 
 	%"Gameplay UI".set_score(score, value)
