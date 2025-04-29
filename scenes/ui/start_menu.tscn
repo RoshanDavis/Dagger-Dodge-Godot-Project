@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjwode52w4feb"]
+[gd_scene load_steps=15 format=3 uid="uid://bjwode52w4feb"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_oj5pr"]
 [ext_resource type="Texture2D" uid="uid://bo3wpthdggden" path="res://assets/ui/settings.png" id="3_ckh2d"]
@@ -15,6 +15,30 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6y8d1"]
 shader = ExtResource("3_ky14d")
 shader_parameter/Hit_Texture = ExtResource("4_rtow4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6acf3"]
+bg_color = Color(1, 1, 1, 0.27451)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n46h8"]
+bg_color = Color(0, 0, 0, 0.27451)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="Start Menu" type="CanvasLayer" groups=["ui"]]
 script = ExtResource("1_oj5pr")
@@ -89,6 +113,7 @@ offset_right = 197.5
 offset_bottom = 346.0
 grow_horizontal = 2
 theme = ExtResource("3_lnid6")
+theme_override_constants/shadow_outline_size = 100
 theme_override_font_sizes/font_size = 90
 text = "DAGGER DODGE"
 horizontal_alignment = 1
@@ -109,6 +134,10 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
 theme = ExtResource("3_lnid6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
 icon = ExtResource("3_y8u7f")
 
 [node name="Characters Button" type="Button" parent="."]
@@ -118,14 +147,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -209.0
-offset_top = -128.0
-offset_right = -81.0
+offset_left = -214.0
+offset_top = -155.0
+offset_right = -74.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
 theme = ExtResource("3_lnid6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
 icon = ExtResource("3_hsafi")
 icon_alignment = 1
 
@@ -136,14 +170,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -113.0
-offset_top = -128.0
-offset_right = 15.0
+offset_left = -112.0
+offset_top = -144.0
+offset_right = 16.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
 theme = ExtResource("3_lnid6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
 icon = ExtResource("4_s8mgm")
 icon_alignment = 1
 
@@ -154,14 +193,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -128.0
-offset_right = 111.0
+offset_left = -16.0
+offset_top = -144.0
+offset_right = 112.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
 theme = ExtResource("3_lnid6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
 icon = ExtResource("5_4jpu8")
 icon_alignment = 1
 
@@ -172,14 +216,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 79.0
-offset_top = -128.0
-offset_right = 207.0
+offset_left = 80.0
+offset_top = -144.0
+offset_right = 208.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(64, 64)
 theme = ExtResource("3_lnid6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
 icon = ExtResource("3_ckh2d")
 icon_alignment = 1
 
