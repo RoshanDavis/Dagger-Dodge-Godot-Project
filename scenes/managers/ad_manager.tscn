@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://brmp7f3h7qnm6"]
+
+[ext_resource type="Script" path="res://addons/AdmobPlugin/Admob.gd" id="1_hr5f7"]
+[ext_resource type="Script" path="res://scripts/ad_manager.gd" id="1_qw4os"]
+
+[node name="Ad Manager" type="Node2D"]
+script = ExtResource("1_qw4os")
+
+[node name="Admob" type="Node" parent="."]
+script = ExtResource("1_hr5f7")
+banner_position = 1
+debug_application_id = "ca-app-pub-3940256099942544~3347511713"
+debug_banner_id = "ca-app-pub-3940256099942544/9214589741"
+debug_interstitial_id = "ca-app-pub-3940256099942544/1033173712"
+debug_rewarded_id = "ca-app-pub-3940256099942544/5224354917"
+debug_rewarded_interstitial_id = "ca-app-pub-3940256099942544/5354046379"
+
+[node name="Ad Test Buttons" type="Control" parent="."]
+top_level = true
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Banner Button" type="Button" parent="Ad Test Buttons"]
+top_level = true
+z_index = 100
+layout_mode = 1
+offset_left = 171.0
+offset_top = 294.0
+offset_right = 236.0
+offset_bottom = 325.0
+text = "Banner"
+
+[node name="Interstitial Button" type="Button" parent="Ad Test Buttons"]
+top_level = true
+z_index = 100
+layout_mode = 1
+offset_left = 162.0
+offset_top = 360.0
+offset_right = 251.0
+offset_bottom = 391.0
+text = "Interstitial"
+
+[node name="Reward Button" type="Button" parent="Ad Test Buttons"]
+top_level = true
+z_index = 100
+layout_mode = 1
+offset_left = 169.0
+offset_top = 413.0
+offset_right = 236.0
+offset_bottom = 444.0
+text = "Reward
+"
+
+[connection signal="initialization_completed" from="Admob" to="." method="_on_admob_initialization_completed"]
+[connection signal="rewarded_ad_user_earned_reward" from="Admob" to="." method="_on_admob_rewarded_ad_user_earned_reward"]
+[connection signal="button_up" from="Ad Test Buttons/Banner Button" to="." method="_on_banner_button_button_up"]
+[connection signal="button_up" from="Ad Test Buttons/Interstitial Button" to="." method="_on_interstitial_button_button_up"]
+[connection signal="button_up" from="Ad Test Buttons/Reward Button" to="." method="_on_reward_button_button_up"]

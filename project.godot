@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameSave="*res://scripts/game_save.gd"
 Global="*res://scripts/global.gd"
 AudioManager="*res://scenes/managers/audio_manager.tscn"
+AdManager="*res://scenes/managers/ad_manager.tscn"
 
 [display]
 
@@ -28,6 +29,10 @@ window/size/viewport_height=960
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AdmobPlugin/plugin.cfg")
 
 [global_group]
 

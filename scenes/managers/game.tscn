@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=23 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_2pfyb"]
 [ext_resource type="PackedScene" uid="uid://du7c2ynieo2px" path="res://scenes/environment/biome.tscn" id="2_3omxs"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dwijbc5i47ycw" path="res://assets/environment/dash/06.png" id="14_43uxu"]
 [ext_resource type="Script" path="res://scripts/high_speed_effect.gd" id="15_l6oye"]
 [ext_resource type="PackedScene" uid="uid://ctyuky1aelg4h" path="res://scenes/player/player.tscn" id="16_s4xmy"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="18_0pygg"]
 
 [sub_resource type="Animation" id="Animation_oqw3s"]
 length = 0.001
@@ -85,6 +86,7 @@ animations = [{
 script = ExtResource("1_2pfyb")
 
 [node name="Biome" parent="." instance=ExtResource("2_3omxs")]
+grassland_colors = Array[Color]([Color(0.192157, 0.376471, 0.2, 1), Color(0.266667, 0.466667, 0.254902, 1), Color(0.124499, 0.257729, 0.0810711, 1)])
 
 [node name="Boundary" type="Node2D" parent="." groups=["wall"]]
 position = Vector2(270, 480)
@@ -175,6 +177,7 @@ visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_qmae5")
+text_theme = ExtResource("18_0pygg")
 
 [connection signal="timeout" from="Spawner/Gold Orb Spawn Timer" to="Spawner" method="_on_gold_orb_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/Blue Orb Spawn Timer" to="Spawner" method="_on_blue_orb_spawn_timer_timeout"]

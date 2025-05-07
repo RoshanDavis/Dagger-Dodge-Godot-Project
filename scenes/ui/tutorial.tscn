@@ -1,0 +1,291 @@
+[gd_scene load_steps=18 format=3 uid="uid://cn6l6jyh2sfjq"]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_lorcs"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_cfcmb"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="3_spnu0"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="4_fboee"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="5_0sysc"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="6_sp3hr"]
+[ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="7_7c1ag"]
+[ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/GroundZero.png" id="8_w5f51"]
+[ext_resource type="Texture2D" uid="uid://dis2qjediwrrv" path="res://assets/ui/return.png" id="9_7o5vj"]
+[ext_resource type="Texture2D" uid="uid://xnxrr80m26mn" path="res://assets/ui/dagger.png" id="9_viarm"]
+[ext_resource type="Texture2D" uid="uid://d1wnoakt2ff03" path="res://assets/ui/joystick.png" id="10_awl6s"]
+[ext_resource type="Texture2D" uid="uid://gyk8ph73wfat" path="res://assets/daggers/KitchenKnife.png" id="10_rvnpv"]
+[ext_resource type="Texture2D" uid="uid://cyxjfnhrtp67u" path="res://assets/ui/touch.png" id="11_8xlwm"]
+[ext_resource type="Texture2D" uid="uid://bui3h57oxol45" path="res://assets/environment/dash/01.png" id="12_12x3q"]
+[ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="14_iniqd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wb3s"]
+shader = ExtResource("3_spnu0")
+shader_parameter/Hit_Texture = ExtResource("4_fboee")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abwlj"]
+shader = ExtResource("3_spnu0")
+shader_parameter/Hit_Texture = ExtResource("4_fboee")
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lorcs")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.18136e-07, 0.200231, 0.00401538, 1)
+
+[node name="Bush" type="TextureRect" parent="."]
+modulate = Color(6.85863e-07, 0.329533, 0.00801974, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cfcmb")
+stretch_mode = 6
+
+[node name="Total Orbs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Total Orbs"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Total Orbs/TextureRect"]
+material = SubResource("ShaderMaterial_2wb3s")
+position = Vector2(-19, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_0sysc")
+
+[node name="Total Orbs" type="Label" parent="Total Orbs"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 33.0
+offset_bottom = 50.0
+theme = ExtResource("6_sp3hr")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="High Score" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 40.0
+offset_right = -19.0
+offset_bottom = 87.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="High Score"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle2" type="Sprite2D" parent="High Score/TextureRect"]
+modulate = Color(1, 1, 1, 0.627451)
+material = SubResource("ShaderMaterial_2wb3s")
+position = Vector2(-34, 20)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("5_0sysc")
+
+[node name="Prototype-circle" type="Sprite2D" parent="High Score/TextureRect"]
+position = Vector2(-34, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("7_7c1ag")
+
+[node name="High Score" type="Label" parent="High Score"]
+layout_mode = 2
+theme = ExtResource("6_sp3hr")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -359.0
+offset_right = 249.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_sp3hr")
+theme_override_font_sizes/font_size = 25
+text = "Drag and hold to aim"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifetimeBar" type="TextureProgressBar" parent="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 121.561
+offset_top = 159.148
+offset_right = 249.561
+offset_bottom = 287.148
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.70519
+scale = Vector2(0.438, 0.438)
+max_value = 10.0
+step = 0.01
+value = 6.18
+fill_mode = 8
+radial_initial_angle = 360.0
+texture_progress = ExtResource("5_0sysc")
+tint_progress = Color(1.44392e-06, 0.559142, 0.806137, 1)
+
+[node name="Character" type="Sprite2D" parent="1"]
+modulate = Color(0.858824, 0.74902, 0.647059, 1)
+position = Vector2(144.561, 130.148)
+rotation = -0.413643
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_w5f51")
+
+[node name="Arrows" type="Node2D" parent="1"]
+z_index = 10
+position = Vector2(146.561, 130.148)
+rotation = -0.413643
+
+[node name="Dagger" type="Sprite2D" parent="1/Arrows"]
+position = Vector2(51.695, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_viarm")
+
+[node name="Dagger2" type="Sprite2D" parent="1/Arrows"]
+position = Vector2(51.695, -1)
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("9_viarm")
+
+[node name="Joystick" type="Sprite2D" parent="1/Arrows"]
+position = Vector2(-50, 0)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("10_awl6s")
+region_enabled = true
+region_rect = Rect2(125, 31, 117, 202)
+
+[node name="Touch" type="Sprite2D" parent="1"]
+position = Vector2(337, 122)
+rotation = -0.579449
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("11_8xlwm")
+
+[node name="2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -99.0
+offset_right = 257.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_sp3hr")
+theme_override_font_sizes/font_size = 25
+text = "Release or wait for timer
+to end to throw dagger"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="01" type="Sprite2D" parent="2"]
+position = Vector2(249.164, 137.098)
+rotation = -0.410152
+scale = Vector2(0.2, 0.1)
+texture = ExtResource("12_12x3q")
+
+[node name="Character2" type="Sprite2D" parent="2"]
+modulate = Color(0.858824, 0.74902, 0.647059, 1)
+position = Vector2(189.164, 164.098)
+rotation = -0.413643
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_w5f51")
+
+[node name="KitchenKnife" type="Sprite2D" parent="2"]
+position = Vector2(306, 112.164)
+rotation = -0.413643
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_rvnpv")
+
+[node name="3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = 130.0
+offset_right = 259.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_sp3hr")
+theme_override_font_sizes/font_size = 25
+text = "Use the recoil to move 
+and collect orbs 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BG" type="Sprite2D" parent="3"]
+modulate = Color(1, 0.941176, 0.560784, 1)
+material = SubResource("ShaderMaterial_abwlj")
+position = Vector2(235.8, 152.8)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_0sysc")
+
+[node name="LifetimeBar" type="TextureProgressBar" parent="3"]
+layout_mode = 0
+offset_left = 107.8
+offset_top = 24.8
+offset_right = 363.8
+offset_bottom = 280.8
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(128, 128)
+max_value = 10.0
+step = 0.01
+value = 3.0
+fill_mode = 4
+texture_under = ExtResource("14_iniqd")
+texture_progress = ExtResource("14_iniqd")
+tint_under = Color(1, 0.921255, 0.554243, 1)
+tint_progress = Color(0.961795, 0.74636, 0, 1)
+
+[node name="Return Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -136.0
+offset_right = 106.0
+offset_bottom = -46.0
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme = ExtResource("6_sp3hr")
+icon = ExtResource("9_7o5vj")
+
+[connection signal="button_up" from="Return Button" to="." method="_on_return_button_button_up"]

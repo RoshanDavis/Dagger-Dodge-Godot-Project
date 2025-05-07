@@ -9,7 +9,9 @@ var save_data :Dictionary = {
 	"unlocked_characters" : ["GroundZero"],
 	"recent_dagger" : "KitchenKnife",
 	"unlocked_daggers" : ["KitchenKnife"],
-	"unlocked_achievements" :[]
+	"unlocked_achievements" : [],
+	"music_on" : false,
+	"sfx_on" : true,
 }
 
 func _ready():
@@ -81,4 +83,11 @@ func update_recent_dagger(character :String):
 	file.store_var(save_data)
 	file.close()
 	
+func update_audio_state(music_on :bool, sfx_on :bool):
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
+	save_data["music_on"] = music_on
+	save_data["sfx_on"] = sfx_on
+	
+	file.store_var(save_data)
+	file.close()

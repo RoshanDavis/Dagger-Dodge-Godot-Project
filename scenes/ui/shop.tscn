@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://cp7klda6jcj4y"]
+
+[ext_resource type="Script" path="res://scripts/store.gd" id="1_5kdkr"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_jqkv3"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="3_yuqxs"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="4_c10ub"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="5_d60sh"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="6_toou1"]
+[ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="7_m7qbr"]
+[ext_resource type="Texture2D" uid="uid://dis2qjediwrrv" path="res://assets/ui/return.png" id="8_y5uo1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wb3s"]
+shader = ExtResource("3_yuqxs")
+shader_parameter/Hit_Texture = ExtResource("4_c10ub")
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5kdkr")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.18136e-07, 0.200231, 0.00401538, 1)
+
+[node name="Bush" type="TextureRect" parent="."]
+modulate = Color(6.85863e-07, 0.329533, 0.00801974, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jqkv3")
+stretch_mode = 6
+
+[node name="Total Orbs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Total Orbs"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Total Orbs/TextureRect"]
+material = SubResource("ShaderMaterial_2wb3s")
+position = Vector2(-19, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_d60sh")
+
+[node name="Total Orbs" type="Label" parent="Total Orbs"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 33.0
+offset_bottom = 50.0
+theme = ExtResource("6_toou1")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="High Score" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 40.0
+offset_right = -19.0
+offset_bottom = 87.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="High Score"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle2" type="Sprite2D" parent="High Score/TextureRect"]
+modulate = Color(1, 1, 1, 0.627451)
+material = SubResource("ShaderMaterial_2wb3s")
+position = Vector2(-34, 20)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("5_d60sh")
+
+[node name="Prototype-circle" type="Sprite2D" parent="High Score/TextureRect"]
+position = Vector2(-34, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("7_m7qbr")
+
+[node name="High Score" type="Label" parent="High Score"]
+layout_mode = 2
+theme = ExtResource("6_toou1")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -370.0
+offset_right = 261.0
+offset_bottom = -281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_toou1")
+theme_override_font_sizes/font_size = 70
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Return Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -136.0
+offset_right = 106.0
+offset_bottom = -46.0
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme = ExtResource("6_toou1")
+icon = ExtResource("8_y5uo1")
+
+[connection signal="button_up" from="Return Button" to="." method="_on_return_button_button_up"]

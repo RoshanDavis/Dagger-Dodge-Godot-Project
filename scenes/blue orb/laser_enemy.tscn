@@ -204,5 +204,6 @@ shape = SubResource("CircleShape2D_3sgkw")
 
 [node name="Laser Charge" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_j8jqs")
+bus = &"SFX"
 
 [connection signal="firing_finished" from="Laser" to="." method="_on_laser_firing_finished"]

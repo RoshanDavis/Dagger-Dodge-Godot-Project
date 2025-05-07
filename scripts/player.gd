@@ -153,9 +153,11 @@ func take_damage(damage):
 		shield_broken()
 		return 
 	if GameSave.save_data["recent_character"] == "SlipShade" and randf() < 0.3:
+		$"../UI/Pop Ups".popup("DODGE")
 		print_debug("Damage Dodged")
 		return
 	if GameSave.save_data["recent_character"] == "Tank" and randf() < 0.3:
+		$"../UI/Pop Ups".popup("BLOCK")
 		print_debug("Damage Blocked")
 		return
 	AudioManager.player_hurt.play()

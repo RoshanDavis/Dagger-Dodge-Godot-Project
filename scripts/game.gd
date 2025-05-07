@@ -18,6 +18,8 @@ func add_score(value):
 func game_over():
 	Engine.time_scale = 0
 	AudioManager.game_over.play()
+	if GameSave.save_data["high_score"] < score:
+		%"Gameplay UI".display_high_score()
 	%"Gameplay UI".show_game_over_menu()
 	GameSave.save_score_data(score)
 	

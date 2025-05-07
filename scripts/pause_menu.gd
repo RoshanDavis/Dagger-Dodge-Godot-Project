@@ -13,3 +13,8 @@ func _on_resume_button_button_up():
 	AudioManager.button_press.play()
 	game.resume_game()
 	visible = false
+
+
+func _on_settings_button_button_up():
+	AudioManager.button_press.play()
+	$Settings.visible = true

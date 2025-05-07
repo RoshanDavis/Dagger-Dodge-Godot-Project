@@ -2,13 +2,22 @@ extends Control
 
 var tween :Tween
 
-@export var base_font_size = 70
-@export var initial_scale = 0.1
+@export var text_theme:Theme
 
 @onready var player = get_tree().current_scene.get_node("Player")
-@onready var default_theme = preload("res://themes/default.tres")
 
+func _ready():
+	pass
 
-func popup_tween(item):
+func popup(msg :String):
+	var label = Label.new()
+	label.position = player.position - Vector2(30, 20)
+	label.text = msg
+	label.theme = text_theme
+	add_child(label)
 	tween = create_tween()
-	tween.tween_property(item,"scale",Vector2(1,1),0.1)
+	tween.tween_property(label, "modulate:a", 0, 0.3)
+	await tween.finished
+	label.queue_free()
+	
+	

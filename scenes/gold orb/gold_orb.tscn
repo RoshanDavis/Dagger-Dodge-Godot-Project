@@ -26,14 +26,14 @@ shader_parameter/Hit_Texture = ExtResource("5_vudhu")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_vih7v"]
+[sub_resource type="CurveTexture" id="CurveTexture_wtq81"]
 curve = SubResource("Curve_utcoc")
 
 [sub_resource type="Curve" id="Curve_qfx6u"]
 _data = [Vector2(0.00666666, 0.604396), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_rocmr"]
+[sub_resource type="CurveTexture" id="CurveTexture_761gm"]
 curve = SubResource("Curve_qfx6u")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chujx"]
@@ -41,9 +41,9 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
-scale_curve = SubResource("CurveTexture_rocmr")
+scale_curve = SubResource("CurveTexture_761gm")
 color = Color(1, 0.921569, 0.552941, 1)
-alpha_curve = SubResource("CurveTexture_vih7v")
+alpha_curve = SubResource("CurveTexture_wtq81")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b7r8"]
 radius = 22.0227

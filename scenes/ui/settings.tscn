@@ -1,0 +1,207 @@
+[gd_scene load_steps=12 format=3 uid="uid://digv7yir61q6x"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_boxtv"]
+[ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_5fcqi"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="3_2hc7y"]
+[ext_resource type="Texture2D" uid="uid://clmguteclsm7w" path="res://assets/ui/music off.png" id="3_in5ls"]
+[ext_resource type="Texture2D" uid="uid://bnu06di5r6pjd" path="res://assets/ui/music on.png" id="4_xgbrs"]
+[ext_resource type="Texture2D" uid="uid://c7nivkic30lf1" path="res://assets/ui/volume off.png" id="5_jjiav"]
+[ext_resource type="Texture2D" uid="uid://cal1ci353xpyj" path="res://assets/ui/volume on.png" id="5_pj0np"]
+[ext_resource type="Texture2D" uid="uid://dis2qjediwrrv" path="res://assets/ui/return.png" id="6_qtkgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n46h8"]
+bg_color = Color(0, 0, 0, 0.27451)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6acf3"]
+bg_color = Color(1, 1, 1, 0.27451)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa5de"]
+bg_color = Color(0, 0, 0, 0.27451)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_boxtv")
+music_on_icon = ExtResource("4_xgbrs")
+music_off_icon = ExtResource("3_in5ls")
+sfx_on_icon = ExtResource("5_pj0np")
+sfx_off_icon = ExtResource("5_jjiav")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.18136e-07, 0.200231, 0.00401538, 1)
+
+[node name="Bush" type="TextureRect" parent="."]
+modulate = Color(6.85863e-07, 0.329533, 0.00801974, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -242.0
+offset_top = -32.0
+offset_right = 242.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5fcqi")
+stretch_mode = 6
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -238.0
+offset_right = 261.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_2hc7y")
+theme_override_font_sizes/font_size = 70
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -95.0
+offset_right = 371.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_2hc7y")
+theme_override_font_sizes/font_size = 30
+text = "Music
+"
+vertical_alignment = 1
+
+[node name="SFX" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = 33.0
+offset_right = 371.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_2hc7y")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+vertical_alignment = 1
+
+[node name="Music Button" type="Button" parent="."]
+modulate = Color(0.89059, 0.89059, 0.89059, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -112.0
+offset_right = 158.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_2hc7y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n46h8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
+toggle_mode = true
+icon = ExtResource("4_xgbrs")
+icon_alignment = 1
+
+[node name="SFX Button" type="Button" parent="."]
+modulate = Color(0.89059, 0.89059, 0.89059, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_right = 158.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_2hc7y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pa5de")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pa5de")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pa5de")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pa5de")
+toggle_mode = true
+icon = ExtResource("5_pj0np")
+icon_alignment = 1
+
+[node name="Return Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -136.0
+offset_right = 106.0
+offset_bottom = -46.0
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme = ExtResource("3_2hc7y")
+icon = ExtResource("6_qtkgx")
+
+[connection signal="button_up" from="Music Button" to="." method="_on_music_button_button_up"]
+[connection signal="button_up" from="SFX Button" to="." method="_on_sfx_button_button_up"]
+[connection signal="button_up" from="Return Button" to="." method="_on_return_button_button_up"]

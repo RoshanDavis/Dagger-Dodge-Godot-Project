@@ -28,13 +28,25 @@ func _on_dagger_button_button_up():
 
 func _on_store_button_button_up():
 	AudioManager.button_press.play()
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/ui/shop.tscn")
 
 
 func _on_settings_button_button_up():
 	AudioManager.button_press.play()
-	pass # Replace with function body.
+	$Settings.visible = true
 
 func _on_characters_button_button_up():
 	AudioManager.button_press.play()
 	get_tree().change_scene_to_file("res://scenes/ui/character_selector.tscn")
+
+
+func _on_tutorial_button_button_up():
+	AudioManager.button_press.play()
+	get_tree().change_scene_to_file("res://scenes/ui/tutorial.tscn")
+	
+	
+	
+	
+	
+	
+	

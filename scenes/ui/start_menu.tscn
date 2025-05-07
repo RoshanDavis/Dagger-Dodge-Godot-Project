@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjwode52w4feb"]
+[gd_scene load_steps=17 format=3 uid="uid://bjwode52w4feb"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_oj5pr"]
 [ext_resource type="Texture2D" uid="uid://bo3wpthdggden" path="res://assets/ui/settings.png" id="3_ckh2d"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="4_vukbj"]
 [ext_resource type="Texture2D" uid="uid://qlge7kqetf1k" path="res://assets/ui/shopping_cart.png" id="5_4jpu8"]
 [ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="6_hu8go"]
+[ext_resource type="Texture2D" uid="uid://chruva8b4anua" path="res://assets/ui/question mark.png" id="12_sjosg"]
+[ext_resource type="PackedScene" uid="uid://digv7yir61q6x" path="res://scenes/ui/settings.tscn" id="13_e00jc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6y8d1"]
 shader = ExtResource("3_ky14d")
@@ -147,10 +149,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -214.0
-offset_top = -155.0
-offset_right = -74.0
-offset_bottom = -15.0
+offset_left = -259.0
+offset_top = -160.0
+offset_right = -119.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -170,10 +172,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -144.0
-offset_right = 16.0
-offset_bottom = -16.0
+offset_left = -165.0
+offset_top = -160.0
+offset_right = -25.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -193,10 +195,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -144.0
-offset_right = 112.0
-offset_bottom = -16.0
+offset_left = -69.0
+offset_top = -160.0
+offset_right = 71.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -210,16 +212,16 @@ icon = ExtResource("5_4jpu8")
 icon_alignment = 1
 
 [node name="Settings Button" type="Button" parent="."]
-modulate = Color(0.89059, 0.89059, 0.89059, 1)
+modulate = Color(0.984314, 0.545098, 0.223529, 1)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -144.0
-offset_right = 208.0
-offset_bottom = -16.0
+offset_left = 27.0
+offset_top = -160.0
+offset_right = 167.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -232,8 +234,35 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
 icon = ExtResource("3_ckh2d")
 icon_alignment = 1
 
+[node name="Tutorial Button" type="Button" parent="."]
+modulate = Color(0.89059, 0.89059, 0.89059, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = -160.0
+offset_right = 263.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+theme = ExtResource("3_lnid6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6acf3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n46h8")
+icon = ExtResource("12_sjosg")
+icon_alignment = 1
+
+[node name="Settings" parent="." instance=ExtResource("13_e00jc")]
+visible = false
+
 [connection signal="button_up" from="Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="Characters Button" to="." method="_on_characters_button_button_up"]
 [connection signal="button_up" from="Dagger Button" to="." method="_on_dagger_button_button_up"]
 [connection signal="button_up" from="Store Button" to="." method="_on_store_button_button_up"]
 [connection signal="button_up" from="Settings Button" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="Tutorial Button" to="." method="_on_tutorial_button_button_up"]
