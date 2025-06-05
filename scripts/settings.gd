@@ -9,10 +9,14 @@ extends Control
 @onready var sfx_on = GameSave.save_data["sfx_on"]
 @onready var music_bus = AudioServer.get_bus_index("Music")
 @onready var sfx_bus = AudioServer.get_bus_index("SFX")
+@onready var total_orbs = GameSave.save_data["total_orbs"]
+@onready var high_score = GameSave.save_data["high_score"]
 
 func _ready():
 	update_music_state()
 	update_sfx_state()
+	$"Total Orbs/Total Orbs".text = str(total_orbs)
+	$"High Score/High Score".text = str(high_score)
 
 func update_music_state():
 	if music_on:
@@ -45,3 +49,6 @@ func _on_return_button_button_up():
 	AudioManager.button_press.play()
 	visible = false
 	GameSave.update_audio_state(music_on, sfx_on)
+
+func update_total_orbs():
+	$"Total Orbs".text = str(GameSave.save_data["total_orbs"])

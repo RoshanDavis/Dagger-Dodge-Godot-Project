@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp7klda6jcj4y"]
+[gd_scene load_steps=11 format=3 uid="uid://cp7klda6jcj4y"]
 
 [ext_resource type="Script" path="res://scripts/store.gd" id="1_5kdkr"]
 [ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_jqkv3"]
@@ -7,13 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="5_d60sh"]
 [ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="6_toou1"]
 [ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="7_m7qbr"]
+[ext_resource type="Texture2D" uid="uid://c7wbjlm3f5vb4" path="res://assets/ui/ad.png" id="8_wu5xl"]
 [ext_resource type="Texture2D" uid="uid://dis2qjediwrrv" path="res://assets/ui/return.png" id="8_y5uo1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2wb3s"]
 shader = ExtResource("3_yuqxs")
 shader_parameter/Hit_Texture = ExtResource("4_c10ub")
 
-[node name="Shop" type="Control"]
+[node name="Store" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,7 +104,7 @@ theme = ExtResource("6_toou1")
 theme_override_font_sizes/font_size = 34
 text = "0"
 
-[node name="Settings" type="Label" parent="."]
+[node name="Store" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,7 +119,90 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_toou1")
 theme_override_font_sizes/font_size = 70
-text = "Shop"
+text = "Store"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Watch Ad Item" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 275.0
+offset_top = 268.0
+offset_right = 315.0
+offset_bottom = 308.0
+
+[node name="Orb Icon" type="TextureRect" parent="Watch Ad Item"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -20.0
+offset_right = -46.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Watch Ad Item/Orb Icon"]
+material = SubResource("ShaderMaterial_2wb3s")
+position = Vector2(-19, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_d60sh")
+
+[node name="Watch Ad Amount" type="Label" parent="Watch Ad Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -39.0
+offset_right = -88.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_toou1")
+theme_override_font_sizes/font_size = 30
+text = "500"
+vertical_alignment = 1
+
+[node name="Watch Ad Button" type="Button" parent="Watch Ad Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = -28.0
+offset_right = 188.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("6_toou1")
+icon = ExtResource("8_wu5xl")
+
+[node name="Watch Ad" type="Label" parent="Watch Ad Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -41.0
+offset_right = 108.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_toou1")
+theme_override_font_sizes/font_size = 16
+text = "Watch
+Ad"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -137,4 +221,5 @@ scale = Vector2(1.2, 1.2)
 theme = ExtResource("6_toou1")
 icon = ExtResource("8_y5uo1")
 
+[connection signal="button_up" from="Watch Ad Item/Watch Ad Button" to="." method="_on_watch_ad_button_button_up"]
 [connection signal="button_up" from="Return Button" to="." method="_on_return_button_button_up"]

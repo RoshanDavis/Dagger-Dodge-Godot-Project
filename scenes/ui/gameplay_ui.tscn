@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cc6ttbwrnnxhs"]
+[gd_scene load_steps=13 format=3 uid="uid://cc6ttbwrnnxhs"]
 
 [ext_resource type="Script" path="res://scripts/gameplay_ui.gd" id="1_7peb2"]
 [ext_resource type="PackedScene" uid="uid://bftmupls70oan" path="res://scenes/ui/heart_health_indicator.tscn" id="1_po8ec"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="5_g3ato"]
 [ext_resource type="Texture2D" uid="uid://dyrfmu502pve2" path="res://assets/ui/pause icon.png" id="5_hd85w"]
 [ext_resource type="PackedScene" uid="uid://b8ccavladcnqg" path="res://scenes/ui/game_over_menu.tscn" id="5_x0t7i"]
+[ext_resource type="PackedScene" uid="uid://hc6qqfmf1bjt" path="res://scenes/ui/extra_life_menu.tscn" id="11_yqweo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_an8ik"]
 shader = ExtResource("4_frcks")
@@ -111,5 +112,8 @@ scale = Vector2(0.39088, 0.39088)
 theme = ExtResource("3_mxevl")
 icon = ExtResource("5_hd85w")
 icon_alignment = 2
+
+[node name="Extra Life Menu" parent="." instance=ExtResource("11_yqweo")]
+visible = false
 
 [connection signal="button_up" from="Pause Button" to="." method="_on_pause_button_button_up"]

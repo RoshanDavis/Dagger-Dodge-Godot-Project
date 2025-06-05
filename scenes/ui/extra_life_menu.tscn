@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://hc6qqfmf1bjt"]
+
+[ext_resource type="Script" path="res://scripts/extra_life_menu.gd" id="1_eiyxx"]
+[ext_resource type="Theme" uid="uid://bcj62soh77ubu" path="res://themes/default.tres" id="1_s1gjt"]
+[ext_resource type="FontFile" uid="uid://c6tjq1nrukid5" path="res://assets/fonts/Rye-Regular.ttf" id="2_l7mrh"]
+[ext_resource type="Texture2D" uid="uid://c18e5hucsnpll" path="res://assets/environment/ring.png" id="3_8fcf2"]
+[ext_resource type="Texture2D" uid="uid://c7wbjlm3f5vb4" path="res://assets/ui/ad.png" id="5_dksy3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ckxfq"]
+font_size = 52
+
+[node name="Extra Life Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eiyxx")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -160.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Revive" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -145.0
+offset_right = 219.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s1gjt")
+theme_override_fonts/font = ExtResource("2_l7mrh")
+text = "Revive?"
+label_settings = SubResource("LabelSettings_ckxfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countdown Number" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -33.0
+offset_right = 16.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s1gjt")
+theme_override_font_sizes/font_size = 45
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countdown Bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -98.0
+offset_right = 128.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(128, 128)
+max_value = 5.0
+step = 0.01
+value = 3.0
+fill_mode = 5
+texture_progress = ExtResource("3_8fcf2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.7
+
+[node name="Watch Ad" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -15.0
+offset_right = 45.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s1gjt")
+icon = ExtResource("5_dksy3")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="Watch Ad" to="." method="_on_watch_ad_button_up"]

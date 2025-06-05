@@ -12,3 +12,6 @@ func _ready():
 func _on_return_button_button_up():
 	AudioManager.button_press.play()
 	get_tree().change_scene_to_file("res://scenes/managers/game.tscn")
+
+func update_total_orbs():
+	$"Total Orbs".text = str(GameSave.save_data["total_orbs"])

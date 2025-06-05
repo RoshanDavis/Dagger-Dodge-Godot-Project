@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctyuky1aelg4h"]
+[gd_scene load_steps=14 format=3 uid="uid://ctyuky1aelg4h"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tcxtc"]
 [ext_resource type="Texture2D" uid="uid://c060d0i4wy14h" path="res://assets/characters/GroundZero.png" id="2_7w57g"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cnib3q3u8kkky" path="res://assets/characters/Tank.png" id="5_l0c2b"]
 [ext_resource type="PackedScene" uid="uid://blksa1308p7xg" path="res://scenes/player/slow_mo_controller.tscn" id="6_2fax2"]
 [ext_resource type="Texture2D" uid="uid://d1wnoakt2ff03" path="res://assets/ui/joystick.png" id="7_j8ucc"]
+[ext_resource type="Texture2D" uid="uid://e2q2igs5dsbr" path="res://assets/ui/ring.png" id="11_st7ay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slx66"]
 radius = 15.1327
@@ -97,6 +98,10 @@ shape = SubResource("CircleShape2D_gtph5")
 [node name="I Frame Time" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Respawn Shield" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_st7ay")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="I Frame Time" to="." method="_on_i_frame_time_timeout"]

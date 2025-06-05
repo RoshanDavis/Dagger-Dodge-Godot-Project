@@ -16,11 +16,9 @@ func add_score(value):
 	%"Gameplay UI".set_score(score, value)
 	
 func game_over():
-	Engine.time_scale = 0
+	
 	AudioManager.game_over.play()
-	if GameSave.save_data["high_score"] < score:
-		%"Gameplay UI".display_high_score()
-	%"Gameplay UI".show_game_over_menu()
+	%"Gameplay UI".show_extra_life_menu()
 	GameSave.save_score_data(score)
 	
 func restart():
@@ -39,3 +37,7 @@ func pause_game():
 	if player != null:
 		player.canMove = false
 	%"Gameplay UI".show_pause_menu()
+
+func update_total_orbs():
+	$"UI/Start Menu".update_total_orbs()
+	

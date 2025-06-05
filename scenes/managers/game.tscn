@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg6nshbkea3ju"]
+[gd_scene load_steps=24 format=3 uid="uid://cg6nshbkea3ju"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_2pfyb"]
 [ext_resource type="PackedScene" uid="uid://du7c2ynieo2px" path="res://scenes/environment/biome.tscn" id="2_3omxs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bq53kn6frissv" path="res://scenes/environment/wall.tscn" id="5_ssti2"]
 [ext_resource type="PackedScene" uid="uid://bjwode52w4feb" path="res://scenes/ui/start_menu.tscn" id="6_fof1k"]
 [ext_resource type="PackedScene" uid="uid://cc6ttbwrnnxhs" path="res://scenes/ui/gameplay_ui.tscn" id="7_8cau3"]
+[ext_resource type="Script" path="res://scripts/node_manager.gd" id="7_t18xy"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="8_nvnxp"]
 [ext_resource type="Texture2D" uid="uid://bui3h57oxol45" path="res://assets/environment/dash/01.png" id="9_711h4"]
 [ext_resource type="Script" path="res://scripts/child_node_limiter.gd" id="9_m2ngy"]
@@ -144,10 +145,13 @@ script = ExtResource("9_m2ngy")
 [node name="Environment" type="Node" parent="."]
 
 [node name="Daggers" type="Node" parent="."]
+script = ExtResource("7_t18xy")
 
 [node name="Enemies" type="Node" parent="."]
+script = ExtResource("7_t18xy")
 
 [node name="Orbs" type="Node" parent="."]
+script = ExtResource("7_t18xy")
 
 [node name="VFX" type="Node" parent="."]
 

@@ -87,8 +87,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fhboh")
-character_names = Array[String](["GroundZero", "OneShot", "SlipShade", "Tank"])
-characters = [NodePath("Ground Zero Character"), NodePath("One Shot Character"), NodePath("Slip Shade Character"), NodePath("Tank Character")]
+character_names = Array[String](["Guy", "BaldGuy", "Ninja", "Knight"])
+characters = [NodePath("Guy Character"), NodePath("Bald Guy Character"), NodePath("Ninja Character"), NodePath("Knight Character")]
 character_costs = Array[int]([0, 10, 20, 30])
 
 [node name="BG" type="ColorRect" parent="."]
@@ -218,7 +218,7 @@ scale = Vector2(1.2, 1.2)
 theme = ExtResource("2_5f5sa")
 icon = ExtResource("9_sgby8")
 
-[node name="Ground Zero Character" type="Control" parent="."]
+[node name="Guy Character" type="Control" parent="."]
 visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 1
@@ -234,7 +234,7 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character" type="TextureRect" parent="Ground Zero Character"]
+[node name="Character" type="TextureRect" parent="Guy Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -249,7 +249,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_chw3d")
 
-[node name="Hearts" type="TextureRect" parent="Ground Zero Character"]
+[node name="Hearts" type="TextureRect" parent="Guy Character"]
 modulate = Color(1, 0.12549, 0, 1)
 layout_mode = 2
 offset_left = 4.0
@@ -257,34 +257,34 @@ offset_top = 193.0
 offset_right = 132.0
 offset_bottom = 193.0
 
-[node name="Heart" type="Sprite2D" parent="Ground Zero Character/Hearts"]
+[node name="Heart" type="Sprite2D" parent="Guy Character/Hearts"]
 position = Vector2(15, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart2" type="Sprite2D" parent="Ground Zero Character/Hearts"]
+[node name="Heart2" type="Sprite2D" parent="Guy Character/Hearts"]
 position = Vector2(65, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart3" type="Sprite2D" parent="Ground Zero Character/Hearts"]
+[node name="Heart3" type="Sprite2D" parent="Guy Character/Hearts"]
 position = Vector2(115, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Speed" type="TextureRect" parent="Ground Zero Character"]
+[node name="Speed" type="TextureRect" parent="Guy Character"]
 modulate = Color(0, 0.684076, 0.993941, 1)
 layout_mode = 2
 offset_top = 252.0
 offset_right = 128.0
 offset_bottom = 252.0
 
-[node name="Speed" type="Sprite2D" parent="Ground Zero Character/Speed"]
+[node name="Speed" type="Sprite2D" parent="Guy Character/Speed"]
 position = Vector2(66.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Slow Time" type="TextureRect" parent="Ground Zero Character"]
+[node name="Slow Time" type="TextureRect" parent="Guy Character"]
 modulate = Color(1, 0.698039, 0, 1)
 layout_mode = 2
 offset_left = 25.0
@@ -292,12 +292,12 @@ offset_top = 314.0
 offset_right = 153.0
 offset_bottom = 314.0
 
-[node name="Slow Time" type="Sprite2D" parent="Ground Zero Character/Slow Time"]
+[node name="Slow Time" type="Sprite2D" parent="Guy Character/Slow Time"]
 position = Vector2(40.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q6nft")
 
-[node name="Name" type="Label" parent="Ground Zero Character"]
+[node name="Name" type="Label" parent="Guy Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -312,11 +312,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5f5sa")
 theme_override_font_sizes/font_size = 70
-text = "Ground Zero"
+text = "Guy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Ground Zero Character"]
+[node name="Description" type="Label" parent="Guy Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -330,11 +330,11 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5f5sa")
-text = "Just a normal dude"
+text = "Just a normal guy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="One Shot Character" type="Control" parent="."]
+[node name="Bald Guy Character" type="Control" parent="."]
 visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 1
@@ -350,7 +350,7 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character" type="TextureRect" parent="One Shot Character"]
+[node name="Character" type="TextureRect" parent="Bald Guy Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -365,7 +365,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_487kh")
 
-[node name="Hearts" type="TextureRect" parent="One Shot Character"]
+[node name="Hearts" type="TextureRect" parent="Bald Guy Character"]
 modulate = Color(1, 0.12549, 0, 1)
 layout_mode = 2
 offset_left = -6.0
@@ -373,12 +373,12 @@ offset_top = 193.0
 offset_right = 122.0
 offset_bottom = 193.0
 
-[node name="Heart" type="Sprite2D" parent="One Shot Character/Hearts"]
+[node name="Heart" type="Sprite2D" parent="Bald Guy Character/Hearts"]
 position = Vector2(69, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Speed" type="TextureRect" parent="One Shot Character"]
+[node name="Speed" type="TextureRect" parent="Bald Guy Character"]
 modulate = Color(0, 0.684076, 0.993941, 1)
 layout_mode = 2
 offset_left = -10.0
@@ -386,17 +386,17 @@ offset_top = 252.0
 offset_right = 118.0
 offset_bottom = 252.0
 
-[node name="Speed" type="Sprite2D" parent="One Shot Character/Speed"]
+[node name="Speed" type="Sprite2D" parent="Bald Guy Character/Speed"]
 position = Vector2(47.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Speed2" type="Sprite2D" parent="One Shot Character/Speed"]
+[node name="Speed2" type="Sprite2D" parent="Bald Guy Character/Speed"]
 position = Vector2(98.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Slow Time" type="TextureRect" parent="One Shot Character"]
+[node name="Slow Time" type="TextureRect" parent="Bald Guy Character"]
 modulate = Color(1, 0.698039, 0, 1)
 layout_mode = 2
 offset_left = 14.0
@@ -404,12 +404,12 @@ offset_top = 313.0
 offset_right = 142.0
 offset_bottom = 313.0
 
-[node name="Slow Time" type="Sprite2D" parent="One Shot Character/Slow Time"]
+[node name="Slow Time" type="Sprite2D" parent="Bald Guy Character/Slow Time"]
 position = Vector2(48.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q6nft")
 
-[node name="Name" type="Label" parent="One Shot Character"]
+[node name="Name" type="Label" parent="Bald Guy Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -424,11 +424,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5f5sa")
 theme_override_font_sizes/font_size = 54
-text = "One Shot"
+text = "Bald Guy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="One Shot Character"]
+[node name="Description" type="Label" parent="Bald Guy Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -442,11 +442,11 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5f5sa")
-text = "Orbs value is doubled"
+text = "Orb values are doubled"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slip Shade Character" type="Control" parent="."]
+[node name="Ninja Character" type="Control" parent="."]
 visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 1
@@ -462,7 +462,7 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character" type="TextureRect" parent="Slip Shade Character"]
+[node name="Character" type="TextureRect" parent="Ninja Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -477,7 +477,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_mfqxl")
 
-[node name="Hearts" type="TextureRect" parent="Slip Shade Character"]
+[node name="Hearts" type="TextureRect" parent="Ninja Character"]
 modulate = Color(1, 0.12549, 0, 1)
 layout_mode = 2
 offset_left = 4.0
@@ -485,49 +485,49 @@ offset_top = 193.0
 offset_right = 132.0
 offset_bottom = 193.0
 
-[node name="Heart" type="Sprite2D" parent="Slip Shade Character/Hearts"]
+[node name="Heart" type="Sprite2D" parent="Ninja Character/Hearts"]
 position = Vector2(15, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart2" type="Sprite2D" parent="Slip Shade Character/Hearts"]
+[node name="Heart2" type="Sprite2D" parent="Ninja Character/Hearts"]
 position = Vector2(65, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart3" type="Sprite2D" parent="Slip Shade Character/Hearts"]
+[node name="Heart3" type="Sprite2D" parent="Ninja Character/Hearts"]
 position = Vector2(115, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Speed" type="TextureRect" parent="Slip Shade Character"]
+[node name="Speed" type="TextureRect" parent="Ninja Character"]
 modulate = Color(0, 0.684076, 0.993941, 1)
 layout_mode = 2
 offset_top = 252.0
 offset_right = 128.0
 offset_bottom = 252.0
 
-[node name="Speed" type="Sprite2D" parent="Slip Shade Character/Speed"]
+[node name="Speed" type="Sprite2D" parent="Ninja Character/Speed"]
 position = Vector2(-7, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Speed2" type="Sprite2D" parent="Slip Shade Character/Speed"]
+[node name="Speed2" type="Sprite2D" parent="Ninja Character/Speed"]
 position = Vector2(46, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Speed3" type="Sprite2D" parent="Slip Shade Character/Speed"]
+[node name="Speed3" type="Sprite2D" parent="Ninja Character/Speed"]
 position = Vector2(98, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Speed4" type="Sprite2D" parent="Slip Shade Character/Speed"]
+[node name="Speed4" type="Sprite2D" parent="Ninja Character/Speed"]
 position = Vector2(151, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Slow Time" type="TextureRect" parent="Slip Shade Character"]
+[node name="Slow Time" type="TextureRect" parent="Ninja Character"]
 modulate = Color(1, 0.698039, 0, 1)
 layout_mode = 2
 offset_left = 25.0
@@ -535,17 +535,17 @@ offset_top = 314.0
 offset_right = 153.0
 offset_bottom = 314.0
 
-[node name="Slow Time" type="Sprite2D" parent="Slip Shade Character/Slow Time"]
+[node name="Slow Time" type="Sprite2D" parent="Ninja Character/Slow Time"]
 position = Vector2(20.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q6nft")
 
-[node name="Slow Time2" type="Sprite2D" parent="Slip Shade Character/Slow Time"]
+[node name="Slow Time2" type="Sprite2D" parent="Ninja Character/Slow Time"]
 position = Vector2(68.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q6nft")
 
-[node name="Name" type="Label" parent="Slip Shade Character"]
+[node name="Name" type="Label" parent="Ninja Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -560,11 +560,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5f5sa")
 theme_override_font_sizes/font_size = 70
-text = "Slip Shade"
+text = "Ninja"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Slip Shade Character"]
+[node name="Description" type="Label" parent="Ninja Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -582,7 +582,7 @@ text = "Small chance to dodge attacks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tank Character" type="Control" parent="."]
+[node name="Knight Character" type="Control" parent="."]
 visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 1
@@ -598,7 +598,7 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character" type="TextureRect" parent="Tank Character"]
+[node name="Character" type="TextureRect" parent="Knight Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -613,7 +613,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_igtn3")
 
-[node name="Hearts" type="TextureRect" parent="Tank Character"]
+[node name="Hearts" type="TextureRect" parent="Knight Character"]
 modulate = Color(1, 0.12549, 0, 1)
 layout_mode = 2
 offset_left = 4.0
@@ -621,49 +621,49 @@ offset_top = 193.0
 offset_right = 132.0
 offset_bottom = 193.0
 
-[node name="Heart" type="Sprite2D" parent="Tank Character/Hearts"]
+[node name="Heart" type="Sprite2D" parent="Knight Character/Hearts"]
 position = Vector2(15, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart2" type="Sprite2D" parent="Tank Character/Hearts"]
+[node name="Heart2" type="Sprite2D" parent="Knight Character/Hearts"]
 position = Vector2(65, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart3" type="Sprite2D" parent="Tank Character/Hearts"]
+[node name="Heart3" type="Sprite2D" parent="Knight Character/Hearts"]
 position = Vector2(115, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart4" type="Sprite2D" parent="Tank Character/Hearts"]
+[node name="Heart4" type="Sprite2D" parent="Knight Character/Hearts"]
 position = Vector2(-33, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Heart5" type="Sprite2D" parent="Tank Character/Hearts"]
+[node name="Heart5" type="Sprite2D" parent="Knight Character/Hearts"]
 position = Vector2(163, 16)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_1t0mu")
 
-[node name="Speed" type="TextureRect" parent="Tank Character"]
+[node name="Speed" type="TextureRect" parent="Knight Character"]
 modulate = Color(0, 0.684076, 0.993941, 1)
 layout_mode = 2
 offset_top = 252.0
 offset_right = 128.0
 offset_bottom = 252.0
 
-[node name="Speed" type="Sprite2D" parent="Tank Character/Speed"]
+[node name="Speed" type="Sprite2D" parent="Knight Character/Speed"]
 position = Vector2(44.5, 16.5)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Speed2" type="Sprite2D" parent="Tank Character/Speed"]
+[node name="Speed2" type="Sprite2D" parent="Knight Character/Speed"]
 position = Vector2(100, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_03ha2")
 
-[node name="Slow Time" type="TextureRect" parent="Tank Character"]
+[node name="Slow Time" type="TextureRect" parent="Knight Character"]
 modulate = Color(1, 0.698039, 0, 1)
 layout_mode = 2
 offset_left = 25.0
@@ -671,17 +671,17 @@ offset_top = 314.0
 offset_right = 153.0
 offset_bottom = 314.0
 
-[node name="Slow Time" type="Sprite2D" parent="Tank Character/Slow Time"]
+[node name="Slow Time" type="Sprite2D" parent="Knight Character/Slow Time"]
 position = Vector2(20, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q6nft")
 
-[node name="Slow Time2" type="Sprite2D" parent="Tank Character/Slow Time"]
+[node name="Slow Time2" type="Sprite2D" parent="Knight Character/Slow Time"]
 position = Vector2(74, 17)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_q6nft")
 
-[node name="Name" type="Label" parent="Tank Character"]
+[node name="Name" type="Label" parent="Knight Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -696,11 +696,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5f5sa")
 theme_override_font_sizes/font_size = 70
-text = "Tank"
+text = "Knight"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Tank Character"]
+[node name="Description" type="Label" parent="Knight Character"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

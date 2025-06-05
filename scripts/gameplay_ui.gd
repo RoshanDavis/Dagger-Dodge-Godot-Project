@@ -2,6 +2,8 @@ extends CanvasLayer
 
 var tween :Tween
 
+@onready var game = get_tree().get_root().get_node("Game")
+
 func set_max_health(health):
 	$"Heart Health Indicator".set_max_health(health)
 
@@ -30,6 +32,9 @@ func rotate_score_label():
 	tween.tween_property($Score/Label,"rotation_degrees",0,1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT_IN)
 
 func show_game_over_menu():
+	Engine.time_scale = 0
+	if GameSave.save_data["high_score"] < game.score:
+		display_high_score()
 	$"Game Over Menu".set_score()
 	$"Game Over Menu".visible = true
 
@@ -44,3 +49,8 @@ func _on_pause_button_button_up():
 	
 func display_high_score():
 	$"Game Over Menu".high_score = true
+
+func show_extra_life_menu():
+	$"Extra Life Menu".visible = true
+	$"Extra Life Menu".start_timer()
+	

@@ -8,6 +8,7 @@ var facingRight = true
 var invincible = false
 var powerup_invincibility = false
 var can_throw_dagger = true
+var respawn_invincibility = false
 
 var mouse_points :Array[Vector2] = [Vector2(0,0), Vector2(0,0)]
 var is_initial_rotation = true
@@ -37,28 +38,28 @@ func _ready():
 
 func initialize_player():
 	match GameSave.save_data["recent_character"]:
-		"GroundZero":
+		"Guy":
 			health = 3
 			recoilSpeed = 400
 			speed = 100
 			drag = 1
 			$Character.texture = characters_textures[0]
 			$"Slow-Mo Controller".slomo_time = 0.5
-		"OneShot":
+		"BaldGuy":
 			health = 1
 			recoilSpeed = 500
 			speed = 200
 			drag = 1
 			$Character.texture = characters_textures[1]
 			$"Slow-Mo Controller".slomo_time = 0.5
-		"SlipShade":
+		"Ninja":
 			health = 3
 			recoilSpeed = 700
 			speed = 400
 			drag = 1
 			$Character.texture = characters_textures[2]
 			$"Slow-Mo Controller".slomo_time = 1
-		"Tank":
+		"Knight":
 			health = 5
 			recoilSpeed = 500
 			speed = 200
@@ -145,6 +146,8 @@ func spawn_dagger():
 	AudioManager.dagger_throw.play()
 
 func take_damage(damage):
+	if respawn_invincibility:
+		return
 	if powerup_invincibility:
 		return
 	if invincible:
@@ -175,7 +178,9 @@ func _on_hitbox_area_entered(area):
 
 func on_death():
 	get_parent().game_over()
-	call_deferred("queue_free")
+	visible = false
+	process_mode = ProcessMode.PROCESS_MODE_DISABLED
+	#call_deferred("queue_free")
 
 func shield_gained():
 	has_shield = true
@@ -240,3 +245,14 @@ func _on_paintball_power_up_done():
 	
 	speed /= powerup_speed_multiplier
 	recoilSpeed /= powerup_recoil_multiplier
+
+func revive_player():
+	$HealthComponent.set_initial_health(health)
+	%"Gameplay UI".set_current_health(health)
+	visible = true
+	process_mode = ProcessMode.PROCESS_MODE_INHERIT
+	respawn_invincibility = true
+	$"Respawn Shield".visible = true
+	await get_tree().create_timer(3).timeout
+	respawn_invincibility = false
+	$"Respawn Shield".visible = false

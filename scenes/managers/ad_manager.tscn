@@ -14,8 +14,14 @@ debug_banner_id = "ca-app-pub-3940256099942544/9214589741"
 debug_interstitial_id = "ca-app-pub-3940256099942544/1033173712"
 debug_rewarded_id = "ca-app-pub-3940256099942544/5224354917"
 debug_rewarded_interstitial_id = "ca-app-pub-3940256099942544/5354046379"
+real_application_id = "ca-app-pub-1929187012419326~7301590699"
+real_banner_id = "ca-app-pub-1929187012419326/1155974427"
+real_interstitial_id = "ca-app-pub-1929187012419326/7081178975"
+real_rewarded_id = "ca-app-pub-1929187012419326/3825827221"
+real_rewarded_interstitial_id = "ca-app-pub-1929187012419326/4961447941"
 
 [node name="Ad Test Buttons" type="Control" parent="."]
+visible = false
 top_level = true
 z_index = 100
 layout_mode = 3

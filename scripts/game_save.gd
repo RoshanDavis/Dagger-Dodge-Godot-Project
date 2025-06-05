@@ -5,13 +5,14 @@ const save_path = "user://savegame.data"
 var save_data :Dictionary = {
 	"high_score" : 0,
 	"total_orbs" : 10000,
-	"recent_character" : "GroundZero",
-	"unlocked_characters" : ["GroundZero"],
+	"recent_character" : "Guy",
+	"unlocked_characters" : ["Guy"],
 	"recent_dagger" : "KitchenKnife",
 	"unlocked_daggers" : ["KitchenKnife"],
 	"unlocked_achievements" : [],
 	"music_on" : false,
 	"sfx_on" : true,
+	"ad_score" : 0
 }
 
 func _ready():

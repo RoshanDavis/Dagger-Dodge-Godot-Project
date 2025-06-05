@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://digv7yir61q6x"]
+[gd_scene load_steps=17 format=3 uid="uid://digv7yir61q6x"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_boxtv"]
 [ext_resource type="Texture2D" uid="uid://bpjhtlwa0w1yh" path="res://assets/environment/plants/bush.png" id="2_5fcqi"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://c7nivkic30lf1" path="res://assets/ui/volume off.png" id="5_jjiav"]
 [ext_resource type="Texture2D" uid="uid://cal1ci353xpyj" path="res://assets/ui/volume on.png" id="5_pj0np"]
 [ext_resource type="Texture2D" uid="uid://dis2qjediwrrv" path="res://assets/ui/return.png" id="6_qtkgx"]
+[ext_resource type="Shader" uid="uid://6e7nm3qmc3go" path="res://shaders/simple_shader.tres" id="9_wes6c"]
+[ext_resource type="Texture2D" uid="uid://bam7nu32ov4c8" path="res://assets/enemy/soft circle.PNG" id="10_8dabm"]
+[ext_resource type="Texture2D" uid="uid://qmx1pi0utiv8" path="res://assets/prototype-circle.png" id="11_lclc4"]
+[ext_resource type="Texture2D" uid="uid://caghsbwdav723" path="res://assets/ui/trophy.png" id="12_nrqn6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n46h8"]
 bg_color = Color(0, 0, 0, 0.27451)
@@ -44,6 +48,10 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrgxf"]
+shader = ExtResource("9_wes6c")
+shader_parameter/Hit_Texture = ExtResource("10_8dabm")
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -201,6 +209,67 @@ grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 theme = ExtResource("3_2hc7y")
 icon = ExtResource("6_qtkgx")
+
+[node name="Total Orbs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Total Orbs"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle" type="Sprite2D" parent="Total Orbs/TextureRect"]
+material = SubResource("ShaderMaterial_mrgxf")
+position = Vector2(-19, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("11_lclc4")
+
+[node name="Total Orbs" type="Label" parent="Total Orbs"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 33.0
+offset_bottom = 50.0
+theme = ExtResource("3_2hc7y")
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="High Score" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 40.0
+offset_right = -19.0
+offset_bottom = 87.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="High Score"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+
+[node name="Prototype-circle2" type="Sprite2D" parent="High Score/TextureRect"]
+modulate = Color(1, 1, 1, 0.627451)
+material = SubResource("ShaderMaterial_mrgxf")
+position = Vector2(-34, 20)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("11_lclc4")
+
+[node name="Prototype-circle" type="Sprite2D" parent="High Score/TextureRect"]
+position = Vector2(-34, 25)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_nrqn6")
+
+[node name="High Score" type="Label" parent="High Score"]
+layout_mode = 2
+theme = ExtResource("3_2hc7y")
+theme_override_font_sizes/font_size = 34
+text = "0"
 
 [connection signal="button_up" from="Music Button" to="." method="_on_music_button_button_up"]
 [connection signal="button_up" from="SFX Button" to="." method="_on_sfx_button_button_up"]
